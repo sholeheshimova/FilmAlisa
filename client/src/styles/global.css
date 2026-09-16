@@ -1,0 +1,8 @@
+@import url("./reset.css");
+@import url("./font.css");
+@import url("./variable.css");
+
+
+body{
+      font-family: var(--common-font);
+}

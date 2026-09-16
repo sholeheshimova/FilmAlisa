@@ -1,0 +1,13 @@
+:root{
+    /* colors */
+    --btn: #9B51E0;
+    --logo-text-color: #C3C8D4;
+    --sidebar-bgc: #1E1E1E;
+    --sidebar-hover-color: #58209D;
+    --sidebar-text-color: #AEAEAE;
+    --dashboard-box-bgc: #2D2D2D;
+    --login-register-input-text-color: #475069;
+
+    /* font */
+    --common-font: "Raleway", sans-serif;
+}
