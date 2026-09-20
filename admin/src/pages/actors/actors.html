@@ -66,7 +66,7 @@
       </div>
 
       <div class="header-right">
-        <button type="button" class="open-btn"
+        <button type="button" class="create-btn"
           onclick="document.querySelector('#example-dialog').showModal()">Create</button>
 
         <div class="profile">
@@ -88,17 +88,18 @@
           <div class="input-group">
             <label for="modal-name">Name</label>
             <input type="text" id="modal-name" placeholder="Name" required />
-            <br>
-            <label for="modal-name">Surname</label>
-            <input type="text" id="modal-name" placeholder="Surname" required />
+            <label for="modal-surname">Surname</label>
+            <input type="text" id="modal-surname" placeholder="Surname" required />
+            <label for="modal-movie">Movie</label>
+            <input type="text" id="modal-movie" placeholder="Movie" required />
+            <label for="photoInput" class="add-photo">
+              <p>Add photo</p>
+            </label>
+            <input type="file" id="photoInput" accept="image/*" hidden>
           </div>
 
-          <div class="input-group">
-            <br>
 
-            <label for="modal-desc">Short Description</label>
-            <textarea id="modal-desc" placeholder="..." required></textarea>
-          </div>
+        </div>
         </div>
 
         <div class="dialog__footer">
@@ -126,25 +127,25 @@
       <table class="table">
         <thead class="thead">
           <tr class="row">
-            <th class="cell head">ID</th>
-            <th class="cell head">PHOTO</th>
-            <th class="cell head">NAME</th>
-            <th class="cell head">SURNAME</th>
-            <th class="cell head">FILMS</th>
-            <th class="cell head actions-col"></th>
+            <th class="cell head">Id</th>
+            <th class="cell head">Name</th>
+            <th class="cell head">Surname</th>
+            <th class="cell head">Photo</th>
+            <th class="cell head">Movies</th>
+            <th class="cell head actions-col">Actions</th>
           </tr>
         </thead>
 
         <tbody class="tbody">
           <tr class="row" data-id="1">
             <td class="cell">1</td>
+            <td class="cell row-name">Bruce</td>
+            <td class="cell row-name">Lee</td>
             <td class="cell">
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtxf405IfoCjO0FVf12MmT7VJdS2y8-Iu5bvfdJ7w58E0x5GwLPpPblpx1&s=10"
                 alt="Bruce Lee" class="img" width="40" />
             </td>
-            <td class="cell row-name">Bruce</td>
-            <td class="cell row-name">Lee</td>
 
             <td class="cell row-desc">Films</td>
             <td class="cell actions">
