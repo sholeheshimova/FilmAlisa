@@ -149,7 +149,8 @@
                   <div class="table-actions">
                     <button
                       type="button"
-                      class="action-btn edit-btn"
+                      class="action-btn"
+                      id="edit-btn"
                       title="Edit"
                     >
                       <i class="fa-solid fa-pen-to-square"></i>
@@ -157,7 +158,8 @@
 
                     <button
                       type="button"
-                      class="action-btn delete-btn"
+                      class="action-btn"
+                      id="delete-btn"
                       title="Delete"
                     >
                       <i class="fa-solid fa-trash"></i>
@@ -170,7 +172,7 @@
         </div>
       </section>
     </main>
-
+  <!-- Delete modal -->
     <div class="delete-modal">
       <div class="delete-modal-content">
         <h3>Delete Comment</h3>
@@ -178,12 +180,32 @@
         <p>Are you sure you want to delete this comment?</p>
 
         <div class="delete-modal-actions">
-          <button type="button" class="cancel-btn">Cancel</button>
+          <button type="button" class="delete-cancel-btn">Cancel</button>
 
           <button type="button" class="confirm-delete-btn">OK</button>
         </div>
       </div>
     </div>
+
+    <!-- Edit Modal -->
+<div class="edit-modal">
+  <div class="edit-modal-content">
+    <h3>Edit Comment</h3>
+
+    <label for="edit-comment">Comment</label>
+
+    <textarea
+      id="edit-comment"
+      placeholder="Enter comment..."
+    >Comments...</textarea>
+
+    <div class="edit-modal-actions">
+      <button type="button" class="cancel-edit-btn">Cancel</button>
+
+      <button type="button" class="save-edit-btn">Save Changes</button>
+    </div>
+  </div>
+</div>
 
     <script src="./comments.js"></script>
   </body>
