@@ -8,6 +8,10 @@
     --dashboard-box-bgc: #2D2D2D;
     --login-register-input-text-color: #475069;
 
+    --table-text-color: #05111A;
+    --edit-action-color: rgb(3, 169, 3);
+    --delete-action-color: rgb(249, 11, 11);
+
     /* font */
     --common-font: "Raleway", sans-serif;
 }
