@@ -1,16 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movies</title>
-    <link rel="stylesheet" href="../../styles/global.css">
-    <link rel="stylesheet" href="./movies.css">
-</head>
-<body>
-    
-
-      <!-- Sidebar -->
+    <link rel="stylesheet" href="../../styles/global.css" />
+    <link rel="stylesheet" href="./movies.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-logo">
         <div class="logo-icon">
@@ -19,9 +17,8 @@
         <span class="logo-text">filmalisa</span>
       </div>
 
-   
       <nav class="sidebar-menu">
-        <a href="../dashboard/dashboard.html" class="menu-item ">
+        <a href="../dashboard/dashboard.html" class="menu-item">
           <span class="menu-icon"
             ><img src="../../assets/icons/dashboard.svg" alt=""
           /></span>
@@ -71,7 +68,6 @@
         </a>
       </nav>
 
-
       <div class="sidebar-bottom">
         <a href="../../../index.html" class="logout">
           <span class="logout-icon"
@@ -103,11 +99,111 @@
           </div>
         </div>
       </header>
+      <section class="page-content">
+        <div class="movies-table-wrap">
+          <table class="movies-table">
+            <thead>
+              <tr>
+                <th class="col-id">ID</th>
+                <th class="col-title">Title</th>
+                <th>Overview</th>
+                <th>Category</th>
+                <th>IMDB</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>
+                  <div class="movie-title-cell">
+                    <img
+                      class="movie-poster"
+                      src="../../assets/image/movie-poster.svg"
+                      alt="Lost in space"
+                    />
+                    Lost in space
+                  </div>
+                </td>
+                <td>Lorem ipsum test...</td>
+                <td>Action</td>
+                <td>7.6</td>
+                <td>
+                  <button><i class="fa-solid fa-pen-to-square"></i></button>
+                  <button><i class="fa-solid fa-trash"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
     </main>
 
-    <section class="page-content"></section>
+    <!-- modaldı js aktiv olduğdan soram qoşulacaq  -->
 
+    <div class="modal-overlay">
+      <div class="create-modal-card">
+        <form class="modal-form">
+          <div class="form-group">
+            <input type="text" placeholder="title" name="title" />
+          </div>
 
+          <div class="form-group">
+            <textarea
+              placeholder="overview"
+              name="overview"
+              rows="3"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <input type="text" placeholder="cover url" name="coverUrl" />
+          </div>
+
+          <div class="form-group">
+            <input
+              type="text"
+              placeholder="fragman (youtube embed url)"
+              name="trailerUrl"
+            />
+          </div>
+
+          <div class="form-group">
+            <input type="text" placeholder="watch url" name="watchUrl" />
+          </div>
+
+          <div class="form-group">
+            <input type="text" placeholder="imdb" name="imdb" />
+          </div>
+
+          <div class="form-group">
+            <input type="text" placeholder="run time minute" name="runtime" />
+          </div>
+
+          <div class="form-group select-wrapper">
+            <select name="category">
+              <option value="" disabled selected>category</option>
+              <option value="action">Action</option>
+              <option value="drama">Drama</option>
+            </select>
+            <span class="select-arrow">&#9660;</span>
+          </div>
+
+          <div class="form-footer">
+            <label class="checkbox-label">
+              Adult
+              <input type="checkbox" name="isAdult" checked />
+            </label>
+            <button type="submit" class="btn-submit">Submit</button>
+          </div>
+        </form>
+
+        <div class="modal-preview">
+          <img src="../../assets/image/movie-poster.svg" alt="Movie Poster" />
+        </div>
+      </div>
+    </div>
     <script src="./movies.js"></script>
-</body>
+  </body>
 </html>

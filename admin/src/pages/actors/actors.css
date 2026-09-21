@@ -244,3 +244,177 @@
 
   color: white;
 }
+
+/* jss vee modall hisller olacaq  */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 32px;
+}
+
+.btn-create {
+  background-color: var(--btn);
+  color: #ffffff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-family: var(--common-font);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-create:hover {
+  background-color: var(--sidebar-hover-color);
+}
+
+.page-content {
+  padding: 20px 32px;
+}
+
+.table-wrap {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Table Stilleri */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--common-font);
+  text-align: center;
+  font-size: 14px;
+  table-layout: fixed;
+}
+
+.custom-table th {
+  padding: 16px 10px;
+  font-weight: 400;
+  color: #ffffff;
+  background-color: var(--sidebar-bgc);
+}
+
+.col-id {
+  width: 8%;
+}
+.col-name {
+  width: 22%;
+}
+.col-surname {
+  width: 22%;
+}
+.col-photo {
+  width: 34%;
+}
+.col-action {
+  width: 14%;
+}
+
+.custom-table td {
+  padding: 12px 10px;
+  color: var(--login-register-input-text-color);
+  background-color: #ffffff;
+  vertical-align: middle;
+  word-wrap: break-word;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #ff4d4d;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-card,
+.delete-modal-card {
+  background-color: var(--sidebar-bgc);
+  width: 420px;
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  color: #ffffff;
+  font-family: var(--common-font);
+}
+
+.modal-card h2,
+.delete-modal-card h2 {
+  font-size: 22px;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.delete-modal-card p {
+  color: var(--sidebar-text-color);
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+/* 
+modallar jsda aktiv hala getirecik */
+
+.modal-form {
+  display: none;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.modal-form input {
+  width: 100%;
+  background-color: #111111;
+  border: 1px solid #282828;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: var(--logo-text-color);
+  font-size: 13px;
+  outline: none;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.modal-form input:focus {
+  border-color: var(--btn);
+}
+
+.form-actions,
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.btn-cancel,
+.btn-ok {
+  border: none;
+  padding: 10px 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #ffffff;
+  font-family: var(--common-font);
+}
+
+.btn-cancel {
+  background-color: var(--dashboard-box-bgc);
+}
+
+.btn-ok {
+  background-color: var(--btn);
+}
+
+.btn-cancel:hover {
+  opacity: 0.9;
+}
+
+.btn-ok:hover {
+  background-color: var(--sidebar-hover-color);
+}
