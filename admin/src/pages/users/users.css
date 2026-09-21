@@ -81,12 +81,12 @@
 
 .menu-item.active {
   background-color: var(--sidebar-hover-color);
-  color: white;
+  color: var(--white-color);
 }
 .menu-item:hover,
 .menu-item:hover span {
-    color: white;
-    background-color: var(--sidebar-hover-color);
+  color: var(--white-color);
+  background-color: var(--sidebar-hover-color);
 }
 
 .menu-icon {
@@ -102,25 +102,25 @@
 }
 
 .menu-item:hover {
-  color: white;
+  color: var(--white-color);
   background-color: var(--sidebar-hover-color);
 }
 
 .menu-item .menu-icon:hover {
-  color: white;
+  color: var(--white-color);
 }
 
 .menu-icon img:hover {
-  color: white;
+  color: var(--white-color);
 }
 
 .menu-item.active {
   background-color: #6020b5;
-  color: #ffffff;
+  color: var(--white-color);
 }
 
 .menu-item.active .menu-icon {
-  color: #ffffff;
+  color: var(--white-color);
 }
 
 /* =========================
@@ -198,7 +198,7 @@
   font-size: 20px;
 
   font-weight: 500;
-  color: white;
+  color: var(--white-color);
 }
 
 .header-right {
@@ -217,13 +217,12 @@
 
   background-color: var(--btn);
 
-  color: #ffffff;
+  color: var(--white-color);
 
   font-size: 14px;
 
   cursor: pointer;
 }
-
 
 .profile {
   display: flex;
@@ -254,5 +253,39 @@
   font-size: 12px;
   font-weight: 500;
 
-  color: white;
+  color: var(--white-color);
+}
+
+/* Section  */
+.page-content {
+  padding: 24px 56px;
+}
+.users-table {
+  width: 401px;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 400;
+}
+.users-thead {
+  background-color: var(--sidebar-bgc);
+  color: var(--white-color);
+  height: 48px;
+}
+.table-users-id {
+  width: 54px;
+}
+.users-tbody {
+  background-color: var(--white-color);
+}
+.table-users-name,
+.table-users-id {
+  text-align: left;
+  padding: 16px 19px;
+  border-top: 1px solid var(--sidebar-bgc);
+}
+
+.table-users-name {
+  padding-left: 65px;
 }

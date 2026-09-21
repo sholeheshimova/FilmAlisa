@@ -1,15 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Users</title>
-    <link rel="stylesheet" href="../../styles/global.css">
-    <link rel="stylesheet" href="./users.css">
-</head>
-<body>
-
-  <!-- Sidebar -->
+    <link rel="stylesheet" href="../../styles/global.css" />
+    <link rel="stylesheet" href="./users.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-logo">
         <div class="logo-icon">
@@ -17,7 +16,6 @@
         </div>
         <span class="logo-text">filmalisa</span>
       </div>
-
 
       <nav class="sidebar-menu">
         <a href="../dashboard/dashboard.html" class="menu-item">
@@ -70,7 +68,6 @@
         </a>
       </nav>
 
-
       <div class="sidebar-bottom">
         <a href="../../../index.html" class="logout">
           <span class="logout-icon"
@@ -91,8 +88,6 @@
         </div>
 
         <div class="header-right">
-         
-
           <div class="profile">
             <div class="profile-image">
               <img src="../../assets/image/admin-profile.svg" alt="Admin" />
@@ -102,10 +97,27 @@
           </div>
         </div>
       </header>
+      <section class="page-content">
+        <table class="users-table">
+          <thead class="users-thead">
+            <tr>
+              <th class="table-users-id">ID</th>
+
+              <th class="table-users-name">Name</th>
+            </tr>
+          </thead>
+
+          <tbody class="users-tbody">
+            <tr>
+              <td class="table-users-id">1</td>
+
+              <td class="table-users-name">John</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </main>
 
-    <section class="page-content"></section>
-    
     <script src="./users.js"></script>
-</body>
+  </body>
 </html>
