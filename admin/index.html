@@ -1,18 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Login</title>
-    <link rel="stylesheet" href="./src/styles/global.css">
-    <link rel="stylesheet" href="./src/pages/login/login.css">
-</head>
-<body>
-    
-<!-- Admin Login Page -->
+    <link rel="stylesheet" href="./src/styles/global.css" />
+    <link rel="stylesheet" href="./src/pages/login/login.css" />
+  </head>
+  <body>
+    <main class="login-container">
+      <img
+        class="logo"
+        src="./src/assets/icons/filmalisa-logo.svg"
+        alt="filmalisa-logo"
+      />
 
+      <h1 class="login-title">Admin</h1>
 
-    
+      <form class="form-box">
+        <div class="input-box">
+          <img src="./src/assets/icons/sms.svg" alt="sms" />
+          <input
+            id="username"
+            class="input username"
+            type="text"
+            placeholder="username"
+          />
+        </div>
+
+        <div class="input-box">
+          <img src="./src/assets/icons/password.svg" alt="password" />
+          <input
+            id="password"
+            class="input password"
+            type="password"
+            placeholder="password"
+          />
+          <img id="password-eye" src="./src/assets/icons/eye.svg" alt="eye" />
+        </div>
+
+        <button id="login-button" class="login-button">login</button>
+      </form>
+    </main>
+
     <script src="./src/pages/login/login.js"></script>
-</body>
+  </body>
 </html>
