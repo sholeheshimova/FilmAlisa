@@ -1,13 +1,19 @@
-:root{
-    /* colors */
-    --btn: #9B51E0;
-    --logo-text-color: #C3C8D4;
-    --sidebar-bgc: #1E1E1E;
-    --sidebar-hover-color: #58209D;
-    --sidebar-text-color: #AEAEAE;
-    --dashboard-box-bgc: #2D2D2D;
-    --login-register-input-text-color: #475069;
+:root {
+  /* colors */
+  --btn: #9b51e0;
+  --white-color: #ffffff;
+  --logo-text-color: #c3c8d4;
+  --sidebar-bgc: #1e1e1e;
+  --sidebar-hover-color: #58209d;
+  --sidebar-text-color: #aeaeae;
+  --dashboard-box-bgc: #2d2d2d;
+  --dashboard-box-hover: #652f8d;
+  --dashboard-card-title: #d7d7d7;
+  --login-register-input-text-color: #475069;
+  --table-text-color: #05111a;
+  --edit-action-color: rgb(3, 169, 3);
+  --delete-action-color: rgb(249, 11, 11);
 
-    /* font */
-    --common-font: "Raleway", sans-serif;
+  /* font */
+  --common-font: "Raleway", sans-serif;
 }

@@ -1,106 +1,165 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Actors</title>
-    <link rel="stylesheet" href="../../styles/global.css" />
-    <link rel="stylesheet" href="./actors.css" />
-  </head>
-  <body>
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="sidebar-logo">
-        <div class="logo-icon">
-          <img src="../../assets/icons/filmalisa-logo.svg" alt="" />
-        </div>
-        <span class="logo-text">filmalisa</span>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Actors</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="../../styles/global.css" />
+  <link rel="stylesheet" href="./actors.css" />
+</head>
+
+<body>
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon">
+        <img class="actor-i" src="../../assets/icons/filmalisa-logo.svg" alt="Filmalisa logo" />
+      </div>
+      <span class="logo-text">filmalisa</span>
+    </div>
+
+    <nav class="sidebar-menu">
+      <a href="../dashboard/dashboard.html" class="menu-item">
+        <span class="menu-icon"><img src="../../assets/icons/dashboard.svg" alt="Dashboard" /></span>
+        <span>Dashboard</span>
+      </a>
+      <a href="../movies/movies.html" class="menu-item">
+        <span class="menu-icon"><img src="../../assets/icons/movies.svg" alt="Movies" /></span>
+        <span>Movies</span>
+      </a>
+      <a href="../categories/categories.html" class="menu-item">
+        <span class="menu-icon"><img src="../../assets/icons/categories.svg" alt="Categories" /></span>
+        <span>Categories</span>
+      </a>
+      <a href="../users/users.html" class="menu-item">
+        <span class="menu-icon"><img src="../../assets/icons/users.svg" alt="Users" /></span>
+        <span>Users</span>
+      </a>
+      <a href="../comments/comments.html" class="menu-item">
+        <span class="menu-icon"><img src="../../assets/icons/comments.svg" alt="Comments" /></span>
+        <span>Comments</span>
+      </a>
+      <a href="../contactus/contactus.html" class="menu-item">
+        <span class="menu-icon"><img src="../../assets/icons/contact.svg" alt="Contact us" /></span>
+        <span>Contact us</span>
+      </a>
+      <a href="./actors.html" class="menu-item active">
+        <span class="menu-icon"><img src="../../assets/icons/users.svg" alt="Actors" /></span>
+        <span>Actors</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <a href="../../../index.html" class="logout">
+        <span class="logout-icon"><img src="../../assets/icons/logaut.svg" alt="Logout" /></span>
+        <span>Logout</span>
+      </a>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="admin-header">
+      <div class="header-left">
+        <span class="header-greeting">Hi Admin</span>
+        <h1>Actors</h1>
       </div>
 
-      <nav class="sidebar-menu">
-        <a href="../dashboard/dashboard.html" class="menu-item">
-          <span class="menu-icon"
-            ><img src="../../assets/icons/dashboard.svg" alt=""
-          /></span>
-          <span>Dashboard</span>
-        </a>
+      <div class="header-right">
+        <button type="button" class="create-btn"
+          onclick="document.querySelector('#example-dialog').showModal()">Create</button>
 
-        <a href="../movies/movies.html" class="menu-item">
-          <span class="menu-icon"
-            ><img src="../../assets/icons/movies.svg" alt=""
-          /></span>
-          <span>Movies</span>
-        </a>
-
-        <a href="../categories/categories.html" class="menu-item">
-          <span class="menu-icon"
-            ><img src="../../assets/icons/categories.svg" alt=""
-          /></span>
-          <span>Categories</span>
-        </a>
-
-        <a href="../users/users.html" class="menu-item">
-          <span class="menu-icon"
-            ><img src="../../assets/icons/users.svg" alt=""
-          /></span>
-          <span>Users</span>
-        </a>
-
-        <a href="../comments/comments.html" class="menu-item">
-          <span class="menu-icon"
-            ><img src="../../assets/icons/comments.svg" alt=""
-          /></span>
-          <span>Comments</span>
-        </a>
-
-        <a href="../contactus/contactus.html" class="menu-item">
-          <span class="menu-icon"
-            ><img src="../../assets/icons/contact.svg" alt=""
-          /></span>
-          <span>Contact us</span>
-        </a>
-
-        <a href="./actors.html" class="menu-item active">
-          <span class="menu-icon"
-            ><img src="../../assets/icons/users.svg" alt=""
-          /></span>
-          <span>Actors</span>
-        </a>
-      </nav>
-
-      <div class="sidebar-bottom">
-        <a href="../../../index.html" class="logout">
-          <span class="logout-icon"
-            ><img src="../../assets/icons/logaut.svg" alt=""
-          /></span>
-          <span>Logout</span>
-        </a>
-      </div>
-    </aside>
-
-    <!-- Page Header-->
-
-    <main class="main-content">
-      <header class="admin-header">
-        <div class="header-left">
-          <span class="header-greeting">Hi Admin</span>
-          <h1>Actors</h1>
-        </div>
-
-        <div class="header-right">
-          <button class="create-btn">Create</button>
-
-          <div class="profile">
-            <div class="profile-image">
-              <img src="../../assets/image/admin-profile.svg" alt="Admin" />
-            </div>
-
-            <span class="profile-name">Admin</span>
+        <div class="profile">
+          <div class="profile-image">
+            <img src="../../assets/image/admin-profile.svg" alt="Admin profile" />
           </div>
+          <span class="profile-name">Admin</span>
         </div>
-      </header>
-    </main>
-    <section class="page-content"></section>
-    <script src="./actors.js"></script>
-  </body>
+      </div>
+    </header>
+
+    <dialog id="example-dialog">
+      <form class="dialog__form" id="contact-form" method="dialog">
+        <div class="dialog__header">
+          <h2>Create a new actor</h2>
+        </div>
+
+        <div class="dialog__body">
+          <div class="input-group">
+            <label for="modal-name">Name</label>
+            <input type="text" id="modal-name" placeholder="Name" required />
+            <label for="modal-surname">Surname</label>
+            <input type="text" id="modal-surname" placeholder="Surname" required />
+            <label for="modal-movie">Movie</label>
+            <input type="text" id="modal-movie" placeholder="Movie" required />
+            <label for="photoInput" class="add-photo">
+              <p>Add photo</p>
+            </label>
+            <input type="file" id="photoInput" accept="image/*" hidden>
+          </div>
+
+
+        </div>
+        </div>
+
+        <div class="dialog__footer">
+          <button commandfor="example-dialog" command="request-close" type="button" class="btn"
+            onclick="this.closest('dialog').close()">Cancel</button>
+          <button type="submit" class="btn cta" id="submit-dialog">Submit</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="delete-dialog">
+      <form class="dialog__form" id="delete-form" method="dialog">
+        <div class="dialog__header">
+          <h2>Delete actor</h2>
+          <p>Are you sure you want to delete <strong id="delete-name"></strong>?</p>
+        </div>
+        <div class="dialog__footer">
+          <button type="button" class="btn" id="cancel-delete">Cancel</button>
+          <button type="submit" class="btn delete-confirm">Delete</button>
+        </div>
+      </form>
+    </dialog>
+
+    <div class="table-wrapper">
+      <table class="table">
+        <thead class="thead">
+          <tr class="row">
+            <th class="cell head">Id</th>
+            <th class="cell head">Name</th>
+            <th class="cell head">Surname</th>
+            <th class="cell head">Photo</th>
+            <th class="cell head">Movies</th>
+            <th class="cell head actions-col">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody class="tbody">
+          <tr class="row" data-id="1">
+            <td class="cell">1</td>
+            <td class="cell row-name">Bruce</td>
+            <td class="cell row-name">Lee</td>
+            <td class="cell">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtxf405IfoCjO0FVf12MmT7VJdS2y8-Iu5bvfdJ7w58E0x5GwLPpPblpx1&s=10"
+                alt="Bruce Lee" class="img" width="40" />
+            </td>
+
+            <td class="cell row-desc">Films</td>
+            <td class="cell actions">
+              <button type="button" class="edit" aria-label="Edit actor"><i
+                  class="fa-solid fa-pen-to-square"></i></button>
+              <button type="button" class="delete" aria-label="Delete actor"><i class="fa-solid fa-trash"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="./actors.js"></script>
+</body>
+
 </html>
