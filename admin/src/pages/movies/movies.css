@@ -115,8 +115,8 @@
 }
 .menu-item:hover,
 .menu-item:hover span {
-    color: white;
-    background-color: var(--sidebar-hover-color);
+  color: white;
+  background-color: var(--sidebar-hover-color);
 }
 
 .menu-item.active .menu-icon {
@@ -224,7 +224,6 @@
   cursor: pointer;
 }
 
-
 .profile {
   display: flex;
   align-items: center;
@@ -255,4 +254,198 @@
   font-weight: 500;
 
   color: white;
+}
+
+/* <page-content> MOVIES-TABLE */
+
+.page-content {
+  padding: 40px 32px 32px;
+}
+.movies-table-wrap {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.movies-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--common-font);
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+  font-variant-numeric: lining-nums;
+}
+
+.movies-table th {
+  padding: 16px;
+  font-weight: 400;
+  color: #fff;
+  background-color: var(--sidebar-bgc);
+}
+
+.col-id {
+  width: 8%;
+}
+
+.col-title {
+  width: 11%;
+}
+
+.movies-table td {
+  padding: 5px 16px;
+  color: #05111a;
+  background-color: #fff;
+  vertical-align: middle;
+}
+
+.movie-title-cell {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+}
+
+.movie-poster {
+  width: 29px;
+  height: 39px;
+}
+
+/* movies\2 kart modaı */
+/* js aktiv olduğudan soram yazılacaq  */
+.modal-overlay {
+  display: none !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.create-modal-card {
+  background-color: #171616;
+  width: 899px;
+  max-width: 95vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 24px;
+  padding: 36px 40px;
+  display: flex;
+  gap: 50px;
+  box-sizing: border-box;
+  font-family: var(--common-font);
+}
+
+.modal-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-form input,
+.modal-form textarea,
+.modal-form select {
+  width: 100%;
+  background-color: #111111;
+  border: 1px solid #282828;
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: var(--logo-text-color);
+  font-size: 13px;
+  outline: none;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.modal-form input::placeholder,
+.modal-form textarea::placeholder {
+  color: #555555;
+}
+
+.modal-form input:focus,
+.modal-form textarea:focus,
+.modal-form select:focus {
+  border-color: var(--btn);
+}
+
+.modal-form textarea {
+  resize: vertical;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.select-arrow {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #555555;
+  font-size: 10px;
+  pointer-events: none;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.checkbox-label {
+  color: #888888;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  accent-color: var(--btn);
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.btn-submit {
+  background-color: var(--btn);
+  color: #ffffff;
+  border: none;
+  padding: 9px 24px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background-color: var(--sidebar-hover-color);
+}
+
+.modal-preview {
+  width: 230px;
+  display: flex;
+  align-items: flex-start;
+  margin-left: 20px;
+}
+
+.modal-preview img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
 }
