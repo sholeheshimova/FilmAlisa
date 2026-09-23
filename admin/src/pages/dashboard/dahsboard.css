@@ -254,11 +254,15 @@
 }
 /* Section */
 
-.page-content {
+.dashboard-container {
   display: flex;
   flex-wrap: wrap;
   gap: 34px 33px;
   padding: 79px 24px;
+}
+
+.page-content {
+  max-width: 1200px;
 }
 
 .card {
@@ -292,4 +296,24 @@
 
 .card:hover {
   background-color: var(--dashboard-box-hover);
+}
+@media (min-width: 1100px) and (max-width: 1400px) {
+  .dashboard-container {
+    max-width: 1000px;
+    gap: 20px 20px;
+  }
+  .card {
+    width: 170px;
+    height: 140px;
+  }
+  .card-active {
+    width: 200px;
+    height: 140px;
+  }
+  .card-title {
+    font-size: 12px;
+  }
+  .card-desc {
+    font-size: 20px;
+  }
 }
