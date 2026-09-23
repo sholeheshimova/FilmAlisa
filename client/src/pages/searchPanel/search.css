@@ -38,8 +38,7 @@
 }
 
 .icon img {
-    width: 32px;
-    height: 32px;
+
     transition: filter 0.3s, transform 0.3s;
 }
 
