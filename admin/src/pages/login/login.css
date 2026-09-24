@@ -75,3 +75,6 @@ body {
 .login-button:hover {
   opacity: 80%;
 }
+a{
+  color: white;
+}
