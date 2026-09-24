@@ -1,0 +1,64 @@
+@import url("../../styles/global.css");
+@import url("../../styles/reset.css");
+@import url("../../styles/font.css");
+@import url("../../styles/variable.css");
+@import url("../../styles/loader.css");
+
+body {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background-color: var(--TEXT-color_8);
+
+    font-family: var(--Font_Roboto);
+}
+
+.left {
+    display: flex;
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    flex-direction: column;
+    align-items: center;
+    width: 56px;
+    background: #1d1d1d80;
+    padding-top: 40px;
+    backdrop-filter: blur(24px);
+    box-shadow: 0px 40px 40px 8px #00000029;
+}
+
+.logo-div {
+    margin-bottom: 64px;
+}
+
+.sidebar {
+    width: 32px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon {
+    margin-bottom: 80px;
+    display: block;
+    text-align: center;
+}
+
+.icon img {
+    transition: filter 0.3s, transform 0.3s;
+}
+
+.icon img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+
+.icon:hover {
+    cursor: pointer;
+
+}

@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us</title>
-    <link rel="stylesheet" href="../../styles/global.css">
-    <link rel="stylesheet" href="./contactus.css">
-</head>
-<body>
-    
-  <!-- Sidebar -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="../../styles/global.css" />
+    <link rel="stylesheet" href="./contactus.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-logo">
         <div class="logo-icon">
@@ -19,7 +19,7 @@
       </div>
 
       <nav class="sidebar-menu">
-        <a href="../dashboard/dashboard.html" class="menu-item ">
+        <a href="../dashboard/dashboard.html" class="menu-item">
           <span class="menu-icon"
             ><img src="../../assets/icons/dashboard.svg" alt=""
           /></span>
@@ -88,8 +88,6 @@
         </div>
 
         <div class="header-right">
-  
-
           <div class="profile">
             <div class="profile-image">
               <img src="../../assets/image/admin-profile.svg" alt="Admin" />
@@ -99,10 +97,71 @@
           </div>
         </div>
       </header>
+
+      <section class="page-content">
+        <div class="movies-table-wrap">
+          <table class="movies-table">
+            <thead>
+              <tr>
+                <th class="col-id">ID</th>
+                <th class="col-name">Name</th>
+                <th class="col-email">Email</th>
+                <th class="col-msg">Message</th>
+                <th class="col-action">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>User Name</td>
+                <td>username@gmail.com</td>
+                <td>Lorem ipsum test...</td>
+                <td class="table-actions">
+                   <button
+                      type="button"
+                      class="action-btn edit-btn"
+                      title="View"
+                      data-message="Lorem ipsum test bu mesajın tam, uzun mətnidir, burada 10 sözdən çox ola bilər və cədvəldə göstərilmir amma modalda tam görünür."
+                    >
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                  <button
+                      type="button"
+                      class="action-btn delete-btn"
+                      title="Delete"
+                    >
+                      <i class="fa-solid fa-trash"></i>
+                    </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
     </main>
 
-    <section class="page-content"></section>
+    <div class="modal-overlay" id="deleteModal">
+      <div class="delete-modal-card">
+        <h2>Delete Contact</h2>
+        <p>Are you sure you want to delete this contact?</p>
+        <div class="modal-actions">
+          <button class="btn-cancel">Cancel</button>
+          <button class="btn-ok">OK</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal-overlay" id="viewMessageModal">
+  <div class="delete-modal-card">
+    <h2>Message</h2>
+    <p id="fullMessageText">Mesajın tam mətni burda görünəcək...</p>
+    <div class="modal-actions">
+      <button class="btn-cancel" id="closeViewModalBtn">Close</button>
+    </div>
+  </div>
+</div>
 
     <script src="./contactus.js"></script>
-</body>
+  </body>
 </html>

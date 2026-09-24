@@ -1,0 +1,126 @@
+@import url(../../styles/global.css);
+
+.account-body {
+  display: flex;
+}
+
+.main-logo {
+  width: 56px;
+  height: 56px;
+}
+
+.left {
+  display: flex;
+  position: absolute;
+  z-index: 999;
+  left: 0;
+  flex-direction: column;
+  align-items: center;
+  width: 56px;
+  background: #1d1d1d80;
+  padding-top: 40px;
+  backdrop-filter: blur(24px);
+  box-shadow: 0px 40px 40px 8px #00000029;
+}
+
+.logo-div {
+  margin-bottom: 64px;
+}
+
+.sidebar {
+  width: 32px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon {
+  margin-bottom: 80px;
+  display: block;
+  text-align: center;
+}
+
+.icon img {
+  transition:
+    filter 0.3s,
+    transform 0.3s;
+}
+
+.icon img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+.icon:hover {
+  cursor: pointer;
+}
+
+.icon-img {
+  filter: brightness(0) saturate(100%) invert(48%) sepia(93%) saturate(696%)
+    hue-rotate(160deg) brightness(101%) contrast(102%);
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.icon:hover .icon-img {
+  transform: scale(1.2);
+  filter: brightness(0) saturate(100%) invert(48%) sepia(93%) saturate(696%)
+    hue-rotate(160deg) brightness(101%) contrast(102%);
+}
+
+/* Section  */
+.not-found {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--sidebar-bgc);
+  color: var(--white-color);
+}
+
+.img-404 {
+  width: 400px;
+  height: 320px;
+  margin-bottom: 38px;
+}
+
+.title-404 {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 56px;
+  margin-bottom: 16px;
+}
+
+.desc-404 {
+  width: 500px;
+  color: var(--Client-text-color);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 38px;
+}
+
+.go-button {
+  padding: 16px 32px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--btn);
+  color: var(--white-color);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.go-button:hover {
+  opacity: 0.8;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}

@@ -1,0 +1,588 @@
+@import url("../../styles/global.css");
+
+body,
+html {
+    overflow-x: hidden;
+    margin: 0;
+}
+
+.client-login {
+    display: flex;
+    min-height: 100vh;
+    gap: 10px;
+}
+
+.main-logo {
+    width: 56px;
+    height: 56px;
+}
+
+.left {
+    display: flex;
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    flex-direction: column;
+    align-items: center;
+    width: 56px;
+    background: #1d1d1d80;
+    padding-top: 40px;
+    backdrop-filter: blur(24px);
+    box-shadow: 0px 40px 40px 8px #00000029;
+}
+
+.logo-div {
+    margin-bottom: 64px;
+}
+
+.sidebar {
+    width: 32px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon {
+    margin-bottom: 80px;
+    display: block;
+    text-align: center;
+}
+
+.icon img {
+
+    transition: filter 0.3s, transform 0.3s;
+}
+
+.icon img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+.icon:hover {
+    cursor: pointer;
+}
+
+.icon-img {
+    filter: brightness(0) saturate(100%) invert(48%) sepia(93%) saturate(696%) hue-rotate(160deg) brightness(101%) contrast(102%);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.icon:hover .icon-img {
+    transform: scale(1.2);
+    filter: brightness(0) saturate(100%) invert(48%) sepia(93%) saturate(696%) hue-rotate(160deg) brightness(101%) contrast(102%);
+}
+
+
+
+/* favorites */
+.favorites {
+  /* width: calc(100% - 90px);
+
+  margin-left: 90px; */
+
+  /* padding: 80px 0; */
+
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh; */
+
+
+
+    width: calc(100% - 56px);
+    margin-left: 56px;
+
+    padding: 40px 30px 0 30px;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+
+/* HEADER */
+
+.favorites-header {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 30px;
+}
+
+.favorites-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: #fff;
+  text-decoration: none;
+
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.favorites-title i {
+  font-size: 16px;
+}
+
+
+/* SEARCH */
+
+.favorites-search {
+  width: 300px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 0 15px;
+
+  border: 1px solid #444;
+  border-radius: 7px;
+
+  background: #171717;
+}
+
+.favorites-search i {
+  color: #999;
+  font-size: 15px;
+}
+
+.favorites-search input {
+  width: 100%;
+  height: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: white;
+
+  font-size: 14px;
+}
+
+.favorites-search input::placeholder {
+  color: #888;
+}
+
+
+/* ================= MOVIE SLIDER ================= */
+
+.favorites-slider {
+  width: 100%;
+
+  display: flex;
+
+  gap: 0;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-behavior: smooth;
+}
+
+.favorites-slider::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* ================= MOVIE CARD ================= */
+
+
+  /* position: relative;
+
+  flex: 0 0 31%;
+
+  height: 736px;
+  width: 504px;
+
+  overflow: hidden;
+
+  border-radius: 0;
+
+  cursor: pointer; */
+
+
+
+  .movie-card {
+    position: relative;
+    flex: 0 0 31%;
+    height: 736px;
+
+    overflow: hidden;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+
+.movie-poster {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.4s ease;
+}
+
+.movie-card:hover .movie-poster {
+  transform: scale(1.04);
+}
+
+
+/* ================= CARD OVERLAY ================= */
+
+.movie-overlay {
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+
+  padding: 120px 25px 25px;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95),
+    rgba(0, 0, 0, 0.65),
+    transparent
+  );
+}
+
+.movie-genre {
+  display: block;
+
+  color: #cfcfcf;
+
+  font-size: 13px;
+
+  margin-bottom: 9px;
+}
+
+.movie-rating {
+  display: flex;
+
+  gap: 4px;
+
+  margin-bottom: 10px;
+}
+
+.movie-rating i {
+  color: #ffd700;
+
+  font-size: 13px;
+}
+
+.movie-title {
+  color: #fff;
+
+  font-size: 20px;
+  font-weight: 600;
+
+  line-height: 1.3;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+
+
+
+
+/* =========================
+   DESKTOP
+   1280px - 1440px
+========================= */
+
+@media (min-width: 1280px) and (max-width: 1439px) {
+
+.favorites {
+        width: calc(100% - 56px);
+        margin-left: 56px;
+
+        /* padding: 40px 30px; */
+
+
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .favorites-header {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    .favorites-title {
+        font-size: 26px;
+    }
+
+    .favorites-search {
+        width: 280px;
+        height: 42px;
+    }
+
+    .favorites-slider {
+        width: 100%;
+        display: flex;
+        gap: 0;
+    }
+
+    .movie-card {
+        flex: 0 0 33.333%;
+        width: auto;
+        height: 500px;
+    }
+
+    .movie-overlay {
+        padding: 120px 22px 22px;
+    }
+
+    .movie-title {
+        font-size: 19px;
+    }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (min-width: 768px) and (max-width: 1279px) {
+
+    .favorites {
+        width: calc(100% - 56px);
+        margin-left: 56px;
+
+        padding: 50px 25px;
+
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .favorites-header {
+        margin-bottom: 25px;
+    }
+
+    .favorites-title {
+        font-size: 23px;
+    }
+
+    .favorites-search {
+        width: 250px;
+        height: 40px;
+    }
+
+    .movie-card {
+        flex: 0 0 45%;
+        width: auto;
+        height: 550px;
+    }
+
+    .movie-overlay {
+        padding: 90px 18px 18px;
+    }
+
+    .movie-title {
+        font-size: 18px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 767px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .client-login {
+        display: block;
+    }
+
+
+    /* SIDEBAR */
+
+    .left {
+        position: fixed;
+
+        width: 55px;
+        height: 100vh;
+
+        padding-top: 25px;
+    }
+
+    .logo-div {
+        margin-bottom: 45px;
+    }
+
+    .logo-div img {
+        width: 38px;
+    }
+
+    .sidebar {
+        width: 32px;
+        height: auto;
+    }
+
+    .icon {
+        margin-bottom: 45px;
+    }
+
+    .icon img {
+        width: 26px;
+        height: 26px;
+    }
+
+
+    /* FAVORITES */
+
+    .favorites {
+        width: calc(100% - 55px);
+        margin-left: 55px;
+
+        padding: 30px 15px;
+
+        display: block;
+    }
+
+
+    /* HEADER */
+
+    .favorites-header {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+        margin-bottom: 25px;
+    }
+
+
+    /* TITLE */
+
+    .favorites-title {
+        font-size: 21px;
+    }
+
+    .favorites-title i {
+        font-size: 13px;
+    }
+
+
+    /* SEARCH */
+
+    .favorites-search {
+        width: 100%;
+        height: 40px;
+
+        padding: 0 12px;
+    }
+
+    .favorites-search input {
+        font-size: 13px;
+    }
+
+
+    /* CARDS */
+
+    .favorites-slider {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 18px;
+
+        overflow: visible;
+    }
+
+    .movie-card {
+        width: 100%;
+
+        flex: none;
+
+        height: 400px;
+
+        border-radius: 4px;
+    }
+
+    .movie-poster {
+        width: 100%;
+        height: 100%;
+    }
+
+
+    /* CARD CONTENT */
+
+    .movie-overlay {
+        padding: 90px 18px 18px;
+    }
+
+    .movie-genre {
+        font-size: 12px;
+        margin-bottom: 7px;
+    }
+
+    .movie-rating {
+        gap: 3px;
+        margin-bottom: 7px;
+    }
+
+    .movie-rating i {
+        font-size: 11px;
+    }
+
+    .movie-title {
+        font-size: 17px;
+    }
+}
+
+
+/* =========================
+   SMALL PHONE
+========================= */
+
+@media (max-width: 400px) {
+
+    .favorites {
+        padding: 25px 12px;
+    }
+
+    .favorites-title {
+        font-size: 19px;
+    }
+
+    .movie-card {
+        height: 350px;
+    }
+
+    .movie-title {
+        font-size: 16px;
+    }
+}

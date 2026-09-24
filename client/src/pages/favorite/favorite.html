@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favorite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="./favorite.css" />
+    <!-- <link rel="stylesheet" href="../../styles/loader.css"> -->
+
+    <link rel="icon" href="../../assests/images/logo_with_uploaded_image (1).png" type="image/png" />
+</head>
+
+<body class="bg-dark text-light">
+    <!-- <div id="page-loader">
+        <div class="loader-wrapper">
+            <div class="loader-ring-1"></div>
+            <div class="loader-ring-2"></div>
+            <div class="loader-ring-3"></div>
+            <div class="loader-dot"></div>
+        </div>
+        <p class="loader-label">Yüklənir</p>
+        <div class="loader-dots"><span></span><span></span><span></span></div>
+    </div> -->
+
+    <main class="client-login">
+        <div class="left">
+            <div class="logo-div">
+                <a href="../../../../index.html">
+                    <img src="../../assests/icons/user-home/logo-user.svg" alt="Logo" />
+                </a>
+            </div>
+            <div class="sidebar">
+                <a href="../home/home.html" class="icon">
+                    <img src="../../assests/icons/user-home/icon-1.svg" alt="Home" />
+                </a>
+                <a href="../searchPanel/search.html" class="icon">
+                    <img src="../../assests/icons/user-home/icon-2.svg" alt="Saerch" />
+                </a>
+                <a href="../account/account.html" class="icon">
+                    <img src="../../assests/icons/user-home/icon-3.svg" alt="Account" />
+                </a>
+                <a href="./favorite.html" class="icon">
+                    <img src="../../assests/icons/user-home/icon-4.svg" alt="Favorites" />
+                </a>
+            </div>
+        </div>
+
+
+
+ <section class="favorites">
+ 
+    <div class="favorites-header">
+      <a href="#" class="favorites-title">
+        Favorite movies <i class="fa-solid fa-chevron-right"></i>
+      </a>
+ 
+      <div class="favorites-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="favoritesSearchInput" placeholder="Search...">
+      </div>
+    </div>
+ 
+    <div class="favorites-slider" id="favoritesSlider">
+ 
+      <article class="movie-card">
+        <img src="../../assests/images/gameofthrons.svg" alt="Game of Thrones" class="movie-poster">
+        <div class="movie-overlay">
+          <span class="movie-genre">Sci-Fi &amp; Fantasy</span>
+          <div class="movie-rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <h3 class="movie-title">Game of thrones</h3>
+        </div>
+      </article>
+ 
+      <article class="movie-card">
+        <img src="../../assests/images/favorites-soldier.svg" alt="The Falcon and the Winter Soldier" class="movie-poster">
+        <div class="movie-overlay">
+          <span class="movie-genre">Sci-Fi &amp; Fantasy</span>
+          <div class="movie-rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <h3 class="movie-title">The Falcon and the Winter Soldier</h3>
+        </div>
+      </article>
+ 
+      <article class="movie-card">
+        <img src="../../assests/images/favorites-wanda.svg" alt="WandaVision" class="movie-poster">
+        <div class="movie-overlay">
+          <span class="movie-genre">Sci-Fi &amp; Fantasy</span>
+          <div class="movie-rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <h3 class="movie-title">WandaVision</h3>
+        </div>
+      </article>
+
+
+      <article class="movie-card">
+        <img src="../../assests/images/favorites-wondewoman.svg" alt="WonderWoman" class="movie-poster">
+        <div class="movie-overlay">
+          <span class="movie-genre">Sci-Fi &amp; Action</span>
+          <div class="movie-rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <h3 class="movie-title">Wonder Woman 1984</h3>
+        </div>
+      </article>
+ 
+    </div>
+ 
+  </section>
+     
+
+
+    </main>
+
+    <script src="./favorite.js"></script>
+</body>
+
+</html>

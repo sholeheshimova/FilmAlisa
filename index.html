@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,223 @@
     <link rel="stylesheet" href="./client/src/styles/global.css">
     <link rel="stylesheet" href="./client/src/pages/landing/landing.css">
 </head>
+
 <body>
-    
 
+    <header>
+        <div class="container">
+            <div class="header">
+                <figure class="header-logo">
+                    <img src="./client/src/assests/images/filmalisalogo.svg" alt="" />
+                    <h1>Filmalisa</h1>
+                </figure>
+                <div class="user-login">
+                    <div class="user-div">
+                        <img src="./client/src/assests/icons/login.svg" alt="Example Image" class="user-img"
+                            id="user-id-image" />
+                        <p class="user-p" id="user-id-name"></p>
+                    </div>
+                    <div class="header-btn user-btn">
+                        <a href="./client/src/pages/login/login.html">Sign in</a>
+                    </div>
+                    <div class="user-modal" id="user-modal">
+                        <ul>
+                            <li>
+                                Settings
+                                <img src="./client/src/assests/images/settings.png" alt="" />
+                            </li>
+                            <li>
+                                Logout
+                                <img src="./client/src/assests/images/logout.png" alt="" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="show-section">
+            <div class="container">
+                <h2>Unlimited movies, TV shows, and more</h2>
+                <p class="show-text1">Filmalisa is a movie search platform</p>
+                <p class="show-text2">
+                    Ready to watch? Enter your email to create or restart your
+                    membership.
+                </p>
+                <form action="">
+                    <input type="email" placeholder="Email address" id="emailInput" />
+                    <button class="started-btn" id="startBtn" type="button">
+                        Get Started
+                        <img src="./client/src/assests/icons/landing-page/getstarted.svg" alt="" />
+                    </button>
+                </form>
+            </div>
+        </section>
 
+        <section class="enjoy-section">
+            <div class="enjoy-right">
+                <h3>Enjoy on your TV</h3>
+                <p class="enjoy-text">
+                    Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray
+                    players, and more.
+                </p>
+            </div>
+            <div class="loading-tv-main">
+                <figure class="loading-tv">
+                    <img src="./client/src/assests/images/loading-tv.png" alt="tv-img" class="loading-tv-frame" />
+                    <img src="./client/src/assests/images/loading-tv.gif" alt="loading-animation"
+                        class="loading-tv-content" />
+                </figure>
+            </div>
+        </section>
 
+        <section class="stream-part">
+            <div class="loading-tv-main-2">
+                <figure class="loading-tv-2">
+                    <img src="./client/src/assests/images/loading-tv-2.webp" alt="tv-img" class="loading-tv-frame-2" />
+                    <img src="./client/src/assests/images/loading-tv-2.gif" alt="loading-animation"
+                        class="loading-tv-content-2" />
+                </figure>
+            </div>
+            <div class="stream-left">
+                <h4>Watch everywhere</h4>
+                <p class="stream-text">
+                    Stream unlimited movies and TV shows on your phone, tablet, laptop,
+                    and TV.
+                </p>
+            </div>
+        </section>
 
+        <section class="kids-section">
+            <div>
+                <h5>Create profiles for kids</h5>
+                <p class="kids-text">
+                    Send kids on adventures with their favorite characters in a space
+                    made just for them—free with your membership.
+                </p>
+            </div>
+            <figure>
+                <img src="./client/src/assests/icons/landing-page/kids.svg" alt="" />
+            </figure>
+        </section>
 
-    <script src="./client/src/pages/landing/landing.js"></script>
+        <section class="contact_us-section">
+            <h6>Contact us</h6>
+            <form id="contactForm" class="contact_us-input">
+                <input type="text" id="fullname" placeholder="Fullname" />
+                <input type="email" id="email" placeholder="Email address" />
+                <textarea id="reason" placeholder="Reason" maxlength="200"></textarea>
+                <button type="submit" class="send-btn">Send</button>
+            </form>
+        </section>
+
+        <div class="popup" id="popup">
+            <p id="pop-p">Bu bir popup mesajıdır!</p>
+            <button class="close-btn" onclick="closePopup()" id="closePopup">
+                Close
+            </button>
+        </div>
+
+        <section class="question-section">
+            <h1 class="question-text">Frequently Asked Questions</h1>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="question-box">What is Filmalisa?</div>
+                        <span>+</span>
+                    </div>
+                    <div class="accordion-content">
+                        Filmalisa is a streaming platform offering movies and TV shows.
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="question-box">How much does Filmalisa cost?</div>
+                        <span>+</span>
+                    </div>
+                    <div class="accordion-content">
+                        The cost varies depending on the subscription plan.
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="question-box">Where can I watch?</div>
+                        <span>+</span>
+                    </div>
+                    <div class="accordion-content">
+                        You can watch on multiple devices, including smartphones, tablets,
+                        and TVs.
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="question-box">How do I cancel?</div>
+                        <span>+</span>
+                    </div>
+                    <div class="accordion-content">
+                        You can cancel your subscription anytime through your account
+                        settings.
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="question-box">What can I watch on Netflix?</div>
+                        <span>+</span>
+                    </div>
+                    <div class="accordion-content">
+                        A wide variety of content, including movies, TV shows, and
+                        documentaries.
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="question-box">Is Filmalisa good for kids?</div>
+                        <span>+</span>
+                    </div>
+                    <div class="accordion-content">
+                        Yes, it has a variety of family-friendly content and parental
+                        controls.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <nav>
+            <a href="">FAQ</a>
+            <a href="">Investor Relations</a>
+            <a href="">Buy Gift Cards</a>
+            <a href="">Cookie Preferences</a>
+            <a href="">Legal Notices</a>
+        </nav>
+        <nav>
+            <a href="">Help Center</a>
+            <a href="">Jobs</a>
+            <a href="">Ways to Watch</a>
+            <a href="">Corporate Information</a>
+            <a href="">Only on Filmalisa</a>
+        </nav>
+        <nav>
+            <a href="">Account</a>
+            <a href="">Filmalisa Shop</a>
+            <a href="">Terms of Use</a>
+            <a href="">Contact Us</a>
+            <a href="">Do Not Sell or Share Personal Information</a>
+        </nav>
+        <nav>
+            <a href="">Media Center</a>
+            <a href="">Redeem Gift Cards</a>
+            <a href="">Privacy</a>
+            <a href="">Speed Test</a>
+            <a href="">Ad Choices</a>
+        </nav>
+    </footer>
+
+    <script src="./client/src/pages/landing/landing.js">
+
+    </script>
 </body>
+
 </html>
