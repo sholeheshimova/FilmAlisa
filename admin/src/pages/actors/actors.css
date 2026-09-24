@@ -143,16 +143,11 @@
 .create-btn {
   width: 92px;
   height: 26px;
-
   border: 0;
   border-radius: 4px;
-
   background-color: var(--btn);
-
   color: #ffffff;
-
   font-size: 14px;
-
   cursor: pointer;
 }
 
@@ -184,18 +179,17 @@
 
 /* Table */
 .table-wrapper {
-  /* width: min(90%, 1400px); */
   width: calc(100% - 60px);
   margin: 30px auto 0;
   background: #ffffff;
   border-radius: 14px;
   overflow: hidden;
-
 }
 
 .table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 .thead {
@@ -216,8 +210,7 @@
 }
 
 .cell {
-  /* padding: 14px 20px; */
-  color: #05111A;
+  color: #05111a;
   font-size: 14px;
   text-align: center;
   vertical-align: middle;
@@ -242,13 +235,8 @@
 }
 
 .actions {
-
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   margin-top: 11px;
-  gap: 12px;
-  
+  text-align: center;
+  white-space: nowrap;
 }
 
 .edit,
@@ -267,7 +255,7 @@
 
 .delete {
   color: var(--delete-action-color);
-  /* margin-left: 10px; */
+  margin-left: 12px;
 }
 
 .edit:hover,
@@ -277,7 +265,33 @@
   transform: none;
 }
 
+/* Table column sizes */
+.table th:nth-child(1),
+.table td:nth-child(1) {
+  width: 10%;
+}
 
+.table th:nth-child(2),
+.table td:nth-child(2) {
+  width: 20%;
+}
+
+.table th:nth-child(3),
+.table td:nth-child(3) {
+  width: 25%;
+}
+
+.table th:nth-child(4),
+.table td:nth-child(4) {
+  width: 25%;
+}
+
+.table th:nth-child(5),
+.table td:nth-child(5) {
+  width: 20%;
+}
+
+/* Create dialog */
 dialog {
   position: fixed;
   top: 50%;
@@ -348,7 +362,7 @@ dialog::backdrop {
 .input-group label {
   font-size: 12px;
   color: #8a8d98;
-  margin: 10px 0px 8px;
+  margin: 10px 0 8px;
 }
 
 .input-group input,
@@ -416,8 +430,110 @@ dialog::backdrop {
   background-color: #b91c32;
 }
 
+/* Edit modal */
+.actor-edit-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
 
-/* delete modal */
+.actor-edit-modal-content {
+  width: 550px;
+  max-width: 90vw;
+  padding: 28px;
+  background-color: var(--sidebar-bgc);
+  border-radius: 10px;
+  color: white;
+  box-sizing: border-box;
+}
+
+.actor-edit-header h2 {
+  margin: 0 0 24px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.actor-edit-body {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.actor-edit-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.actor-edit-form input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  background-color: #111111;
+  border: 1px solid #282828;
+  border-radius: 6px;
+  color: #777777;
+  font-size: 13px;
+  outline: none;
+}
+
+.actor-edit-form input::placeholder {
+  color: #777777;
+}
+
+.actor-edit-form input:focus {
+  border-color: var(--btn);
+}
+
+.actor-photo-preview {
+  width: 130px;
+  height: 165px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #111111;
+  border: 1px solid #282828;
+}
+
+.actor-photo-preview img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.actor-edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.actor-edit-cancel,
+.actor-edit-submit {
+  padding: 9px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.actor-edit-cancel {
+  background-color: var(--logo-text-color);
+  color: var(--sidebar-bgc);
+}
+
+.actor-edit-submit {
+  background-color: var(--btn);
+  color: #ffffff;
+}
+
+/* Delete modal */
 .actor-delete-modal {
   display: none;
   position: fixed;
@@ -471,148 +587,4 @@ dialog::backdrop {
 .actor-confirm-delete {
   background-color: var(--btn);
   color: white;
-}
-
-
-/* editmodal */
-
-
-.actor-edit-modal {
-  display: none;
-
-  position: fixed;
-  inset: 0;
-
-  background-color: rgba(0, 0, 0, 0.5);
-
-  align-items: center;
-  justify-content: center;
-
-  z-index: 2000;
-}
-
-.actor-edit-modal-content {
-  width: 550px;
-  max-width: 90vw;
-
-  padding: 28px;
-
-  background-color: var(--sidebar-bgc);
-
-  border-radius: 10px;
-
-  color: white;
-
-  box-sizing: border-box;
-}
-
-.actor-edit-header h2 {
-  margin: 0 0 24px;
-
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.actor-edit-body {
-  display: flex;
-  align-items: center;
-
-  gap: 30px;
-}
-
-.actor-edit-form {
-  flex: 1;
-
-  display: flex;
-  flex-direction: column;
-
-  gap: 12px;
-}
-
-.actor-edit-form input {
-  width: 100%;
-
-  box-sizing: border-box;
-
-  padding: 10px 12px;
-
-  background-color: #111111;
-
-  border: 1px solid #282828;
-
-  border-radius: 6px;
-
-  /* color: white; */
-  color: #777777;
-
-  font-size: 13px;
-
-  outline: none;
-}
-
-.actor-edit-form input::placeholder {
-  color: #777777;
-}
-
-.actor-edit-form input:focus {
-  border-color: var(--btn);
-}
-
-.actor-photo-preview {
-  width: 130px;
-  height: 165px;
-
-  flex-shrink: 0;
-
-  overflow: hidden;
-
-  border-radius: 8px;
-
-  background-color: #111111;
-
-  border: 1px solid #282828;
-}
-
-.actor-photo-preview img {
-  width: 100%;
-  height: 100%;
-
-  display: block;
-
-  object-fit: cover;
-}
-
-.actor-edit-actions {
-  display: flex;
-
-  justify-content: flex-end;
-
-  gap: 10px;
-
-  margin-top: 25px;
-}
-
-.actor-edit-cancel,
-.actor-edit-submit {
-  padding: 9px 20px;
-
-  border: none;
-
-  border-radius: 5px;
-
-  font-size: 12px;
-
-  cursor: pointer;
-}
-
-.actor-edit-cancel {
-  background-color: var(--logo-text-color);
-
-  color: var(--sidebar-bgc);
-}
-
-.actor-edit-submit {
-  background-color: var(--btn);
-
-  color: #ffffff;
 }
