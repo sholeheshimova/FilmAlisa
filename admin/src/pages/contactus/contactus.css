@@ -388,12 +388,271 @@ buranı yaddan çıxmasın js da aktiv hala gelcek  */
   word-wrap: break-word;
 }
 
-.delete-btn {
+
+
+/* delete modal */
+
+.delete-modal {
+  display: none;
+
+  position: fixed;
+  inset: 0;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1000;
+}
+
+.delete-modal-content {
+  width: 400px;
+
+  padding: 25px;
+
+  background-color: var(--sidebar-bgc);
+  border-radius: 8px;
+
+  text-align: center;
+}
+
+.delete-modal-content h3 {
+  margin-bottom: 12px;
+
+  font-size: 18px;
+  color: white;
+}
+
+.delete-modal-content p {
+  margin-bottom: 25px;
+
+  font-size: 13px;
+  color: var(--logo-text-color);
+}
+
+.delete-modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.cancel-btn,
+.confirm-delete-btn {
+  padding: 9px 22px;
+
+  border: none;
+  border-radius: 5px;
+
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background-color: var(--logo-text-color);
+  color: var(--sidebar-bgc);
+}
+
+.confirm-delete-btn {
+  background-color: var(--btn);
+  color: #ffffff;
+}
+
+
+.table-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.action-btn {
   background: transparent;
   border: none;
   cursor: pointer;
-  color: #ff4d4d;
+  font-size: 16px;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background-color 0.15s ease;
 }
+
+.action-btn:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.edit-btn {
+  color: var(--edit-action-color); /* sənin mövzu rəngin, məsələn bənövşəyi */
+}
+
+.delete-btn {
+  color: var(--delete-action-color);
+}
+
+
+
+/* edit modal */
+
+
+
+.edit-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.edit-modal.is-open {
+  display: flex;
+}
+
+.edit-modal-content {
+
+   width: 720px;
+  max-height: 85vh;
+  overflow-y: auto;
+  background-color: var(--sidebar-bgc);
+  border-radius: 10px;
+  padding: 25px;
+  box-sizing: border-box;
+  display: flex;
+  gap: 24px;
+}
+
+.edit-modal-form {
+  flex: 1.4;
+  min-width: 0;
+}
+
+
+.edit-modal-preview {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.edit-modal-preview img {
+  width: 100%;
+  max-width: 260px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.edit-modal-content h3 {
+  color: var(--logo-text-color);
+  margin: 0 0 20px;
+  font-size: 22px;
+}
+
+.edit-modal-content label {
+  display: block;
+  margin-bottom: 8px;
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--logo-text-color);
+}
+
+.edit-modal-content input[type="text"],
+.edit-modal-content textarea,
+.edit-modal-content select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: transparent;
+  color: var(--logo-text-color);
+  border-radius: 6px;
+  outline: none;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+
+.edit-modal-content textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.edit-modal-content input:focus,
+.edit-modal-content textarea:focus,
+.edit-modal-content select:focus {
+  border-color: var(--btn);
+}
+
+.edit-modal-content select {
+   appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23a79fcf'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+  background-color: var(--sidebar-bgc);
+  color: var(--logo-text-color);
+}
+
+
+.edit-modal-content select option {
+  background-color: var(--sidebar-bgc);
+  color: var(--logo-text-color);
+}
+
+
+.edit-modal-row {
+  display: flex;
+  gap: 12px;
+}
+
+.edit-modal-col {
+  flex: 1;
+}
+
+.edit-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 22px;
+}
+
+.edit-adult-label {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  margin: 0 !important;
+  font-weight: 600;
+  color: var(--logo-text-color);
+  cursor: pointer;
+}
+
+.edit-adult-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.edit-modal-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.save-edit-btn {
+  border: none;
+  border-radius: 6px;
+  padding: 10px 24px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: var(--btn);
+  color: white;
+}
+
+.save-edit-btn:hover {
+  opacity: 0.9;
+}
+
+
+
 
 /* -----MOdall---- */
 .modal-overlay {
