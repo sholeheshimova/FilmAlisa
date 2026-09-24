@@ -1,45 +1,45 @@
 :root {
-    /* colors */
-    --btn: #9B51E0;
-    --sidebar-bgc: #1E1E1E;
-    --sidebar-hover-color: #58209D;
-    --sidebar-text-color: #AEAEAE;
-    --dashboard-box-bgc: #2D2D2D;
-    --login-register-input-text-color: #475069;
-    --client-sidebar-icon-hover-color: #0FEFFD;
-    /* bg color */
-    --SideBar-color: #1d1d1d;
-    --Btn-color: #9b51e0;
-    --SideBar-bg-color: #58209d;
-    --Modal-color: #171616;
-    --Admin-sidebar-color: #1e1e1e;
-    --Cards-bg-color: #652f8d;
-    --BG-color_7: #2d2d2d;
-    --Input-bg-color: #2a2a2a;
-    --Blur-color: #20283ecc;
-    --Link-color: #99a3be;
-    /* border color */
-    --Border-color_1: #323b54;
-    --Border-color_2: #808080;
-    --Border-color_3: #475069;
-    --Border-color_4: #0000001a;
-    --Link-hover-color: #0feffd;
-    /* text color  */
-    --SideBar-text-color: #aeaeae;
-    --Text-color_1: #cccccc;
-    --Filmalisa-text-color: #c3c8d4;
-    --Text-color_2: #d7d7d7;
-    --Text-color_3: #05111a;
-    --Text-color_3: #f2f2f2;
-    --TEXT-color_4: #f9fafc;
-    --TEXT-color_5: #1e1e1e;
-    --TEXT-color_6: #000000;
-    --TEXT-color_7: #2c2c2c00;
-    --TEXT-color_8: #1d1d1d;
-    --Input-text-color: #475069;
-    --ErrorInfo-text-color: #ebeef5;
-    --Client-text-color: #8e95a9;
-    /* font */
-    --common-font: "Raleway",
-        sans-serif;
+  /* colors */
+  --btn: #9b51e0;
+  --white-color: #ffffff;
+  --sidebar-bgc: #1e1e1e;
+  --sidebar-hover-color: #58209d;
+  --sidebar-text-color: #aeaeae;
+  --dashboard-box-bgc: #2d2d2d;
+  --login-register-input-text-color: #475069;
+  --client-sidebar-icon-hover-color: #0feffd;
+  /* bg color */
+  --SideBar-color: #1d1d1d;
+  --Btn-color: #9b51e0;
+  --SideBar-bg-color: #58209d;
+  --Modal-color: #171616;
+  --Admin-sidebar-color: #1e1e1e;
+  --Cards-bg-color: #652f8d;
+  --BG-color_7: #2d2d2d;
+  --Input-bg-color: #2a2a2a;
+  --Blur-color: #20283ecc;
+  --Link-color: #99a3be;
+  /* border color */
+  --Border-color_1: #323b54;
+  --Border-color_2: #808080;
+  --Border-color_3: #475069;
+  --Border-color_4: #0000001a;
+  --Link-hover-color: #0feffd;
+  /* text color  */
+  --SideBar-text-color: #aeaeae;
+  --Text-color_1: #cccccc;
+  --Filmalisa-text-color: #c3c8d4;
+  --Text-color_2: #d7d7d7;
+  --Text-color_3: #05111a;
+  --Text-color_3: #f2f2f2;
+  --TEXT-color_4: #f9fafc;
+  --TEXT-color_5: #1e1e1e;
+  --TEXT-color_6: #000000;
+  --TEXT-color_7: #2c2c2c00;
+  --TEXT-color_8: #1d1d1d;
+  --Input-text-color: #475069;
+  --ErrorInfo-text-color: #ebeef5;
+  --Client-text-color: #8e95a9;
+  /* font */
+  --common-font: "Raleway", sans-serif;
 }
