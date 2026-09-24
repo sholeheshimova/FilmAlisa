@@ -82,6 +82,9 @@ body {
   font-size: 16px;
   cursor: pointer;
   transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content:center;
 }
 
 .login-button:hover {
