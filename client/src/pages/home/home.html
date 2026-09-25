@@ -6,58 +6,329 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <link rel="stylesheet" href="./home.css" />
+    <link rel="stylesheet" href="./home-responsive.css">
     <link rel="icon" href="../../assests/images/logo_with_uploaded_image (1).png" type="image/png" />
     <!-- <link rel="stylesheet" href="../../styles/loader.css"> -->
 
 </head>
 
-<!-- Loader -->
-<!-- <div id="page-loader">
-    <div class="loader-wrapper">
-        <div class="loader-ring-1"></div>
-        <div class="loader-ring-2"></div>
-        <div class="loader-ring-3"></div>
-        <div class="loader-dot"></div>
-    </div>
-    <p class="loader-label">Yüklənir</p>
-    <div class="loader-dots"><span></span><span></span><span></span></div>
-</div> -->
+<!-- <body class="bg-dark text-light"> -->
 
-<div class="page-shell">
+<body>
 
-    <div class="left">
-        <div class="logo-div">
-            <a href="../../../../index.html">
-                <img src="../../assests/icons/user-home/logo-user.svg" alt="Logo" />
-            </a>
+    <!-- Loader -->
+    <div id="page-loader">
+        <div class="loader-wrapper">
+            <div class="loader-ring-1"></div>
+            <div class="loader-ring-2"></div>
+            <div class="loader-ring-3"></div>
+            <div class="loader-dot"></div>
         </div>
-        <div class="sidebar">
-            <a href="./home.html" class="icon">
-                <img src="../../assests/icons/user-home/icon-1.svg" alt="Home" />
-            </a>
-            <a href="../searchPanel/search.html" class="icon">
-                <img src="../../assests/icons/user-home/icon-2.svg" alt="Saerch" />
-            </a>
-            <a href="../account/account.html" class="icon">
-                <img src="../../assests/icons/user-home/icon-3.svg" alt="Account" />
-            </a>
-            <a href="../favorite/favorite.html" class="icon">
-                <img src="../../assests/icons/user-home/icon-4.svg" alt="Favorites" />
-            </a>
-        </div>
+        <p class="loader-label">Yüklənir</p>
+        <div class="loader-dots"><span></span><span></span><span></span></div>
     </div>
 
-    <div class="right">
-        <div class="carousel-container">
-            <div class="carousel"></div>
-            <div class="carousel-buttons"></div>
+    <div class="page-shell">
+
+        <!-- Sol Menü / Sidebar -->
+        <div class="left">
+            <div class="logo-div">
+                <a href="../../../../index.html">
+                    <img src="../../assests/icons/user-home/logo-user.svg" alt="Logo" />
+                </a>
+            </div>
+            <div class="sidebar">
+                <a href="./home.html" class="icon">
+                    <img src="../../assests/icons/user-home/icon-1.svg" alt="Home" />
+                </a>
+                <a href="../searchPanel/search.html" class="icon">
+                    <img src="../../assests/icons/user-home/icon-2.svg" alt="Search" />
+                </a>
+                <a href="../account/account.html" class="icon">
+                    <img src="../../assests/icons/user-home/icon-3.svg" alt="Account" />
+                </a>
+                <a href="../favorite/favorite.html" class="icon">
+                    <img src="../../assests/icons/user-home/icon-4.svg" alt="Favorites" />
+                </a>
+            </div>
         </div>
 
-        <div class="main-container"></div>
+        <!-- Sağ Ana İçerik -->
+        <div class="right">
+
+            <!-- Karusel Bölümü -->
+            <div class="carousel-container">
+                <div class="carousel">
+                    <!-- Karusel Slaytı -->
+                    <div class="slide" style="background-image: url('../../assests/images/slider-1600x900.jpg');">
+                        <div class="text-overlay">
+                            <span class="category">Science Fiction</span>
+                            <div class="rating">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                            </div>
+                            <h1>Godzilla vs. Kong</h1>
+                            <p>In a time when monsters walk the Earth, humanity’s fight for its future sets Godzilla and
+                                Kong on a collision course
+                                that will see the two most powerful forces of nature on the planet collide in a
+                                spectacular battle for the ages.</p>
+                            <button class="watch-btn">Watch now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Karusel Gösterge Düğmeleri -->
+                <div class="carousel-buttons">
+                    <button class="active"></button>
+                    <button></button>
+                    <button></button>
+                </div>
+            </div>
+
+            <!-- Kategori ve Filmler Bölümü -->
+            <div class="category-section">
+                <div class="category-header">
+                    <p class="category-P">Action</p>
+                    <div class="chevron-icon"></div>
+                </div>
+
+                <div class="category-card">
+                    <!-- Film Kartı 1 -->
+                    <div class="movie-card">
+                        <img src="../../assests/images/favorites-wondewoman.svg" alt="Movie Poster"
+                            class="movie-image" />
+                        <div class="movie-details">
+                            <span class="movie-category">Fantasy</span>
+                            <h2 class="movie-title">Wonder Woman 1984</h2>
+                            <div class="rating">
+                                <span class="star filled">★</span>
+                                <span class="star half">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Film Kartı 2 -->
+                    <div class="movie-card">
+                        <img src="../../assests/images/Zack Snyder's Justice League.jpg" alt="Movie Poster"
+                            class="movie-image" />
+                        <div class="movie-details">
+                            <span class="movie-category">Fantasy</span>
+                            <h2 class="movie-title">Zack Snyder's Justice League</h2>
+                            <div class="rating">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star half">★</span>
+                                <span class="star">★</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Film Kartı 3 -->
+                    <div class="movie-card">
+                        <img src="../../assests/images/mortal-kombat.jpg" alt="Movie Poster" class="movie-image" />
+                        <div class="movie-details">
+                            <span class="movie-category">Fantasy</span>
+                            <h2 class="movie-title">Mortal Kombat</h2>
+                            <div class="rating">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star">★</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Film Kartı 3 -->
+                    <div class="movie-card">
+                        <img src="../../assests/images/the counter.jpg" alt="Movie Poster" class="movie-image" />
+                        <div class="movie-details">
+                            <span class="movie-category">Drama</span>
+                            <h2 class="movie-title">The Courier</h2>
+                            <div class="rating">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star half">★</span>
+                                <span class="star">★</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Film Kartı 3 -->
+                    <div class="movie-card">
+                        <img src="../../assests/images/Thunder Force.jpg" alt="Movie Poster" class="movie-image" />
+                        <div class="movie-details">
+                            <span class="movie-category">Action</span>
+                            <h2 class="movie-title">Thunder Force</h2>
+                            <div class="rating">
+                                <span class="star filled">★</span>
+                                <span class="star half">★</span>
+                                <span class="star ">★</span>
+                                <span class="star ">★</span>
+                                <span class="star">★</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional movie categories -->
+            <div class="category-section">
+                <div class="category-header">
+                    <p class="category-P">Action &amp; Adventure</p>
+                    <div class="chevron-icon"></div>
+                </div>
+                <div class="category-card">
+                    <div class="movie-card">
+                        <img src="../../assests/images/mortal-kombat.jpg" alt="Mortal Kombat poster"
+                            class="movie-image" />
+                        <div class="movie-details">
+                            <span class="movie-category">Action &amp; Adventure</span>
+                            <h2 class="movie-title">Mortal Kombat</h2>
+                            <div class="rating"><span class="star filled">★</span><span
+                                    class="star filled">★</span><span class="star filled">★</span><span
+                                    class="star filled">★</span><span class="star">★</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <div class="category-header">
+                    <p class="category-P">Comedy</p>
+                    <div class="chevron-icon"></div>
+                </div>
+                <div class="category-card">
+                    <div class="movie-card">
+                        <img src="../../assests/images/Thunder Force.jpg" alt="Thunder Force poster"
+                            class="movie-image" />
+                        <div class="movie-details">
+                            <span class="movie-category">Comedy</span>
+                            <h2 class="movie-title">Thunder Force</h2>
+                            <div class="rating"><span class="star filled">★</span><span class="star half">★</span><span
+                                    class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <div class="category-header">
+                    <p class="category-P">Drama</p>
+                    <div class="chevron-icon"></div>
+                </div>
+                <div class="category-card">
+                    <div class="movie-card">
+                        <img src="../../assests/images/the counter.jpg" alt="The Courier poster" class="movie-image" />
+                        <div class="movie-details">
+                            <span class="movie-category">Drama</span>
+                            <h2 class="movie-title">The Courier</h2>
+                            <div class="rating"><span class="star filled">★</span><span
+                                    class="star filled">★</span><span class="star filled">★</span><span
+                                    class="star half">★</span><span class="star">★</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <div class="category-header">
+                    <p class="category-P">Family</p>
+                    <div class="chevron-icon"></div>
+                </div>
+                <div class="category-card">
+                    <div class="movie-card">
+                        <img src="../../assests/images/favorites-wondewoman.svg" alt="Wonder Woman 1984 poster"
+                            class="movie-image" />
+                        <div class="movie-details">
+                            <span class="movie-category">Family</span>
+                            <h2 class="movie-title">Wonder Woman 1984</h2>
+                            <div class="rating"><span class="star filled">★</span><span class="star half">★</span><span
+                                    class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <div class="category-header">
+                    <p class="category-P">Fantasy</p>
+                    <div class="chevron-icon"></div>
+                </div>
+                <div class="category-card">
+                    <div class="movie-card">
+                        <img src="../../assests/images/Zack Snyder's Justice League.jpg"
+                            alt="Zack Snyder's Justice League poster" class="movie-image" />
+                        <div class="movie-details">
+                            <span class="movie-category">Fantasy</span>
+                            <h2 class="movie-title">Zack Snyder's Justice League</h2>
+                            <div class="rating"><span class="star filled">★</span><span
+                                    class="star filled">★</span><span class="star filled">★</span><span
+                                    class="star half">★</span><span class="star">★</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <div class="category-header">
+                    <p class="category-P">Horror</p>
+                    <div class="chevron-icon"></div>
+                </div>
+                <div class="category-card">
+                    <div class="movie-card">
+                        <img src="../../assests/images/gameofthrons.svg" alt="Game of Thrones poster"
+                            class="movie-image" />
+                        <div class="movie-details">
+                            <span class="movie-category">Horror</span>
+                            <h2 class="movie-title">Game of Thrones</h2>
+                            <div class="rating"><span class="star filled">★</span><span
+                                    class="star filled">★</span><span class="star filled">★</span><span
+                                    class="star filled">★</span><span class="star filled">★</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-section">
+                <div class="category-header">
+                    <p class="category-P">Sci-Fi Fantasy</p>
+                    <div class="chevron-icon"></div>
+                </div>
+                <div class="category-card">
+                    <div class="movie-card">
+                        <img src="../../assests/images/original.avif" alt="Sci-Fi and Fantasy poster"
+                            class="movie-image" />
+                        <div class="movie-details">
+                            <span class="movie-category">Sci-Fi Fantasy</span>
+                            <h2 class="movie-title">Godzilla vs KingKong</h2>
+                            <div class="rating"><span class="star filled">★</span><span
+                                    class="star filled">★</span><span class="star filled">★</span><span
+                                    class="star filled">★</span><span class="star">★</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-container"></div>
+
+            <footer class="site-footer">
+                <a class="footer-brand" href="../../../../index.html" aria-label="filmAlisa home">
+                    <img src="../../assests/icons/user-home/logo-user.svg" alt="filmAlisa" />
+                </a>
+                <p>Copyright © 2026 Filmalisa.com</p>
+            </footer>
+        </div>
+
     </div>
+    <script src="../../Scripts/Client/loader.js"></script>
 
-    <script src="./home.js"></script>
-
-    </body>
+</body>
 
 </html>

@@ -1,0 +1,153 @@
+/* Responsive styles for the detail page */
+
+@media only screen and (max-width: 1200px) {
+    .movie-detail-section {
+        padding-left: 80px;
+        padding-right: 28px;
+    }
+
+    .detail-two-columns {
+        gap: 28px;
+    }
+
+    .left-side {
+        width: min(36vw, 360px);
+    }
+
+    .metadata-grid {
+        gap: 28px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .left {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        padding: 10px 0;
+        flex-direction: row;
+        justify-content: space-around;
+        background: #1d1d1d;
+    }
+
+    .logo-div {
+        display: none;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0;
+    }
+
+    .icon {
+        margin-bottom: 0;
+    }
+
+    .icon img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .right {
+        padding-bottom: 78px;
+    }
+
+    .carousel-container {
+        height: 360px;
+    }
+
+    .movie-detail-section {
+        padding: 28px 16px 0;
+        margin-top: -80px;
+    }
+
+    .overlay-text {
+        width: auto;
+        max-width: none;
+        padding: 14px 16px 16px;
+        margin-bottom: 20px;
+    }
+
+    .overlay-text .title {
+        font-size: 30px;
+    }
+
+    .detail-two-columns {
+        flex-direction: column;
+        gap: 28px;
+    }
+
+    .left-side {
+        width: min(100%, 320px);
+        align-self: center;
+    }
+
+    .tagline {
+        font-size: 23px;
+    }
+
+    .title-with-actions {
+        gap: 10px;
+    }
+
+    .overview {
+        font-size: 14px;
+    }
+
+    .metadata-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px 16px;
+    }
+
+    .genres-wrapper {
+        margin-bottom: 24px;
+    }
+
+    .comment-input-wrapper,
+    .comment-card {
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+
+    .comment-input-wrapper {
+        margin-top: 48px;
+        padding: 12px 10px;
+    }
+
+    .comment-card {
+        margin-top: 0;
+    }
+
+    .comment-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .movie-detail-section {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .overlay-text .title {
+        font-size: 26px;
+    }
+
+    .metadata-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .comment-input-wrapper,
+    .comment-card {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+}
