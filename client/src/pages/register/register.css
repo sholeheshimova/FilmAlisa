@@ -63,6 +63,7 @@ body {
 .input::placeholder {
   color: var(--login-register-input-text-color);
 }
+
 .login-link {
   font-size: 14px;
   line-height: 16px;
