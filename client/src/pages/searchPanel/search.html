@@ -1,39 +1,459 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Search</title>
+
     <link rel="stylesheet" href="./search.css" />
-    <link rel="icon" href="../../assests/images/logo_with_uploaded_image (1).png" type="image/png" />
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    />
+
+    <link
+        rel="icon"
+        href="../../assests/images/logo_with_uploaded_image (1).png"
+        type="image/png"
+    />
 </head>
 
-<body class="bg-dark text-light">
-    <main class="client-login">
+<body>
+
+    <main class="search-page">
+
+        <!-- SIDEBAR -->
         <div class="left">
+
             <div class="logo-div">
                 <a href="../../../../index.html">
-                    <img src="../../assests/icons/user-home/logo-user.svg" alt="Logo" />
+                    <img
+                        src="../../assests/icons/user-home/logo-user.svg"
+                        alt="Logo"
+                    />
                 </a>
             </div>
+
             <div class="sidebar">
+
                 <a href="../home/home.html" class="icon">
-                    <img src="../../assests/icons/user-home/icon-1.svg" alt="Home" />
+                    <img
+                        src="../../assests/icons/user-home/icon-1.svg"
+                        alt="Home"
+                    />
                 </a>
-                <a href="./search.html" class="icon">
-                    <img src="../../assests/icons/user-home/icon-2.svg" alt="Saerch" />
+
+                <a href="./search.html" class="icon active">
+                    <img
+                        src="../../assests/icons/user-home/icon-2.svg"
+                        alt="Search"
+                    />
                 </a>
+
                 <a href="../account/account.html" class="icon">
-                    <img src="../../assests/icons/user-home/icon-3.svg" alt="Account" />
+                    <img
+                        src="../../assests/icons/user-home/icon-3.svg"
+                        alt="Account"
+                    />
                 </a>
+
                 <a href="../favorite/favorite.html" class="icon">
-                    <img src="../../assests/icons/user-home/icon-4.svg" alt="Favorites" />
+                    <img
+                        src="../../assests/icons/user-home/icon-4.svg"
+                        alt="Favorites"
+                    />
                 </a>
+
             </div>
+
         </div>
+
+
+        <!-- SEARCH CONTENT -->
+        <section class="search-content">
+
+            <div class="search-result">
+
+                <!-- HEADER -->
+                <div class="result-header">
+
+                    <div class="result-title">
+                        <h2>Search result</h2>
+
+                        <span class="arrow">›</span>
+                    </div>
+
+                    <!-- SEARCH INPUT -->
+                    <div class="search-panel">
+
+                        <input
+                            type="text"
+                            class="search-input"
+                            placeholder="Search"
+                        />
+
+                        <button class="search-button">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MOVIE CARDS -->
+                <div class="movies-grid">
+
+                    <!-- CARD 1 -->
+                    <div class="movie-card">
+
+                        <img
+                            src="../../assests/images/favorites-wanda.svg"
+                            alt="Wonder Woman 1984"
+                        />
+
+                        <div class="movie-info">
+
+                            <span class="movie-type">
+                                Action
+                            </span>
+
+                            <h3>
+                                Wonder Woman 1984
+                            </h3>
+
+                            <div class="movie-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <span>6.4</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARD 2 -->
+                    <div class="movie-card">
+
+                        <img
+                            src="../../assests/images/favorites-soldier.svg"
+                            alt="Justice League"
+                        />
+
+                        <div class="movie-info">
+
+                            <span class="movie-type">
+                                Action
+                            </span>
+
+                            <h3>
+                                Zack Snyder's Justice League
+                            </h3>
+
+                            <div class="movie-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <span>8.1</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARD 3 -->
+                    <div class="movie-card">
+
+                        <img
+                            src="../../assests/images/favorites-wondewoman.svg"
+                            alt="Mortal Kombat"
+                        />
+
+                        <div class="movie-info">
+
+                            <span class="movie-type">
+                                Fantasy
+                            </span>
+
+                            <h3>
+                                Mortal Kombat
+                            </h3>
+
+                            <div class="movie-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <span>6.1</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARD 4 -->
+                    <div class="movie-card">
+
+                        <img
+                            src="../../assests/images/gameofthrons.svg"
+                            alt="The Courier"
+                        />
+
+                        <div class="movie-info">
+
+                            <span class="movie-type">
+                                Drama
+                            </span>
+
+                            <h3>
+                                The Courier
+                            </h3>
+
+                            <div class="movie-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <span>7.1</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARD 5 -->
+                    <div class="movie-card">
+
+                        <img
+                            src="https://image.tmdb.org/t/p/w500/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg"
+                            alt="Wonder Woman 1984"
+                        />
+
+                        <div class="movie-info">
+
+                            <span class="movie-type">
+                                Action
+                            </span>
+
+                            <h3>
+                                Wonder Woman 1984
+                            </h3>
+
+                            <div class="movie-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <span>6.4</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARD 6 -->
+                    <div class="movie-card">
+
+                        <img
+                            src="https://image.tmdb.org/t/p/w500/tnAuB8q5vv7Ax9UAEje5Xi4BXik.jpg"
+                            alt="Justice League"
+                        />
+
+                        <div class="movie-info">
+
+                            <span class="movie-type">
+                                Action
+                            </span>
+
+                            <h3>
+                                Zack Snyder's Justice League
+                            </h3>
+
+                            <div class="movie-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <span>8.1</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARD 7 -->
+                    <div class="movie-card">
+
+                        <img
+                            src="https://image.tmdb.org/t/p/w500/1mN0u5L1VJ1v1V1V7V1V1V1V1V.jpg"
+                            alt="Mortal Kombat"
+                        />
+
+                        <div class="movie-info">
+
+                            <span class="movie-type">
+                                Fantasy
+                            </span>
+
+                            <h3>
+                                Mortal Kombat
+                            </h3>
+
+                            <div class="movie-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <span>6.1</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARD 8 -->
+                    <div class="movie-card">
+
+                        <img
+                            src="https://image.tmdb.org/t/p/w500/6WxhEvFsauuACfv8HyoVX6mZKFj.jpg"
+                            alt="The Courier"
+                        />
+
+                        <div class="movie-info">
+
+                            <span class="movie-type">
+                                Drama
+                            </span>
+
+                            <h3>
+                                The Courier
+                            </h3>
+
+                            <div class="movie-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <span>7.1</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARD 9 -->
+                    <div class="movie-card">
+
+                        <img
+                            src="https://image.tmdb.org/t/p/w500/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg"
+                            alt="Wonder Woman 1984"
+                        />
+
+                        <div class="movie-info">
+
+                            <span class="movie-type">
+                                Action
+                            </span>
+
+                            <h3>
+                                Wonder Woman 1984
+                            </h3>
+
+                            <div class="movie-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <span>6.4</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARD 10 -->
+                    <div class="movie-card">
+
+                        <img
+                            src="https://image.tmdb.org/t/p/w500/tnAuB8q5vv7Ax9UAEje5Xi4BXik.jpg"
+                            alt="Justice League"
+                        />
+
+                        <div class="movie-info">
+
+                            <span class="movie-type">
+                                Action
+                            </span>
+
+                            <h3>
+                                Zack Snyder's Justice League
+                            </h3>
+
+                            <div class="movie-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <span>8.1</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARD 11 -->
+                    <div class="movie-card">
+
+                        <img
+                            src="https://image.tmdb.org/t/p/w500/1mN0u5L1VJ1v1V1V7V1V1V1V1V.jpg"
+                            alt="Mortal Kombat"
+                        />
+
+                        <div class="movie-info">
+
+                            <span class="movie-type">
+                                Fantasy
+                            </span>
+
+                            <h3>
+                                Mortal Kombat
+                            </h3>
+
+                            <div class="movie-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <span>6.1</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARD 12 -->
+                    <div class="movie-card">
+
+                        <img
+                            src="https://image.tmdb.org/t/p/w500/6WxhEvFsauuACfv8HyoVX6mZKFj.jpg"
+                            alt="The Courier"
+                        />
+
+                        <div class="movie-info">
+
+                            <span class="movie-type">
+                                Drama
+                            </span>
+
+                            <h3>
+                                The Courier
+                            </h3>
+
+                            <div class="movie-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <span>7.1</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
     </main>
+
+
     <script src="./search.js"></script>
+
 </body>
 
 </html>
