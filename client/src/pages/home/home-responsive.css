@@ -1,3 +1,5 @@
+/* Responsive styles for Home */
+
 @media only screen and (max-width:1200px) {
 
     /* ? Navbar */
@@ -232,4 +234,20 @@
         font-size: 12px;
         padding-top: 8px;
     }
+
+
+    .site-footer {
+        margin: 56px 16px 0;
+        padding: 22px 0 88px;
+    }
+
+    .footer-brand img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .site-footer p {
+        font-size: 12px;
+    }
+
 }

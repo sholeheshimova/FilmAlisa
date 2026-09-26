@@ -33,9 +33,9 @@
 }
 
 .icon img {
-  width: 32px;
-  height: 32px;
-  transition: filter 0.3s, transform 0.3s;
+  transition:
+    filter 0.3s,
+    transform 0.3s;
 }
 
 .icon img:hover {
@@ -93,11 +93,13 @@ main {
   right: 0;
   bottom: 0;
   width: 100%;
-  background: linear-gradient(to bottom,
-      #362c9258 20%,
-      #362c92a0 40%,
-      #1262977b 60%,
-      #126297);
+  background: linear-gradient(
+    to bottom,
+    #362c9258 20%,
+    #362c92a0 40%,
+    #1262977b 60%,
+    #126297
+  );
 }
 
 #film-bg-image .film-bg {
@@ -542,8 +544,6 @@ main {
   display: flex;
   gap: 22px;
   padding-block: 25px;
-
-
 }
 
 .form-comment {
@@ -582,7 +582,6 @@ main {
 .auto-break:focus {
   outline: none;
 }
-
 
 .auto-break::placeholder {
   font-size: 14px;
@@ -777,9 +776,11 @@ main {
 
 .movie-overlay {
   position: absolute;
-  background: linear-gradient(180deg,
-      rgba(29, 29, 29, 0) 0%,
-      rgba(29, 29, 29, 0.8) 80%);
+  background: linear-gradient(
+    180deg,
+    rgba(29, 29, 29, 0) 0%,
+    rgba(29, 29, 29, 0.8) 80%
+  );
   top: 0;
   left: 0;
   right: 0;
