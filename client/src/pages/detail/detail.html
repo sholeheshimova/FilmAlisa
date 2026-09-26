@@ -2,318 +2,283 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Details</title>
-    <link rel="stylesheet" href="./detail.css">
-    <link rel="stylesheet" href="./detail-responsive.css">
-    <link rel="stylesheet" href="../../styles/global.css">
-    <link rel="stylesheet" href="../../pages/home/home.css">
-    <link rel="icon" href="../../assests/images/logo_with_uploaded_image (1).png" type="image/png" />
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Details-1</title>
+  <link rel="stylesheet" href="./detail.css" />
+  <link rel="stylesheet" href="./detail-responsive.css">
+  <link rel="icon" href="../../assests/icons/user-home/logo-user.svg" type="image/svg+xml" />
 </head>
 
 <body>
-    <!-- Loader -->
-    <div id="page-loader">
-        <div class="loader-wrapper">
-            <div class="loader-ring-1"></div>
-            <div class="loader-ring-2"></div>
-            <div class="loader-ring-3"></div>
-            <div class="loader-dot"></div>
-        </div>
-        <p class="loader-label">Loading</p>
-        <div class="loader-dots"><span></span><span></span><span></span></div>
+  <div class="left">
+    <div class="logo-div">
+      <img src="../../assests/icons/user-home/logo-user.svg" alt="Logo" />
     </div>
+    <div class="sidebar">
+      <a href="../home/home.html" class="icon">
+        <img src="../../assests/icons/user-home/icon-1.svg" alt="Home" />
+      </a>
+      <a href="../searchPanel/search.html" class="icon">
+        <img src="../../assests/icons/user-home/icon-2.svg" alt="Movies" />
+      </a>
+      <a href="../account/account.html" class="icon">
+        <img src="../../assests/icons/user-home/icon-3.svg" alt="TV Shows" />
+      </a>
+      <a href="../favorite/favorite.html" class="icon">
+        <img src="../../assests/icons/user-home/icon-4.svg" alt="Favorites" />
+      </a>
+    </div>
+  </div>
 
-    <div class="page-shell">
-        <!-- Sidebar -->
-        <div class="left">
-            <div class="logo-div">
-                <a href="../../../../index.html">
-                    <img src="../../assests/icons/user-home/logo-user.svg" alt="Logo" />
-                </a>
-            </div>
-            <div class="sidebar">
-                <a href="../home/home.html" class="icon">
-                    <img src="../../assests/icons/user-home/icon-1.svg" alt="Home" />
-                </a>
-                <a href="../searchPanel/search.html" class="icon">
-                    <img src="../../assests/icons/user-home/icon-2.svg" alt="Search" />
-                </a>
-                <a href="../account/account.html" class="icon">
-                    <img src="../../assests/icons/user-home/icon-3.svg" alt="Account" />
-                </a>
-                <a href="../favorite/favorite.html" class="icon">
-                    <img src="../../assests/icons/user-home/icon-4.svg" alt="Favorites" />
-                </a>
-            </div>
+  <main>
+    <section id="film-bg-image">
+      <div class="user-photo" id="user-photo">
+        <a href="../home/home.html" class="user-profile-photo">
+          <img src="../../assests/images/detail/default-profile.jpg" alt="Profile" />
+        </a>
+      </div>
+      <div class="back-div"></div>
+      <img class="film-bg" src="../../assests/images/detail/lostincpaces-bg.jpg" alt="" />
+    </section>
+    <div class="container">
+      <section id="film">
+        <div class="film-head">
+          <div class="film-name">
+            <p>MaileHereko / TV Shows</p>
+            <h1>lost in space</h1>
+          </div>
         </div>
-
-        <!-- hero -->
-        <div class="right">
-            <div class="carousel-container">
-                <div class="carousel">
-                    <div class="slide" style="background-image: url('../../assests/images/lost-n-spaces.jpg');">
-                    </div>
+        <div class="film-information">
+          <div class="film-image">
+            <div class="overlay"></div>
+            <svg width="131" height="121" viewBox="0 0 131 121" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M129.048 61.993C129.817 62.3623 129.8 63.4629 129.02 63.8086L1.40526 120.377C0.744067 120.67 4.47743e-06 120.186 4.45048e-06 119.463L5.92263e-08 1.58979C3.1789e-08 0.853303 0.769155 0.369493 1.43302 0.688404L129.048 61.993Z"
+                fill="white" />
+            </svg>
+            <img src="../../assests/images/detail/lostinspaces.jpg" alt="Lost in Space" />
+          </div>
+          <div class="film-description">
+            <div class="film-desc">
+              <div class="film-text-header">
+                <div class="film-text-header-left">
+                  <p>Have you seen our robot?!</p>
+                  <a href="https://www.imdb.com/title/tt5232792/" target="_blank" rel="noopener noreferrer">Watch
+                    Link</a>
                 </div>
-            </div>
-            <!-- ---------------------------------------- -->
-
-            <section class="movie-detail-section">
-                <!-- Breadcrumb  -->
-                <div class="overlay-text">
-                    <p class="subtitle">
-                        <span class="name">MaileHereko</span>
-                        <span class="slash">/</span>
-                        <span class="category">TV Shows</span>
-                    </p>
-                    <h1 class="title">lost In Space</h1>
-                </div>
-
-
-                <div class="detail-two-columns">
-                    <!-- 1.  Poster -->
-                    <div class="left-side">
-                        <img src="../../assests/images/lost-in-spaces.jpg" alt="Lost in Space Poster"
-                            class="detail-poster" />
-                    </div>
-
-                    <!-- 2.  Kontent -->
-                    <div class="right-side">
-                        <!-- title-btn -->
-                        <div class="title-with-actions">
-                            <h2 class="tagline">have you seen our robot?</h2>
-                            <a href="#" class="watch-link-btn">Watch Link</a>
-                            <button class="add-favorite-btn" aria-label="Add to wishlist">+</button>
-                        </div>
-
-                        <p class="overview">
-                            The mission to save Scarecrow takes an unexpected turn, throwing the Resolute into chaos.
-                            Judy hatches a
-                            plan to get a ship to Alpha Centauri.
-                        </p>
-
-                        <!-- Reytinq -->
-                        <div class="rating-badge">
-                            <span class="star-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M9.15327 2.34001L10.3266 4.68668C10.4866 5.01334 10.9133 5.32668 11.2733 5.38668L13.3999 5.74001C14.7599 5.96668 15.0799 6.95334 14.0999 7.92668L12.4466 9.58001C12.1666 9.86001 12.0133 10.4 12.0999 10.7867L12.5733 12.8333C12.9466 14.4533 12.0866 15.08 10.6533 14.2333L8.65994 13.0533C8.29994 12.84 7.70661 12.84 7.33994 13.0533L5.34661 14.2333C3.91994 15.08 3.05327 14.4467 3.42661 12.8333L3.89994 10.7867C3.98661 10.4 3.83327 9.86001 3.55327 9.58001L1.89994 7.92668C0.926606 6.95334 1.23994 5.96668 2.59994 5.74001L4.72661 5.38668C5.07994 5.32668 5.50661 5.01334 5.66661 4.68668L6.83994 2.34001C7.47994 1.06668 8.51994 1.06668 9.15327 2.34001Z"
-                                        stroke="#FFAD49" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </span>
-                            <span class="star-icon">8.1</span>
-                        </div>
-
-                        <!-- İnformasiya -->
-                        <div class="metadata-grid">
-                            <div class="meta-col">
-                                <div class="meta-group">
-                                    <span class="meta-label">Type</span>
-                                    <span class="meta-value">TV Show</span>
-                                </div>
-                                <div class="meta-group">
-                                    <span class="meta-label">First air date</span>
-                                    <span class="meta-value">2018-04-13</span>
-                                </div>
-                            </div>
-
-                            <div class="meta-col">
-                                <div class="meta-group">
-                                    <span class="meta-label">Status</span>
-                                    <span class="meta-value">Returning Series</span>
-                                </div>
-                                <div class="meta-group">
-                                    <span class="meta-label">Last air date</span>
-                                    <span class="meta-value">2019-04-24</span>
-                                </div>
-                            </div>
-
-                            <div class="meta-col">
-                                <div class="meta-group">
-                                    <span class="meta-label">No. of episodes</span>
-                                    <span class="meta-value">20</span>
-                                </div>
-                                <div class="meta-group">
-                                    <span class="meta-label">Episode run time</span>
-                                    <span class="meta-value">56 min</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Janrlar -->
-                        <div class="genres-wrapper">
-                            <span class="meta-label">Genres</span>
-                            <p class="genres-list">Action & Adventure, Sci-Fi & Fantasy, Drama</p>
-                        </div>
-
-                        <!-- Aktyorlar -->
-                        <div class="cast-section">
-                            <h3 class="cast-heading">top cast</h3>
-                            <div class="cast-slider">
-                                <div class="cast-card">
-                                    <img src="../../assests/images/actor-defolt.jpg" alt="Maxwell Jenkins"
-                                        class="actor-avatar" />
-                                    <span class="actor-name">maxwell jenkins</span>
-                                    <span class="character-name">will robinson</span>
-                                </div>
-                                <div class="cast-card">
-                                    <img src="../../assests/images/actor-defolt.jpg" alt="Molly Parker"
-                                        class="actor-avatar" />
-                                    <span class="actor-name">molly parker</span>
-                                    <span class="character-name">maureen robinson</span>
-                                </div>
-                                <div class="cast-card">
-                                    <img src="../../assests/images/actor-defolt.jpg" alt="Toby Stephens"
-                                        class="actor-avatar" />
-                                    <span class="actor-name">toby stephens</span>
-                                    <span class="character-name">john robinson</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <br><br>
-            <div class="comment-input-wrapper">
-                <img src="../../assests/images/serxan-mellim.jpg" alt="User" class="current-user-avatar" />
-                <input type="text" class="comment-input" placeholder="your comment..." />
-                <button class="send-comment-btn" aria-label="Send">
-                    <svg width="20" height="20" viewBox="0 0 34 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M2.78779 33.25L31.8988 19L2.78779 4.75L2.77393 15.8333L23.5774 19L2.77393 22.1667L2.78779 33.25Z"
-                            fill="currentColor" />
+                <div class="film-text-header-right">
+                  <button id="favorite-btn" data-movie-id="">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M7.2 7.2L7.2 0H8.8L8.8 7.2L16 7.2V8.8L8.8 8.8L8.8 16H7.2L7.2 8.8L0 8.8V7.2L7.2 7.2Z"
+                        fill="white" />
                     </svg>
-                </button>
-            </div>
-            <br>
-
-            <!-- Şərhlər -->
-            <div class="comments-list">
-                <div class="comment-card">
-                    <img src="../../assests/images/serxan-mellim.jpg" alt="Sarkhan Rahimli" class="comment-avatar" />
-                    <div class="comment-body">
-                        <div class="comment-header">
-                            <span class="comment-author">Sarkhan Rahimli</span>
-                            <span class="comment-time">18:32 today</span>
-                        </div>
-                        <p class="comment-text">
-                            Woah, your project looks awesome! How long have you been coding for? I’m still new, but
-                            think I want to dive into React
-                            as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!
-                        </p>
-                    </div>
+                  </button>
                 </div>
-            </div>
-
-            <!-- ---------------------------- -->
-            <div class="category-section">
-                <div class="category-header">
-                    <p class="category-P">Action</p>
-                    <div class="chevron-icon"></div>
+              </div>
+              <p class="film-text">
+                The mission to save Scarecrow takes an unexpected turn,
+                throwing the Resolute into chaos. Judy hatches a plan to get a
+                ship to Alpha Centauri.
+              </p>
+              <p class="film-score">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M9.15327 2.34001L10.3266 4.68668C10.4866 5.01334 10.9133 5.32668 11.2733 5.38668L13.3999 5.74001C14.7599 5.96668 15.0799 6.95334 14.0999 7.92668L12.4466 9.58001C12.1666 9.86001 12.0133 10.4 12.0999 10.7867L12.5733 12.8333C12.9466 14.4533 12.0866 15.08 10.6533 14.2333L8.65994 13.0533C8.29994 12.84 7.70661 12.84 7.33994 13.0533L5.34661 14.2333C3.91994 15.08 3.05327 14.4467 3.42661 12.8333L3.89994 10.7867C3.98661 10.4 3.83327 9.86001 3.55327 9.58001L1.89994 7.92668C0.926606 6.95334 1.23994 5.96668 2.59994 5.74001L4.72661 5.38668C5.07994 5.32668 5.50661 5.01334 5.66661 4.68668L6.83994 2.34001C7.47994 1.06668 8.51994 1.06668 9.15327 2.34001Z"
+                    stroke="#FFAD49" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span>8.1</span>
+              </p>
+              <div class="film-overview">
+                <div class="type">
+                  <span>Type</span>
+                  <p>TV Show</p>
                 </div>
-
-                <div class="category-card">
-                    <!-- Film Kartı 1 -->
-                    <div class="movie-card">
-                        <img src="../../assests/images/favorites-wondewoman.svg" alt="Movie Poster"
-                            class="movie-image" />
-                        <div class="movie-details">
-                            <span class="movie-category">Fantasy</span>
-                            <h2 class="movie-title">Wonder Woman 1984</h2>
-                            <div class="rating">
-                                <span class="star filled">★</span>
-                                <span class="star half">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Film Kartı 2 -->
-                    <div class="movie-card">
-                        <img src="../../assests/images/Zack Snyder's Justice League.jpg" alt="Movie Poster"
-                            class="movie-image" />
-                        <div class="movie-details">
-                            <span class="movie-category">Fantasy</span>
-                            <h2 class="movie-title">Zack Snyder's Justice League</h2>
-                            <div class="rating">
-                                <span class="star filled">★</span>
-                                <span class="star filled">★</span>
-                                <span class="star filled">★</span>
-                                <span class="star half">★</span>
-                                <span class="star">★</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Film Kartı 3 -->
-                    <div class="movie-card">
-                        <img src="../../assests/images/mortal-kombat.jpg" alt="Movie Poster" class="movie-image" />
-                        <div class="movie-details">
-                            <span class="movie-category">Fantasy</span>
-                            <h2 class="movie-title">Mortal Kombat</h2>
-                            <div class="rating">
-                                <span class="star filled">★</span>
-                                <span class="star filled">★</span>
-                                <span class="star filled">★</span>
-                                <span class="star filled">★</span>
-                                <span class="star">★</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Film Kartı 3 -->
-                    <div class="movie-card">
-                        <img src="../../assests/images/the counter.jpg" alt="Movie Poster" class="movie-image" />
-                        <div class="movie-details">
-                            <span class="movie-category">Drama</span>
-                            <h2 class="movie-title">The Courier</h2>
-                            <div class="rating">
-                                <span class="star filled">★</span>
-                                <span class="star filled">★</span>
-                                <span class="star filled">★</span>
-                                <span class="star half">★</span>
-                                <span class="star">★</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Film Kartı 3 -->
-                    <div class="movie-card">
-                        <img src="../../assests/images/Thunder Force.jpg" alt="Movie Poster" class="movie-image" />
-                        <div class="movie-details">
-                            <span class="movie-category">Action</span>
-                            <h2 class="movie-title">Thunder Force</h2>
-                            <div class="rating">
-                                <span class="star filled">★</span>
-                                <span class="star half">★</span>
-                                <span class="star ">★</span>
-                                <span class="star ">★</span>
-                                <span class="star">★</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="status">
+                  <span>Status</span>
+                  <p>Returning Series</p>
                 </div>
+                <div class="episodes">
+                  <span>No. of season</span>
+                  <p>1</p>
+                </div>
+                <div class="first-date">
+                  <span>Date added</span>
+                  <p>2018-04-13</p>
+                </div>
+                <div class="last-date">
+                  <span>Added time</span>
+                  <p>2019-04-24</p>
+                </div>
+                <div class="run-time">
+                  <span>Episode run time</span>
+                  <p>56 min</p>
+                </div>
+                <div class="genres">
+                  <span>Genres</span>
+                  <p>Action & Adventure, Sci-Fi & Fantasy, Drama</p>
+                </div>
+              </div>
             </div>
+            <div class="film-actors">
+              <span class="actors-head">Top cast</span>
+              <div class="actors-slider">
+                <div class="actor-slides">
+                  <div class="actor">
+                    <img src="../../assests/images/detail/actor-defolt.jpg" alt="maxwell jenkins" />
+                    <span class="actor-name">maxwell jenkins tony slack</span>
+                  </div>
+                  <div class="actor">
+                    <img src="../../assests/images/detail/actor-defolt.jpg" alt="maxwell jenkins" />
+                    <span class="actor-name">maxwell jenkins tony slack</span>
+                  </div>
+                  <div class="actor">
+                    <img src="../../assests/images/detail/actor-defolt.jpg" alt="maxwell jenkins" />
+                    <span class="actor-name">maxwell jenkins tony slack</span>
+                  </div>
+                  <div class="actor">
+                    <img src="../../assests/images/detail/actor-defolt.jpg" alt="maxwell jenkins" />
+                    <span class="actor-name">maxwell jenkins tony slack</span>
+                  </div>
+                  <div class="actor">
+                    <img src="../../assests/images/detail/actor-defolt.jpg" alt="maxwell jenkins" />
+                    <span class="actor-name">maxwell jenkins tony slack</span>
+                  </div>
+                  <div class="actor">
+                    <img src="../../assests/images/detail/actor-defolt.jpg" alt="maxwell jenkins" />
+                    <span class="actor-name">maxwell jenkins tony slack</span>
+                  </div>
+                  <div class="actor">
+                    <img src="../../assests/images/detail/actor-defolt.jpg" alt="maxwell jenkins" />
+                    <span class="actor-name">maxwell jenkins tony slack</span>
+                  </div>
+                  <div class="actor">
+                    <img src="../../assests/images/detail/actor-defolt.jpg" alt="maxwell jenkins" />
+                    <span class="actor-name">maxwell jenkins tony slack</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="comments">
+        <form action="">
+          <div class="form-comment">
+            <div class="user-comment-photo">
+              <img src="../../assests/images/user-image.png" alt="" />
+            </div>
+            <textarea class="auto-break" type="text" rows="1" placeholder="your comment...."
+              maxlength="3000"></textarea>
+          </div>
+          <button id="button-submit">
+            <svg width="35" height="38" viewBox="0 0 35 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="">
+                <path
+                  d="M3.61153 33.25L32.7428 19L3.61153 4.75L3.59766 15.8333L24.4156 19L3.59766 22.1667L3.61153 33.25Z"
+                  fill="#F2F2F2" />
+              </g>
+              <defs>
+                <clipPath id="clip0_109_2993">
+                  <path
+                    d="M0.821777 5C0.821777 2.23858 3.06035 0 5.82178 0H29.1305C31.8919 0 34.1305 2.23858 34.1305 5V33C34.1305 35.7614 31.8919 38 29.1305 38H5.82178C3.06036 38 0.821777 35.7614 0.821777 33V5Z"
+                    fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </button>
+
+        </form>
+        <p class="alert-comment">The maximum can be 3000 characters!</p>
+        <div class="film-comments">
+          <div class="comment">
+            <div class="user-info">
+              <div class="user">
+                <img src="../../assests/images/user-image.png" />
+                <span>User Name</span>
+              </div>
+              <p>HH:SS DAY</p>
+            </div>
+            <p>
+            </p>
+          </div>
         </div>
 
-        <footer class="site-footer">
-            <a class="footer-brand" href="../../../../index.html" aria-label="filmAlisa home">
-                <img src="../../assests/icons/user-home/logo-user.svg" alt="filmAlisa" />
-            </a>
-            <p>Copyright © 2026 Filmalisa.com</p>
-        </footer>
+        <div class="film-comments">
+          <!-- -------- -->
+        </div>
+
+        <div class="load-more" style="display: none">
+          <button class="load-more-btn">Load more</button>
+        </div>
+      </section>
+      <section id="smilar-movies">
+        <div class="smilar-head">
+          <a href="#" class="smilar-link">
+            Thriller
+            <svg width="35" height="35" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M18.4575 15.9386L12.7272 10.2083L13.7286 9.20687L20.9906 16.4689L13.7286 23.731L12.7272 22.7295L18.4575 16.9992L18.9878 16.4689L18.4575 15.9386Z"
+                fill="#0FEFFD" stroke="white" stroke-width="1.5" />
+            </svg>
+          </a>
+        </div>
+        <div class="movies-slider">
+          <div class="movies-slides">
+
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="film-overlay"></div>
+    <!-- ......  -->
+    <div class="film-modal">
+      <div class="film-modal-overlay"></div>
+      <iframe src="https://www.youtube.com/embed/WegqhgGdTYA?si=TWL-xHK9P2FXTdfG" title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" style="width: 100%; height: 100%"
+        class="iframe-fragman"></iframe>
+      <div class="film-modal-info">
+        <span class="film-modal-name">Lose in space</span>
+        <button class="film-modal-start"
+          onclick="window.open('https://www.youtube.com/watch?v=fzmM0AB60QQ', '_blank', 'noopener,noreferrer')">
+          <svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M19.4951 11.0876C20.1603 11.4831 20.1436 12.4519 19.465 12.824L1.48089 22.6878C0.81446 23.0533 6.94647e-07 22.5711 6.71762e-07 21.811L5.29227e-08 1.2577C2.95747e-08 0.482254 0.844358 0.00187677 1.51094 0.398088L19.4951 11.0876Z"
+              fill="black" />
+          </svg>
+          Play
+        </button>
+      </div>
     </div>
 
+    <!-- ......  -->
+
+    <div class="modal-remove" id="modal-remove" style="display: none">
+      <div class="modal-content-2">
+        <div class="comment-wrapper2">
+          <p id="modalComment-2">
+            Are you sure you want to remove this comment?
+          </p>
+        </div>
+        <div class="modal-buttons">
+          <button id="yes-btn" class="modal-btn">Yes</button>
+          <button id="no-btn" class="modal-btn" onclick="closeRemoveModal()">
+            No
+          </button>
+        </div>
+      </div>
     </div>
-    <script src="../../Scripts/Client/loader.js"></script>
-    <script src="./detail.js"></script>
 
+    <div class="popup" id="popup">
+      <p id="pop-p"></p>
+      <button class="close-btn" onclick="closePopup()">Close</button>
+    </div>
+  </main>
 
+  <script src="detail.js"></script>
 </body>
 
 </html>

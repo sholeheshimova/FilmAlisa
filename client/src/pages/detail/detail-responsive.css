@@ -1,34 +1,304 @@
-/* Responsive styles for the detail page */
+@media only screen and (max-width:1200px) {
 
-@media only screen and (max-width: 1200px) {
-    .movie-detail-section {
-        padding-left: 80px;
-        padding-right: 28px;
+    /* ? Navbar */
+    .left {
+        width: 54px;
     }
 
-    .detail-two-columns {
-        gap: 28px;
+    .logo-div {
+        margin-bottom: 60px;
     }
 
-    .left-side {
-        width: min(36vw, 360px);
+    .icon {
+        margin-bottom: 60px;
     }
 
-    .metadata-grid {
-        gap: 28px;
+ 
+
+    /* ? Navbar */
+
+
+    #film-bg-image .user-profile-photo {
+        width: 35px;
+    }
+
+    #film-bg-image .user-profile-photo img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    #film-bg-image .film-bg {
+        width: 100%;
+        height: 500px;
+    }
+
+    .film-name {
+        top: -70px;
+        left: 20px;
+        width: 50%;
+    }
+
+    .film-name p {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .film-name h1 {
+        font-size: 28px;
+    }
+
+    .film-information {
+        gap: 50px;
+        padding-block: 70px;
+    }
+
+    .film-information .film-image img {
+        width: 400px;
+    }
+
+    /* ? MODAL */
+
+    .film-modal {
+        width: 650px;
+        height: 400px;
+    }
+
+    .film-modal-info {
+        bottom: 20px;
+        left: 50px;
+        gap: 18px;
+    }
+
+    .film-modal-name {
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    .film-modal-start {
+        width: 119px;
+        padding: 6px 20px;
+        gap: 8px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .film-modal img {
+        width: 650px;
+        height: 400px;
+    }
+
+    /* ? MODAL */
+
+
+    .film-text-header-left {
+        gap: 15px;
+    }
+
+    .film-text-header-left p {
+        font-size: 18px;
+        letter-spacing: 1.1px;
+        line-height: 25px;
+    }
+
+    .film-text-header-left a {
+        color: #ffad49;
+        font-size: 13px;
+        line-height: 20px;
+    }
+
+    .film-text-header-right button {
+        font-size: 12px;
+        padding: 4px 10px;
+    }
+
+    .film-text {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 26px;
+        padding-block: 20px;
+    }
+
+    .film-score {
+        width: 55px;
+        height: 28px;
+    }
+
+    .film-overview {
+        gap: 20px;
+        padding-block: 18px;
+    }
+
+    .film-overview span {
+        color: #767e94;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+    }
+
+    .film-overview p {
+        font-size: 18px;
+        line-height: 27px;
+    }
+
+    /* ! ACTOR */
+    .actors-head {
+        font-size: 24px;
+        line-height: 20px;
+    }
+
+    .actors-slider {
+        max-width: 700px;
+        height: 220px;
+    }
+
+    .actor-slides {
+        padding-block: 20px;
+        gap: 20px;
+    }
+
+    .actor {
+        width: 110px;
+    }
+
+    .actor img {
+        width: 110px;
+    }
+
+    .actor-name {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    /* ! ACTOR */
+
+    /* ! COMMENTS */
+    #comments form {
+        display: flex;
+        gap: 18px;
+        padding-block: 18px;
+    }
+
+    .form-comment {
+        gap: 13px;
+        width: 70%;
+    }
+
+    .auto-break {
+        width: 90%;
+        line-height: 1.2;
+    }
+
+    .auto-break::placeholder {
+        font-size: 12px;
+        line-height: 12px;
+    }
+
+    .user-comment-photo {
+        margin-block: 10px;
+    }
+
+    .user-comment-photo img {
+        width: 30px;
+    }
+
+    #comments form button {
+        padding: 6px 10px;
+    }
+
+    .film-comments {
+        gap: 5px;
+        padding-block: 30px;
+    }
+
+    .comment {
+        padding: 20px 10px;
+        width: 80%;
+    }
+
+    .alert-comment {
+        width: 200px;
+        padding: 8px 17px;
+    }
+
+    .user-info {
+        padding-bottom: 13px;
+    }
+
+    .user img {
+        width: 27px;
+    }
+
+    .user-info p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    /*? Smilar Movies  */
+    .smilar-head {
+        padding-block: 40px;
+    }
+
+    .smilar-link {
+        font-size: 28px;
+        line-height: 20px;
+    }
+
+    .smilar-link svg {
+        width: 28px;
+    }
+
+    .movie img {
+        width: 400px;
+    }
+
+    .movie-desc {
+        z-index: 3;
+        bottom: 30px;
+        left: 20px;
+    }
+
+    .smilar-category {
+        padding: 4px 8px;
+        color: #0feffd;
+    }
+
+    .stars {
+        padding-block: 14px;
+    }
+
+    .stars svg {
+        width: 14px;
+    }
+
+    .smilar-movie-name {
+        font-size: 28px;
+        line-height: 30px;
+    }
+
+    /*? Smilar Movies  */
+
+    .film-actors .actors-slider .actor-slides .actor img {
+        width: 120px;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width:768px) {
+
+    /* ? Navbar */
     .left {
         position: fixed;
         bottom: 0;
         left: 0;
+        height: 45px;
         width: 100%;
         height: auto;
-        padding: 10px 0;
         flex-direction: row;
         justify-content: space-around;
+        padding: 10px 0;
         background: #1d1d1d;
     }
 
@@ -39,6 +309,7 @@
     .sidebar {
         width: 100%;
         height: auto;
+        display: flex;
         flex-direction: row;
         justify-content: space-around;
         padding: 0;
@@ -48,106 +319,291 @@
         margin-bottom: 0;
     }
 
-    .icon img {
-        width: 25px;
-        height: 25px;
+
+    /* ? Navbar */
+
+    #film-bg-image .user-profile-photo {
+        width: 20px;
     }
 
-    .right {
-        padding-bottom: 78px;
+    .container {
+        padding-left: 10px;
     }
 
-    .carousel-container {
-        height: 360px;
+    #film-bg-image .film-bg {
+        height: 300px;
     }
 
-    .movie-detail-section {
-        padding: 28px 16px 0;
-        margin-top: -80px;
+    .film-name {
+        top: -40px;
+        left: 10px;
+        width: 40%;
+        padding: 15px;
     }
 
-    .overlay-text {
-        width: auto;
-        max-width: none;
-        padding: 14px 16px 16px;
-        margin-bottom: 20px;
+    .film-name p {
+        font-size: 12px;
+        line-height: 14px;
     }
 
-    .overlay-text .title {
-        font-size: 30px;
-    }
-
-    .detail-two-columns {
-        flex-direction: column;
-        gap: 28px;
-    }
-
-    .left-side {
-        width: min(100%, 320px);
-        align-self: center;
-    }
-
-    .tagline {
-        font-size: 23px;
-    }
-
-    .title-with-actions {
-        gap: 10px;
-    }
-
-    .overview {
+    .film-name h1 {
         font-size: 14px;
+
     }
 
-    .metadata-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 20px 16px;
-    }
-
-    .genres-wrapper {
-        margin-bottom: 24px;
-    }
-
-    .comment-input-wrapper,
-    .comment-card {
-        margin-left: 16px;
-        margin-right: 16px;
-    }
-
-    .comment-input-wrapper {
-        margin-top: 48px;
-        padding: 12px 10px;
-    }
-
-    .comment-card {
-        margin-top: 0;
-    }
-
-    .comment-header {
-        align-items: flex-start;
+    .film-information {
         flex-direction: column;
-        gap: 4px;
+        align-items: center;
+        gap: 20px;
+        padding-block: 30px;
     }
-}
-
-@media only screen and (max-width: 420px) {
-    .movie-detail-section {
-        padding-left: 12px;
-        padding-right: 12px;
+    .film-information .film-image{
+        height: 400px;
     }
-
-    .overlay-text .title {
-        font-size: 26px;
-    }
-
-    .metadata-grid {
-        grid-template-columns: 1fr;
+    .film-information .film-image img {
+        object-fit: cover;
+        width: 90%;
+        height: 400px;
     }
 
-    .comment-input-wrapper,
-    .comment-card {
-        margin-left: 12px;
-        margin-right: 12px;
+    .film-information .film-image .overlay {
+        width: 90%;
     }
+
+    /* ? MODAL */
+
+    .film-modal {
+        width: 300px;
+        height: 200px;
+    }
+
+    .film-modal-info {
+        bottom: 10px;
+        left: 10px;
+        gap: 5px;
+    }
+
+    .film-modal-name {
+        font-size: 14px;
+        line-height: 14px;
+    }
+
+    .film-modal-start {
+        width: 80px;
+        padding: 4px 10px;
+        gap: 8px;
+        font-size: 10px;
+        line-height: 14px;
+    }
+
+    .film-modal img {
+        width: 300px;
+        height: 200px;
+    }
+
+    /* ? MODAL */
+
+
+    .film-text-header-left {
+        gap: 3px;
+    }
+
+    .film-text-header-left p {
+        font-size: 12px;
+        letter-spacing: 1px;
+        line-height: 14px;
+    }
+
+    .film-text-header-left a {
+        color: #ffad49;
+        font-size: 10px;
+        line-height: 10px;
+    }
+
+    .film-text-header-right button {
+        font-size: 10px;
+        padding: 2px 6px;
+    }
+
+    .film-text {
+        font-size: 14px;
+        line-height: 16px;
+        padding-block: 14px;
+    }
+
+    .film-score {
+        width: 55px;
+        height: 28px;
+    }
+
+    .film-overview {
+        gap: 20px;
+        padding-block: 18px;
+    }
+
+    .film-overview span {
+        color: #767e94;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+    }
+
+    .film-overview p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    /*  ACTOR */
+    .actors-head {
+        font-size: 18px;
+        line-height: 16px;
+    }
+
+    .actors-slider {
+        max-width: 700px;
+        height: 220px;
+    }
+
+    .actor-slides {
+        padding-block: 20px;
+        gap: 20px;
+    }
+
+    .actor {
+        width: 110px;
+    }
+
+    .actor img {
+        width: 110px;
+    }
+
+    .actor-name {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    /*  ACTOR */
+
+    /*  COMMENTS */
+    #comments form {
+        display: flex;
+        gap: 14px;
+        padding-block: 12px;
+    }
+
+    .form-comment {
+        gap: 13px;
+        width: 70%;
+    }
+
+    .auto-break {
+        width: 90%;
+        line-height: 1.2;
+    }
+
+    .auto-break::placeholder {
+        font-size: 12px;
+        line-height: 12px;
+    }
+
+    .user-comment-photo {
+        margin-block: 10px;
+    }
+
+    .user-comment-photo img {
+        width: 20px;
+    }
+
+    #comments form button {
+        padding: 6px 10px;
+    }
+
+    .film-comments {
+        gap: 5px;
+        padding-block: 20px;
+    }
+    .comment p{
+        font-size: 12px;
+    }
+    .user-info .user span{
+        font-size: 12px;
+    }
+    .comment {
+        padding: 10px 6px;
+        width: 80%;
+    }
+
+    .alert-comment {
+        width: 200px;
+        padding: 8px 17px;
+    }
+
+    .user-info {
+        padding-bottom: 13px;
+    }
+
+    .user img {
+        width: 23px;
+    }
+
+    .user-info p {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    /*? Smilar Movies  */
+    .smilar-head {
+        padding-block: 20px;
+    }
+
+    .smilar-link {
+        font-size: 14px;
+        line-height: 10px;
+    }
+
+    .smilar-link svg {
+        width: 20px;
+    }
+
+    .movie img {
+        width: 200px;
+    }
+    .movies-slider{
+        padding-bottom: 50px;
+        height: 450px;
+    }
+    .movie-desc {
+        z-index: 3;
+        bottom: 20px;
+        left: 10px;
+    }
+
+    .smilar-category {
+        padding: 3px 8px;
+        color: #0feffd;
+    }
+
+    .stars {
+        padding-block: 14px;
+    }
+
+    .stars svg {
+        width: 14px;
+    }
+
+    .smilar-movie-name {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    /* Smilar Movies  */
+
+    .film-actors .actors-slider .actor-slides .actor img {
+        width: 100px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
 }
