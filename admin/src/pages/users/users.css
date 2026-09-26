@@ -257,35 +257,46 @@
 }
 
 /* Section  */
+
 .page-content {
   padding: 24px 56px;
 }
+
 .users-table {
-  width: 401px;
+  width: 100%;
   border-collapse: collapse;
   overflow: hidden;
   border-radius: 8px;
   font-size: 14px;
   font-weight: 400;
 }
+
 .users-thead {
   background-color: var(--sidebar-bgc);
   color: var(--white-color);
   height: 48px;
 }
-.table-users-id {
-  width: 54px;
-}
+
 .users-tbody {
   background-color: var(--white-color);
 }
+
+.table-users-id,
 .table-users-name,
-.table-users-id {
+.table-users-email {
   text-align: left;
   padding: 16px 19px;
   border-top: 1px solid var(--sidebar-bgc);
 }
 
+.table-users-id {
+  width: 54px;
+}
+
 .table-users-name {
-  padding-left: 65px;
+  width: 30%;
+}
+
+.table-users-email {
+  width: 50%;
 }
