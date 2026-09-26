@@ -63,6 +63,16 @@ body {
   cursor: pointer;
 }
 
+
+.icon.active img {
+  filter: brightness(0) saturate(100%) invert(70%) sepia(70%) 
+          saturate(1000%) hue-rotate(140deg);
+}
+
+/* =========================
+   CONTENT
+========================= */
+
 .search-content {
   padding: 45px 55px 60px;
 }
