@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="../../styles/global.css" />
     <link rel="stylesheet" href="./movies.css" />
   </head>
@@ -123,22 +124,137 @@
                       src="../../assets/image/movie-poster.svg"
                       alt="Lost in space"
                     />
-                    Lost in space
+                    <span>lost in space</span>
                   </div>
                 </td>
                 <td>Lorem ipsum test...</td>
                 <td>Action</td>
                 <td>7.6</td>
-                <td>
-                  <button><i class="fa-solid fa-pen-to-square"></i></button>
-                  <button><i class="fa-solid fa-trash"></i></button>
+                <td class="table-actions">
+                  <button
+                      type="button"
+                      class="action-btn edit-btn"
+                      title="Edit"
+                    >
+                      <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+                  <button
+                      type="button"
+                      class="action-btn delete-btn"
+                      title="Delete"
+                    >
+                      <i class="fa-solid fa-trash"></i>
+                    </button>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
       </section>
-    </main>
+
+
+      <div class="delete-modal">
+      <div class="delete-modal-content">
+        <h3>Delete Comment</h3>
+
+        <p>Are you sure you want to delete this comment?</p>
+
+        <div class="delete-modal-actions">
+          <button type="button" class="cancel-btn">Cancel</button>
+
+          <button type="button" class="confirm-delete-btn">OK</button>
+        </div>
+      </div>
+    </div>
+
+
+        <!-- Edit Modal -->
+<!-- <div class="edit-modal">
+  <div class="edit-modal-content">
+    <h3>Edit Comment</h3>
+
+    <label for="edit-comment">Comment</label>
+
+    <textarea
+      id="edit-comment"
+      placeholder="Enter comment..."
+    >Comments...</textarea>
+
+    <div class="edit-modal-actions">
+      <button type="button" class="cancel-edit-btn">Cancel</button>
+
+      <button type="button" class="save-edit-btn">Save Changes</button>
+    </div>
+  </div>
+</div> -->
+     
+
+<div class="edit-modal" id="editMovieModal">
+  <div class="edit-modal-content">
+
+    <div class="edit-modal-form">
+      <h3>Edit Movie</h3>
+
+      <label for="edit-title">Title</label>
+      <input type="text" id="edit-title" placeholder="Film adı">
+
+      <label for="edit-description">Description</label>
+      <textarea id="edit-description" placeholder="Təsvir yaz..."></textarea>
+
+      <label for="edit-image">Image URL</label>
+      <input type="text" id="edit-image" placeholder="Şəkil linki">
+
+      <label for="edit-video">Video URL</label>
+      <input type="text" id="edit-video" placeholder="Video linki">
+
+      <label for="edit-download">Download URL</label>
+      <input type="text" id="edit-download" placeholder="Yükləmə linki">
+
+      <div class="edit-modal-row">
+        <div class="edit-modal-col">
+          <label for="edit-rating">Rating</label>
+          <input type="text" id="edit-rating" placeholder="6.0">
+        </div>
+        <div class="edit-modal-col">
+          <label for="edit-duration">Duration</label>
+          <input type="text" id="edit-duration" placeholder="99">
+        </div>
+      </div>
+
+      <label for="edit-actors">Actors</label>
+      <select id="edit-actors">
+        <option>Jack Black, Paul Rudd</option>
+        <option>Leonardo DiCaprio</option>
+        <option>Tom Hardy</option>
+      </select>
+
+      <label for="edit-genre">Genre</label>
+      <select id="edit-genre">
+        <option>Comedy</option>
+        <option>Action</option>
+        <option>Sci-Fi & Fantasy</option>
+        <option>Drama</option>
+      </select>
+
+      <div class="edit-modal-footer">
+        <label class="edit-adult-label">
+          <input type="checkbox" id="edit-adult"> Adult
+        </label>
+
+        <div class="edit-modal-actions">
+          <button type="button" class="save-edit-btn" id="saveEditBtn">Edit</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="edit-modal-preview">
+      <img src="../../assets/image/movie-poster.svg" alt="Movie Poster" id="editPreviewImg">
+    </div>
+
+  </div>
+</div>
+
+</main>
 
     <!-- modaldı js aktiv olduğdan soram qoşulacaq  -->
 

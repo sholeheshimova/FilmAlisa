@@ -74,24 +74,14 @@ html {
 }
 
 
+.icon.active img {
+  filter: brightness(0) saturate(100%) invert(70%) sepia(70%) 
+          saturate(1000%) hue-rotate(140deg);
+}
+
 
 /* favorites */
 .favorites {
-  /* width: calc(100% - 90px);
-
-  margin-left: 90px; */
-
-  /* padding: 80px 0; */
-
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  min-height: 100vh; */
-
-
-
     width: calc(100% - 56px);
     margin-left: 56px;
 
