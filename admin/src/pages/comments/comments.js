@@ -1,3 +1,5 @@
+import "../../helpers/authGuard.js";
+import "../../helpers/logout.js";
 import { getComments, deleteComment } from "../../api/comments.js";
 
 const tbody = document.querySelector(".movies-table tbody");

@@ -1,3 +1,6 @@
+import "../../helpers/authGuard.js";
+import "../../helpers/logout.js";
+
 const deleteModal = document.querySelector(".delete-modal");
 
 const deleteButtons = document.querySelectorAll(".delete");
