@@ -1,78 +1,146 @@
+
+import {
+  createCategory,
+  deleteCategory,
+  fetchCategories,
+  updateCategory,
+} from "../../api/categories.js";
+
+const createDialog = document.querySelector("#example-dialog");
+const createForm = document.querySelector("#contact-form");
+const createNameInput = document.querySelector("#modal-name");
+const createSubmitBtn = document.querySelector("#submit-dialog");
 const deleteModal = document.querySelector(".delete-modal");
-
-const deleteButtons = document.querySelectorAll(".delete");
-
 const cancelDeleteBtn = document.querySelector(".cancel-btn");
-
 const confirmDeleteBtn = document.querySelector(".confirm-delete-btn");
+const editModal = document.querySelector(".edit-modal");
+const editCategoryInput = document.querySelector("#edit-category");
+const editCancelBtn = document.querySelector(".edit-cancel-btn");
+const editSubmitBtn = document.querySelector(".edit-submit-btn");
 
+const tbody = document.querySelector(".tbody");
+let selectedCategoryId = null;
+
+async function loadCategories() {
+  try {
+    const categories = await fetchCategories();
+    tbody.innerHTML = "";
+
+    categories.forEach((category) => {
+      const row = document.createElement("tr");
+      row.classList.add("row");
+      row.dataset.id = category.id;
+
+      const idCell = document.createElement("td");
+      idCell.classList.add("cell");
+      idCell.textContent = category.id;
+
+      const nameCell = document.createElement("td");
+      nameCell.classList.add("cell", "row-name");
+      nameCell.textContent = category.name;
+
+      const actionsCell = document.createElement("td");
+      actionsCell.classList.add("cell", "actions");
+      actionsCell.innerHTML = `
+        <button type="button" class="edit" aria-label="Edit category">
+        <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+        <button type="button" class="delete" aria-label="Delete category">
+        <i class="fa-solid fa-trash"></i>
+        </button>
+      `;
+
+      row.append(idCell, nameCell, actionsCell);
+      tbody.appendChild(row);
+    });
+  } catch (error) {
+    console.error("Error loading categories:", error);
+    tbody.innerHTML = '<tr><td class="cell" colspan="3">Could not load categories.</td></tr>';
+  }
+}
+
+loadCategories();
+
+tbody.addEventListener("click", (event) => {
+  const button = event.target.closest("button");
+  if (!button) return;
+
+  if (button.classList.contains("delete")) {
+    selectedCategoryId = button.closest("tr").dataset.id;
+    deleteModal.style.display = "flex";
+  }
+
+  if (button.classList.contains("edit")) {
+    const row = button.closest("tr");
+    selectedCategoryId = row.dataset.id;
+    editCategoryInput.value = row.querySelector(".row-name").textContent;
+    editModal.style.display = "flex";
+  }
+});
+
+createForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const name = createNameInput.value.trim();
+  if (!name) return;
+
+  createSubmitBtn.disabled = true;
+  try {
+    await createCategory(name);
+    createForm.reset();
+    createDialog.close();
+    await loadCategories();
+  } catch (error) {
+    alert(error.message);
+  } finally {
+    createSubmitBtn.disabled = false;
+  }
+});
 
 // =========================
 // DELETE MODAL
 // =========================
 
-deleteButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    deleteModal.style.display = "flex";
-  });
-});
-
-
 cancelDeleteBtn.addEventListener("click", () => {
   deleteModal.style.display = "none";
 });
 
-
 confirmDeleteBtn.addEventListener("click", () => {
-  deleteModal.style.display = "none";
+  if (!selectedCategoryId) return;
 
-  // Backend gələndə burada DELETE request olacaq
+  confirmDeleteBtn.disabled = true;
+  deleteCategory(selectedCategoryId)
+    .then(async () => {
+      deleteModal.style.display = "none";
+      selectedCategoryId = null;
+      await loadCategories();
+    })
+    .catch((error) => alert(error.message))
+    .finally(() => {
+      confirmDeleteBtn.disabled = false;
+    });
 });
-
 
 // =========================
 // EDIT MODAL
 // =========================
-
-const editModal = document.querySelector(".edit-modal");
-
-const editButtons = document.querySelectorAll(".edit");
-
-const editCategoryInput = document.querySelector("#edit-category");
-
-const editCancelBtn = document.querySelector(".edit-cancel-btn");
-
-const editSubmitBtn = document.querySelector(".edit-submit-btn");
-
-
-editButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-
-    const row = button.closest("tr");
-
-    const categoryName = row.querySelector(".row-name").textContent;
-
-    editCategoryInput.value = categoryName;
-
-    editModal.style.display = "flex";
-  });
-});
-
-
 editCancelBtn.addEventListener("click", () => {
   editModal.style.display = "none";
+  selectedCategoryId = null;
 });
 
-
-editSubmitBtn.addEventListener("click", () => {
-
+editSubmitBtn.addEventListener("click", async () => {
   const newCategory = editCategoryInput.value.trim();
+  if (!newCategory || !selectedCategoryId) return;
 
-  if (!newCategory) {
-    return;
+  editSubmitBtn.disabled = true;
+  try {
+    await updateCategory(selectedCategoryId, newCategory);
+    editModal.style.display = "none";
+    selectedCategoryId = null;
+    await loadCategories();
+  } catch (error) {
+    alert(error.message);
+  } finally {
+    editSubmitBtn.disabled = false;
   }
-
-  editModal.style.display = "none";
-
-  // Backend gələndə burada PUT/PATCH request olacaq
 });
