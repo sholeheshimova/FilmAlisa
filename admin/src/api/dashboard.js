@@ -1,13 +1,13 @@
 import { baseUrl } from "./config.js";
 
-export async function getUsers() {
+export async function getDashboard() {
   const token = localStorage.getItem("accessToken");
 
   if (!token) {
-    throw new Error("Token tapılmadı. Yenidən admin login edin.");
+    throw new Error("Token tapılmadı.");
   }
 
-  const response = await fetch(`${baseUrl}/admin/users`, {
+  const response = await fetch(`${baseUrl}/admin/dashboard`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -16,7 +16,7 @@ export async function getUsers() {
   });
 
   if (!response.ok) {
-    throw new Error(`İstifadəçilər yüklənmədi (HTTP ${response.status}). Yenidən login edin.`);
+    throw new Error(`Dashboard yüklənmədi (HTTP ${response.status}).`);
   }
 
   const data = await response.json();
