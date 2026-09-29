@@ -1,4 +1,6 @@
 import { getUsers } from "../../api/users.js";
+import "../../helpers/authGuard.js";
+import "../../helpers/logout.js";
 
 const usersTbody = document.querySelector(".users-tbody");
 

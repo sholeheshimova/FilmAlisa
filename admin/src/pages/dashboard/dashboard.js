@@ -1,4 +1,6 @@
 import { getDashboard } from "../../api/dashboard.js";
+import "../../helpers/authGuard.js";
+import "../../helpers/logout.js";
 
 const favoritesCount = document.querySelector("#favoritesCount");
 const usersCount = document.querySelector("#usersCount");

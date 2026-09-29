@@ -1,7 +1,25 @@
+const userDiv = document.querySelector(".user-div");
+const userModal = document.querySelector("#user-modal");
+
+userDiv.addEventListener("click", () => {
+    userModal.classList.toggle("show");
+});
+
+const logoutBtn = document.querySelector("#logout-btn");
+
+logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("userId");
+
+    window.location.href = "./client/src/pages/login/login.html";
+});
+
 // sing in 
-function toggleAccordion(header) {
+window.toggleAccordion = function (header) {
     const content = header.nextElementSibling;
+
     const isOpen = content.classList.contains("open");
+
     if (isOpen) {
         content.classList.remove("open");
         header.querySelector("span").classList.remove("rotate");
@@ -9,4 +27,6 @@ function toggleAccordion(header) {
         content.classList.add("open");
         header.querySelector("span").classList.add("rotate");
     }
-}
+};
+
+
