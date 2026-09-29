@@ -151,7 +151,7 @@ input:focus {
     outline: none;
 }
 
-.started-btn {
+/* .started-btn {
     display: flex;
     align-items: center;
     gap: 16px;
@@ -165,8 +165,77 @@ input:focus {
     border-radius: 4px;
     border: none;
     color: #fff;
+} */
+.started-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background-color: var(--Btn-color);
+    font-family: var(--Font_Roboto);
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28.13px;
+    text-align: center;
+    padding: 14px 24px;
+    border-radius: 8px;
+
+    color: #fff;
+    text-decoration: none;
+    overflow: hidden;
+    z-index: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* lazer */
+.started-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(transparent,
+            rgba(255, 255, 255, 0.8),
+            #ffffff,
+            #00ffff,
+            transparent 40%);
+    animation: rotateBorder 2s linear infinite;
+    z-index: -2;
+}
+
+.started-btn::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+
+    background-color: var(--Btn-color);
+    border-radius: 5px;
+    z-index: -1;
+    transition: background-color 0.3s ease;
+}
+
+.started-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px var(--Btn-color);
+}
+
+.started-btn:active {
+    transform: scale(0.98);
+}
+
+@keyframes rotateBorder {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* //// */
 .enjoy-section {
     display: flex;
     justify-content: center;
