@@ -1,3 +1,5 @@
+import "../../helpers/authGuard.js";
+
 // MODAL event
 const filmPoster = document.querySelector('.film-image');
 const filmModal = document.querySelector('.film-modal');

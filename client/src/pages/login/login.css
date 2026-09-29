@@ -95,3 +95,45 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+
+
+@media (max-height: 1000px) {
+  body {
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .login-container {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 20px;
+  }
+
+  .logo {
+    width: 190px;
+    height: auto;
+  }
+
+  .login-title {
+    font-size: 55px;
+    line-height: 60px;
+    margin: 10px 0 25px;
+  }
+
+  .form-box {
+    gap: 12px;
+  }
+
+  .input-box {
+    width: 547px;
+    height: 58px;
+    box-sizing: border-box;
+  }
+
+  .login-button {
+    width: 547px;
+    height: 52px;
+    margin-top: 25px;
+  }
+}

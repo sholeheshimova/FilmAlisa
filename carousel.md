@@ -49,7 +49,7 @@ movieCard.addEventListener("pointermove", () => (isDrag = true));
 - istifadəçi kartı tutduqda sürükləmə vəziyyətini reset edir
 - hərəkət baş verəndə “drag” flag-ini true edir
 
-```js
+````js
 movieCard.addEventListener("click", () => {
   if (!isDrag) {
     window.location.href = "./detail-1/details-1.html";
@@ -64,7 +64,7 @@ showSlide(0);
 setInterval(() => {
   showSlide((currentSlide + 1) % dots.length);
 }, 5000);
-```
+````
 
 - ilk slayd açılır
 - hər 5 saniyədə avtomatik növbəti slayd göstərilir

@@ -1,3 +1,6 @@
+import "../../helpers/authGuard.js";
+import "../../helpers/logout.js";
+
 const viewMessageModal = document.querySelector("#viewMessageModal");
 const fullMessageText = document.querySelector("#fullMessageText");
 const closeViewModalBtn = document.querySelector("#closeViewModalBtn");
