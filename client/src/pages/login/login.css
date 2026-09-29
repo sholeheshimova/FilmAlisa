@@ -97,43 +97,52 @@ a {
 }
 
 
-
 @media (max-height: 1000px) {
+  html,
   body {
     margin: 0;
+    height: 100%;
     overflow: hidden;
   }
 
   .login-container {
-    min-height: 100vh;
+    height: 100vh;
+    min-height: 0;
     box-sizing: border-box;
-    padding: 20px;
+    padding: 10px 20px;
+    justify-content: center;
   }
 
   .logo {
-    width: 190px;
+    width: 150px;
     height: auto;
   }
 
   .login-title {
-    font-size: 55px;
-    line-height: 60px;
-    margin: 10px 0 25px;
+    font-size: 45px;
+    line-height: 50px;
+    margin: 5px 0 15px;
+  }
+
+  .login-desc {
+    font-size: 28px;
+    line-height: 35px;
+    margin-bottom: 20px;
   }
 
   .form-box {
-    gap: 12px;
+    gap: 10px;
   }
 
   .input-box {
     width: 547px;
-    height: 58px;
+    height: 52px;
     box-sizing: border-box;
   }
 
   .login-button {
     width: 547px;
-    height: 52px;
-    margin-top: 25px;
+    height: 50px;
+    margin-top: 20px;
   }
 }
