@@ -2,7 +2,9 @@ import { baseUrl } from "./config.js";
 
 export async function request(path, options = {}) {
   const token =
-    localStorage.getItem("token") || localStorage.getItem("adminToken");
+  localStorage.getItem("accessToken") ||
+  localStorage.getItem("token") ||
+  localStorage.getItem("adminToken");
 
   const headers = {
     "Content-Type": "application/json",
