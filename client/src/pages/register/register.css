@@ -1,15 +1,25 @@
 @import url(../../styles/global.css);
 
 body {
-  background-color: var(--sidebar-bgc);
+  /* background-color: var(--sidebar-bgc); */
+    background-color: var(--sidebar-bgc);
+  margin: 0;
+  overflow: hidden;
 }
 
 .login-container {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 100vh; */
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  min-height: 0;
+  box-sizing: border-box;
 }
 
 .logo {
@@ -95,4 +105,54 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+
+
+@media (max-height: 1000px) {
+  body {
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .login-container {
+    height: 100vh;
+    min-height: 0;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    justify-content: center;
+  }
+
+  .logo {
+    width: 150px;
+    height: auto;
+  }
+
+  .login-title {
+    font-size: 45px;
+    line-height: 50px;
+    margin: 5px 0 15px;
+  }
+
+  .login-desc {
+    font-size: 28px;
+    line-height: 35px;
+    margin-bottom: 20px;
+  }
+
+  .form-box {
+    gap: 10px;
+  }
+
+  .input-box {
+    width: 547px;
+    height: 52px;
+    box-sizing: border-box;
+  }
+
+  .login-button {
+    width: 547px;
+    height: 50px;
+    margin-top: 20px;
+  }
 }

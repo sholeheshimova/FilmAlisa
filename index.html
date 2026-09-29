@@ -33,7 +33,7 @@
                                 Settings
                                 <img src="./client/src/assests/images/settings.png" alt="" />
                             </li>
-                            <li>
+                            <li id="logout-btn">
                                 Logout
                                 <img src="./client/src/assests/images/logout.png" alt="" />
                             </li>
@@ -112,11 +112,12 @@
         <section class="contact_us-section">
             <h6>Contact us</h6>
             <form id="contactForm" class="contact_us-input">
-                <input type="text" id="fullname" placeholder="Fullname" />
-                <input type="email" id="email" placeholder="Email address" />
-                <textarea id="reason" placeholder="Reason" maxlength="200"></textarea>
+                <input type="text" id="fullname" name="fullname" placeholder="Fullname" required />
+                <input type="email" id="email" name="email" placeholder="Email address" required />
+                <textarea id="reason" name="reason" placeholder="Reason" maxlength="200" required></textarea>
                 <button type="submit" class="send-btn">Send</button>
             </form>
+            <p id="contact-status" role="status" aria-live="polite"></p>
         </section>
 
         <div class="popup" id="popup">
@@ -222,7 +223,7 @@
         </nav>
     </footer>
 
-    <script src="./client/src/pages/landing/landing.js">
+    <script type="module" src="./client/src/pages/landing/landing.js">
 
     </script>
 </body>

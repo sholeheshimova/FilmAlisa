@@ -70,14 +70,14 @@
       </nav>
 
       <!-- Logout -->
-      <div class="sidebar-bottom">
-        <a href="../../../index.html" class="logout">
-          <span class="logout-icon"
-            ><img src="../../assets/icons/logaut.svg" alt=""
-          /></span>
-          <span>Logout</span>
-        </a>
-      </div>
+       <div class="sidebar-bottom">
+      <a href="#" class="logout" id="logout-btn">
+        <span class="logout-icon">
+          <img src="../../assets/icons/logaut.svg" alt="Logout" />
+        </span>
+        <span>Logout</span>
+      </a>
+    </div>
     </aside>
 
     <!-- Page Header-->
@@ -103,42 +103,42 @@
         <div class="dashboard-container">
           <div class="card card-active">
             <p class="card-title">Favorite actions</p>
-            <h2 id="card-desc" class="card-desc">121</h2>
+            <h2 id="favoritesCount" class="card-desc"></h2>
           </div>
 
           <div class="card">
             <p class="card-title">Users</p>
-            <h2 id="card-desc" class="card-desc">10</h2>
+            <h2 id="usersCount" class="card-desc"></h2>
           </div>
 
           <div class="card">
             <p class="card-title">Movies</p>
-            <h2 id="card-desc" class="card-desc">40</h2>
+            <h2 id="moviesCount" class="card-desc"></h2>
           </div>
 
           <div class="card">
             <p class="card-title">Comments</p>
-            <h2 id="card-desc" class="card-desc">45</h2>
+            <h2 id="commentsCount" class="card-desc"></h2>
           </div>
 
           <div class="card card-active">
             <p class="card-title">Categories</p>
-            <h2 id="card-desc" class="card-desc">12</h2>
+            <h2 id="categoriesCount" class="card-desc"></h2>
           </div>
 
           <div class="card">
             <p class="card-title">Actors</p>
-            <h2 id="card-desc" class="card-desc">20</h2>
+            <h2 id="actorsCount" class="card-desc"></h2>
           </div>
 
           <div class="card">
             <p class="card-title">Contacts</p>
-            <h2 id="card-desc" class="card-desc">20</h2>
+            <h2 id="contactsCount" class="card-desc"></h2>
           </div>
         </div>
       </section>
     </main>
 
-    <script src="./dashboard.js"></script>
+    <script type="module" src="./dashboard.js"></script>
   </body>
 </html>
