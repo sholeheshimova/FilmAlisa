@@ -1,3 +1,5 @@
+import "../../helpers/authGuard.js"
+
 const carousel = document.querySelector(".carousel");
 const dots = document.querySelectorAll(".dot");
 let currentSlide = 0;

@@ -1,4 +1,3 @@
-
 import {
   createCategory,
   deleteCategory,
@@ -6,10 +5,14 @@ import {
   updateCategory,
 } from "../../api/categories.js";
 
+import "../../helpers/authGuard.js";
+import "../../helpers/logout.js";
+
 const createDialog = document.querySelector("#example-dialog");
 const createForm = document.querySelector("#contact-form");
 const createNameInput = document.querySelector("#modal-name");
 const createSubmitBtn = document.querySelector("#submit-dialog");
+
 const deleteModal = document.querySelector(".delete-modal");
 const cancelDeleteBtn = document.querySelector(".cancel-btn");
 const confirmDeleteBtn = document.querySelector(".confirm-delete-btn");
@@ -20,6 +23,8 @@ const editSubmitBtn = document.querySelector(".edit-submit-btn");
 
 const tbody = document.querySelector(".tbody");
 let selectedCategoryId = null;
+
+
 
 async function loadCategories() {
   try {

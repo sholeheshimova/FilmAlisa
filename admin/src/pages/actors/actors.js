@@ -1,3 +1,6 @@
+import "../../helpers/authGuard.js";
+import "../../helpers/logout.js"
+
 const editModal = document.querySelector(".actor-edit-modal");
 
 const editButtons = document.querySelectorAll(".edit");
