@@ -305,11 +305,10 @@
   justify-content: flex-start;
   gap: 14px;
 
-
   white-space: nowrap;
 }
 .movie-title-cell span {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 .movie-poster {
@@ -328,11 +327,10 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
-  justify-content: center;   /* display: flex silinsə də, bunlar problem yaratmır, sadəcə "gizli" qalır display:none olanda */
+  justify-content: center; /* display: flex silinsə də, bunlar problem yaratmır, sadəcə "gizli" qalır display:none olanda */
   align-items: center;
   z-index: 9999;
 }
-
 
 .modal-overlay.is-open {
   display: flex;
@@ -460,15 +458,6 @@
   object-fit: cover;
 }
 
-
-
-
-
-
-
-
-
-
 .table-actions {
   text-align: center;
   white-space: nowrap;
@@ -506,11 +495,9 @@
   color: var(--edit-action-color);
 }
 
-
 .delete-btn {
   color: var(--delete-action-color);
 }
-
 
 /* delete modal */
 
@@ -580,20 +567,15 @@
   color: #ffffff;
 }
 
-
-
-
 /* edit modal */
-
-
 
 .edit-modal {
   display: none;
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.6);
   align-items: center;
   justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
   z-index: 1000;
 }
 
@@ -602,72 +584,61 @@
 }
 
 .edit-modal-content {
-
-   width: 720px;
-  max-height: 85vh;
-  overflow-y: auto;
-  background-color: var(--sidebar-bgc);
-  border-radius: 10px;
-  padding: 25px;
-  box-sizing: border-box;
   display: flex;
   gap: 24px;
+  width: 720px;
+  max-width: 95vw;
+  max-height: 90vh;
+  padding: 24px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  background: var(--sidebar-bgc);
+  border-radius: 16px;
+  color: var(--logo-text-color);
 }
 
 .edit-modal-form {
-  flex: 1.4;
+  flex: 1;
   min-width: 0;
 }
 
-
-.edit-modal-preview {
-  flex: 1;
+.edit-modal-header {
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.edit-modal-preview img {
-  width: 100%;
-  max-width: 260px;
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-.edit-modal-content h3 {
-  color: var(--logo-text-color);
-  margin: 0 0 20px;
-  font-size: 22px;
+.edit-modal-header h3 {
+  margin: 0;
+  font-size: 20px;
 }
 
 .edit-modal-content label {
   display: block;
-  margin-bottom: 8px;
-  margin-top: 16px;
-  font-size: 14px;
-  font-weight: 600;
+  margin: 14px 0 6px;
+  font-size: 13px;
+  font-weight: 500;
   color: var(--logo-text-color);
+}
+
+.edit-hint {
+  font-weight: 400;
+  opacity: 0.6;
 }
 
 .edit-modal-content input[type="text"],
 .edit-modal-content textarea,
 .edit-modal-content select {
   width: 100%;
-  padding: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background-color: transparent;
-  color: var(--logo-text-color);
-  border-radius: 6px;
-  outline: none;
+  padding: 10px 12px;
   box-sizing: border-box;
-  font-family: inherit;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  outline: none;
+  color: var(--logo-text-color);
+  font: inherit;
   font-size: 14px;
-}
-
-
-.edit-modal-content textarea {
-  min-height: 90px;
-  resize: vertical;
 }
 
 .edit-modal-content input:focus,
@@ -676,71 +647,99 @@
   border-color: var(--btn);
 }
 
-.edit-modal-content select {
-   appearance: none;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23a79fcf'><path d='M7 10l5 5 5-5z'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  padding-right: 36px;
-  background-color: var(--sidebar-bgc);
-  color: var(--logo-text-color);
+.edit-modal-content textarea {
+  height: 80px;
+  resize: none;
 }
-
 
 .edit-modal-content select option {
-  background-color: var(--sidebar-bgc);
+  background: var(--sidebar-bgc);
   color: var(--logo-text-color);
 }
 
-
-.edit-modal-row {
-  display: flex;
-  gap: 12px;
+.edit-modal-content select:not([multiple]) {
+  appearance: none;
+  padding-right: 36px;
+  background: var(--sidebar-bgc)
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23a79fcf'><path d='M7 10l5 5 5-5z'/></svg>")
+    no-repeat right 12px center;
 }
 
-.edit-modal-col {
-  flex: 1;
+#edit-actors {
+  height: 110px;
+  padding: 4px;
+}
+
+#edit-actors option {
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+#edit-actors option:checked {
+  background: var(--btn) linear-gradient(var(--btn), var(--btn));
+  color: #fff;
+}
+
+.edit-modal-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.4fr;
+  gap: 10px;
 }
 
 .edit-modal-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 22px;
+  margin-top: 20px;
 }
 
-.edit-adult-label {
-  display: flex !important;
+.edit-modal-content .edit-adult-label {
+  display: flex;
   align-items: center;
   gap: 8px;
-  margin: 0 !important;
-  font-weight: 600;
-  color: var(--logo-text-color);
+  margin: 0;
   cursor: pointer;
 }
 
-.edit-adult-label input[type="checkbox"] {
+.edit-adult-label input {
   width: 16px;
   height: 16px;
-  cursor: pointer;
+  accent-color: var(--btn);
 }
 
 .edit-modal-actions {
   display: flex;
-  gap: 10px;
+  gap: 8px;
+}
+
+.edit-modal-actions button {
+  height: 38px;
+  padding: 0 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .save-edit-btn {
+  background: var(--btn);
   border: none;
-  border-radius: 6px;
-  padding: 10px 24px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  background-color: var(--btn);
-  color: white;
+  color: #fff;
 }
 
 .save-edit-btn:hover {
   opacity: 0.9;
+}
+
+.edit-modal-preview {
+  flex: 0 0 180px;
+  padding-top: 38px;
+}
+
+.edit-modal-preview img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 12px;
 }

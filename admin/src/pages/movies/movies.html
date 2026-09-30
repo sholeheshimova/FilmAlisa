@@ -76,13 +76,13 @@
       </nav>
 
       <div class="sidebar-bottom">
-      <a href="#" class="logout" id="logout-btn">
-        <span class="logout-icon">
-          <img src="../../assets/icons/logaut.svg" alt="Logout" />
-        </span>
-        <span>Logout</span>
-      </a>
-    </div>
+        <a href="#" class="logout" id="logout-btn">
+          <span class="logout-icon">
+            <img src="../../assets/icons/logaut.svg" alt="Logout" />
+          </span>
+          <span>Logout</span>
+        </a>
+      </div>
     </aside>
 
     <!-- Page Header -->
@@ -195,7 +195,9 @@
       <div class="edit-modal" id="editMovieModal">
         <div class="edit-modal-content">
           <div class="edit-modal-form">
-            <h3>Edit Movie</h3>
+            <div class="edit-modal-header">
+              <h3>Edit movie</h3>
+            </div>
 
             <label for="edit-title">Title</label>
             <input type="text" id="edit-title" placeholder="Film adı" />
@@ -224,22 +226,17 @@
                 <label for="edit-duration">Duration</label>
                 <input type="text" id="edit-duration" placeholder="99" />
               </div>
+              <div class="edit-modal-col">
+                <label for="edit-genre">Genre</label>
+                <select id="edit-genre"></select>
+              </div>
             </div>
 
-            <label for="edit-actors">Actors</label>
-            <select id="edit-actors">
-              <option>Jack Black, Paul Rudd</option>
-              <option>Leonardo DiCaprio</option>
-              <option>Tom Hardy</option>
-            </select>
-
-            <label for="edit-genre">Genre</label>
-            <select id="edit-genre">
-              <option>Comedy</option>
-              <option>Action</option>
-              <option>Sci-Fi & Fantasy</option>
-              <option>Drama</option>
-            </select>
+            <label for="edit-actors">
+              Actors
+              <span class="edit-hint">(Ctrl/Cmd ilə bir neçəsini seç)</span>
+            </label>
+            <select id="edit-actors" multiple size="4"></select>
 
             <div class="edit-modal-footer">
               <label class="edit-adult-label">
@@ -248,7 +245,7 @@
 
               <div class="edit-modal-actions">
                 <button type="button" class="save-edit-btn" id="saveEditBtn">
-                  Edit
+                  Save changes
                 </button>
               </div>
             </div>
@@ -310,11 +307,13 @@
             />
           </div>
 
+          <div class="form-group">
+            <select name="actors" id="create-actors" multiple size="4"></select>
+          </div>
+
           <div class="form-group select-wrapper">
-            <select name="category">
+            <select name="category" id="create-category" required>
               <option value="" disabled selected>category</option>
-              <option value="1">Action</option>
-              <option value="2">Drama</option>
             </select>
             <span class="select-arrow">&#9660;</span>
           </div>
