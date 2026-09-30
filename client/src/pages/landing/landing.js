@@ -1,3 +1,22 @@
+const openingScreen = document.querySelector("#opening-screen");
+let openingTimer;
+
+function showOpeningScreen() {
+    window.clearTimeout(openingTimer);
+    openingScreen.classList.remove("is-leaving", "is-animating");
+    void openingScreen.offsetWidth;
+    openingScreen.classList.add("is-animating");
+    openingTimer = window.setTimeout(() => {
+        openingScreen.classList.add("is-leaving");
+    }, 2200);
+}
+
+showOpeningScreen();
+
+window.addEventListener("pageshow", (event) => {
+    if (event.persisted) showOpeningScreen();
+});
+
 const userDiv = document.querySelector(".user-div");
 const userModal = document.querySelector("#user-modal");
 

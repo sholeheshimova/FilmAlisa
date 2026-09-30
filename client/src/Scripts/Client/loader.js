@@ -12,5 +12,5 @@ document.addEventListener("DOMContentLoaded", () => {
         if (mainContent) {
             mainContent.style.display = "block";
         }
-    }, 1000);
+    }, 1500);
 });

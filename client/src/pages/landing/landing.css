@@ -12,6 +12,86 @@ body {
     background-color: #000;
 }
 
+.opening-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background: #080808;
+    opacity: 1;
+    transition: opacity 700ms ease, visibility 700ms ease;
+}
+
+.opening-screen.is-leaving {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.opening-logo {
+    width: 88px;
+    height: 88px;
+    object-fit: contain;
+}
+
+.opening-screen p {
+    margin: 0;
+    color: #fff;
+    font-family: var(--Font_Numans);
+    font-size: 28px;
+    opacity: 0;
+}
+
+.opening-tagline {
+    margin-top: -10px;
+    color: #b8b8b8;
+    font-family: var(--Font_Roboto);
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0;
+}
+
+.opening-screen.is-animating .opening-logo {
+    animation: opening-arrive 900ms ease both;
+}
+
+.opening-screen.is-animating p {
+    animation: opening-arrive 700ms ease 180ms both;
+}
+
+.opening-screen.is-animating .opening-tagline {
+    animation: opening-arrive 700ms ease 350ms both;
+}
+
+@keyframes opening-arrive {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .opening-screen.is-animating .opening-logo,
+    .opening-screen.is-animating p,
+    .opening-screen.is-animating .opening-tagline {
+        animation: none;
+        opacity: 1;
+    }
+
+    .opening-screen {
+        transition-duration: 1ms;
+    }
+}
+
 header,
 .header-logo,
 .header-btn,
@@ -51,7 +131,6 @@ h1 {
 }
 
 .header-btn:hover,
-.started-btn:hover,
 .send-btn:hover {
     background-color: var(--Cards-bg-color);
     transition: 0.3s;
@@ -152,8 +231,10 @@ input:focus {
 }
 
 .started-btn {
-    display: flex;
+    position: relative;
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 16px;
     background-color: var(--Btn-color);
     font-family: var(--Font_Roboto);
@@ -162,9 +243,53 @@ input:focus {
     line-height: 28.13px;
     text-align: center;
     padding: 14px 24px;
-    border-radius: 4px;
-    border: none;
+    border-radius: 8px;
     color: #fff;
+    text-decoration: none;
+    overflow: hidden;
+    z-index: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.started-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(transparent, rgba(255, 255, 255, 0.8), #ffffff, #00ffff, transparent 40%);
+    animation: rotateBorder 2s linear infinite;
+    z-index: -2;
+}
+
+.started-btn::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    background-color: var(--Btn-color);
+    border-radius: 5px;
+    z-index: -1;
+    transition: background-color 0.3s ease;
+}
+
+.started-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px var(--Btn-color);
+}
+
+.started-btn:active {
+    transform: scale(0.98);
+}
+
+@keyframes rotateBorder {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .enjoy-section {
