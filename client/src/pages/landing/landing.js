@@ -7,12 +7,9 @@ if (contactForm) {
   contactForm.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    const fullnameInput =
-      document.getElementById("name") || contactForm.elements.fullname;
-    const emailInput =
-      document.getElementById("email") || contactForm.elements.email;
-    const reasonInput =
-      document.getElementById("reason") || contactForm.elements.reason;
+     const fullnameInput = contactForm.elements.fullname;
+    const emailInput = contactForm.elements.email;
+    const reasonInput = contactForm.elements.reason;
 
     const formData = {
       full_name: fullnameInput.value.trim(),
@@ -30,7 +27,7 @@ if (contactForm) {
     }
 
     try {
-      const response = await fetch(`${baseUrl}/contactus`, {
+      const response = await fetch(`${baseUrl}/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
