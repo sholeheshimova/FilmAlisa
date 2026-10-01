@@ -21,7 +21,7 @@ form.addEventListener("submit", async (e) => {
   try {
     await register(payload);
 
-    window.location.href = "../../home/home.html";
+    window.location.href = "../home/home.html";
   } catch (error) {
     console.error("Register error:", error);
     alert(error.message);
