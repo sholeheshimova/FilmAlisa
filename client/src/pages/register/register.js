@@ -1,6 +1,5 @@
 import { register } from "../../api/auth(login,register).js";
 
-
 const form = document.querySelector(".form-box");
 const fullnameInput = document.querySelector("#full_name");
 const emailInput = document.querySelector("#email");
@@ -10,18 +9,21 @@ form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const payload = {
-    full_name: fullnameInput.value,
-    email: emailInput.value,
+    full_name: fullnameInput.value.trim(),
+    email: emailInput.value.trim(),
     password: passwordInput.value,
   };
 
+  if (!payload.full_name || !payload.email || !payload.password) {
+    return;
+  }
+
   try {
-    const data = await register(payload);
+    await register(payload);
 
-    console.log(data);
-
-    window.location.href = "../login/login.html";
+    window.location.href = "../../home/home.html";
   } catch (error) {
-    console.log(error);
+    console.error("Register error:", error);
+    alert(error.message);
   }
 });
