@@ -2,10 +2,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Flmalisa Home Page</title>
+
     <link rel="stylesheet" href="./home.css" />
     <link rel="stylesheet" href="./home-responsive.css" />
     <link rel="stylesheet" href="../../styles/loader.css" />
+
     <link
       rel="icon"
       href="../../assests/icons/user-home/logo-user.svg"
@@ -14,6 +17,7 @@
   </head>
 
   <body>
+
     <div id="page-loader" role="status" aria-label="Loading">
       <div class="loader-wrapper">
         <div class="loader-ring-1"></div>
@@ -21,45 +25,95 @@
         <div class="loader-ring-3"></div>
         <div class="loader-dot"></div>
       </div>
+
       <p class="loader-label">Loading</p>
-      <div class="loader-dots"><span></span><span></span><span></span></div>
-    </div>
-    <div class="left">
-      <div class="logo-div">
-        <a href="../../../../index.html">
-          <img src="../../assests/icons/user-home/logo-user.svg" alt="Logo" />
-        </a>
+
+      <div class="loader-dots">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
-      <div class="sidebar">
-        <a href="./home.html" class="icon active">
-          <img src="../../assests/icons/user-home/icon-1.svg" alt="Home" />
-        </a>
-        <a href="../searchPanel/search.html" class="icon">
-          <img src="../../assests/icons/user-home/icon-2.svg" alt="Movies" />
-        </a>
-        <a href="../account/account.html" class="icon">
-          <img src="../../assests/icons/user-home/icon-3.svg" alt="TV Shows" />
-        </a>
-        <a href="../favorite/favorite.html" class="icon">
-          <img src="../../assests/icons/user-home/icon-4.svg" alt="Favorites" />
-        </a>
-      </div>
-      <!-- <p class="loader-label">Loading</p>
-      <div class="loader-dots"><span></span><span></span><span></span></div> -->
     </div>
 
+
+    <div class="left">
+
+      <div class="logo-div">
+        <a href="../../../../index.html">
+          <img
+            src="../../assests/icons/user-home/logo-user.svg"
+            alt="Logo"
+          />
+        </a>
+      </div>
+
+
+      <div class="sidebar">
+
+        <a href="./home.html" class="icon active">
+          <img
+            src="../../assests/icons/user-home/icon-1.svg"
+            alt="Home"
+          />
+        </a>
+
+        <a href="../searchPanel/search.html" class="icon">
+          <img
+            src="../../assests/icons/user-home/icon-2.svg"
+            alt="Movies"
+          />
+        </a>
+
+        <a href="../account/account.html" class="icon">
+          <img
+            src="../../assests/icons/user-home/icon-3.svg"
+            alt="TV Shows"
+          />
+        </a>
+
+        <a href="../favorite/favorite.html" class="icon">
+          <img
+            src="../../assests/icons/user-home/icon-4.svg"
+            alt="Favorites"
+          />
+        </a>
+
+      </div>
+
+    </div>
+
+
     <div class="right">
+
       <div class="carousel-container">
         <div class="carousel"></div>
         <div class="carousel-buttons"></div>
       </div>
 
-      <div class="main-container" id="movie-list-container">
-        <div class="loading-state" style="color: #fff; padding: 2rem 0;">Loading movies...</div>
+
+      <div
+        class="main-container"
+        id="movie-list-container"
+      >
+        <div
+          class="loading-state"
+          style="color: #fff; padding: 2rem 0;"
+        >
+          Loading movies...
+        </div>
       </div>
+
     </div>
 
-    <script type="module" src="./home.js"></script>
-    <script src="../../Scripts/Client/loader.js"></script>
+
+    <script
+      type="module"
+      src="./home.js"
+    ></script>
+
+    <script
+      src="../../Scripts/Client/loader.js"
+    ></script>
+
   </body>
 </html>

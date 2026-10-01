@@ -430,6 +430,14 @@ main {
 .film-text-header-right button:hover {
   background-color: #999696;
 }
+.film-text-header-right button.active {
+  background-color: #ffad49;
+  border-color: #ffad49;
+}
+
+.film-text-header-right button.active svg path {
+  fill: #1d1d1d;
+}
 
 .film-text {
   max-height: 190px;

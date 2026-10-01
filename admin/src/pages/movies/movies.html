@@ -4,7 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movies</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+      integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="../../styles/global.css" />
     <link rel="stylesheet" href="./movies.css" />
   </head>
@@ -70,13 +76,13 @@
       </nav>
 
       <div class="sidebar-bottom">
-      <a href="#" class="logout" id="logout-btn">
-        <span class="logout-icon">
-          <img src="../../assets/icons/logaut.svg" alt="Logout" />
-        </span>
-        <span>Logout</span>
-      </a>
-    </div>
+        <a href="#" class="logout" id="logout-btn">
+          <span class="logout-icon">
+            <img src="../../assets/icons/logaut.svg" alt="Logout" />
+          </span>
+          <span>Logout</span>
+        </a>
+      </div>
     </aside>
 
     <!-- Page Header -->
@@ -132,19 +138,19 @@
                 <td>7.6</td>
                 <td class="table-actions">
                   <button
-                      type="button"
-                      class="action-btn edit-btn"
-                      title="Edit"
-                    >
-                      <i class="fa-solid fa-pen-to-square"></i>
-                    </button>
+                    type="button"
+                    class="action-btn edit-btn"
+                    title="Edit"
+                  >
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </button>
                   <button
-                      type="button"
-                      class="action-btn delete-btn"
-                      title="Delete"
-                    >
-                      <i class="fa-solid fa-trash"></i>
-                    </button>
+                    type="button"
+                    class="action-btn delete-btn"
+                    title="Delete"
+                  >
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
                 </td>
               </tr>
             </tbody>
@@ -152,24 +158,22 @@
         </div>
       </section>
 
-
       <div class="delete-modal">
-      <div class="delete-modal-content">
-        <h3>Delete Comment</h3>
+        <div class="delete-modal-content">
+          <h3>Delete Movie</h3>
 
-        <p>Are you sure you want to delete this comment?</p>
+          <p>Are you sure you want to delete this movie?</p>
 
-        <div class="delete-modal-actions">
-          <button type="button" class="cancel-btn">Cancel</button>
+          <div class="delete-modal-actions">
+            <button type="button" class="cancel-btn">Cancel</button>
 
-          <button type="button" class="confirm-delete-btn">OK</button>
+            <button type="button" class="confirm-delete-btn">OK</button>
+          </div>
         </div>
       </div>
-    </div>
 
-
-        <!-- Edit Modal -->
-<!-- <div class="edit-modal">
+      <!-- Edit Modal -->
+      <!-- <div class="edit-modal">
   <div class="edit-modal-content">
     <h3>Edit Comment</h3>
 
@@ -187,74 +191,76 @@
     </div>
   </div>
 </div> -->
-     
 
-<div class="edit-modal" id="editMovieModal">
-  <div class="edit-modal-content">
+      <div class="edit-modal" id="editMovieModal">
+        <div class="edit-modal-content">
+          <div class="edit-modal-form">
+            <div class="edit-modal-header">
+              <h3>Edit movie</h3>
+            </div>
 
-    <div class="edit-modal-form">
-      <h3>Edit Movie</h3>
+            <label for="edit-title">Title</label>
+            <input type="text" id="edit-title" placeholder="Film adı" />
 
-      <label for="edit-title">Title</label>
-      <input type="text" id="edit-title" placeholder="Film adı">
+            <label for="edit-description">Description</label>
+            <textarea
+              id="edit-description"
+              placeholder="Təsvir yaz..."
+            ></textarea>
 
-      <label for="edit-description">Description</label>
-      <textarea id="edit-description" placeholder="Təsvir yaz..."></textarea>
+            <label for="edit-image">Image URL</label>
+            <input type="text" id="edit-image" placeholder="Şəkil linki" />
 
-      <label for="edit-image">Image URL</label>
-      <input type="text" id="edit-image" placeholder="Şəkil linki">
+            <label for="edit-video">Video URL</label>
+            <input type="text" id="edit-video" placeholder="Video linki" />
 
-      <label for="edit-video">Video URL</label>
-      <input type="text" id="edit-video" placeholder="Video linki">
+            <label for="edit-download">Download URL</label>
+            <input type="text" id="edit-download" placeholder="Yükləmə linki" />
 
-      <label for="edit-download">Download URL</label>
-      <input type="text" id="edit-download" placeholder="Yükləmə linki">
+            <div class="edit-modal-row">
+              <div class="edit-modal-col">
+                <label for="edit-rating">Rating</label>
+                <input type="text" id="edit-rating" placeholder="6.0" />
+              </div>
+              <div class="edit-modal-col">
+                <label for="edit-duration">Duration</label>
+                <input type="text" id="edit-duration" placeholder="99" />
+              </div>
+              <div class="edit-modal-col">
+                <label for="edit-genre">Genre</label>
+                <select id="edit-genre"></select>
+              </div>
+            </div>
 
-      <div class="edit-modal-row">
-        <div class="edit-modal-col">
-          <label for="edit-rating">Rating</label>
-          <input type="text" id="edit-rating" placeholder="6.0">
-        </div>
-        <div class="edit-modal-col">
-          <label for="edit-duration">Duration</label>
-          <input type="text" id="edit-duration" placeholder="99">
+            <label for="edit-actors">
+              Actors
+              <span class="edit-hint">(Ctrl/Cmd ilə bir neçəsini seç)</span>
+            </label>
+            <select id="edit-actors" multiple size="4"></select>
+
+            <div class="edit-modal-footer">
+              <label class="edit-adult-label">
+                <input type="checkbox" id="edit-adult" /> Adult
+              </label>
+
+              <div class="edit-modal-actions">
+                <button type="button" class="save-edit-btn" id="saveEditBtn">
+                  Save changes
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="edit-modal-preview">
+            <img
+              src="../../assets/image/movie-poster.svg"
+              alt="Movie Poster"
+              id="editPreviewImg"
+            />
+          </div>
         </div>
       </div>
-
-      <label for="edit-actors">Actors</label>
-      <select id="edit-actors">
-        <option>Jack Black, Paul Rudd</option>
-        <option>Leonardo DiCaprio</option>
-        <option>Tom Hardy</option>
-      </select>
-
-      <label for="edit-genre">Genre</label>
-      <select id="edit-genre">
-        <option>Comedy</option>
-        <option>Action</option>
-        <option>Sci-Fi & Fantasy</option>
-        <option>Drama</option>
-      </select>
-
-      <div class="edit-modal-footer">
-        <label class="edit-adult-label">
-          <input type="checkbox" id="edit-adult"> Adult
-        </label>
-
-        <div class="edit-modal-actions">
-          <button type="button" class="save-edit-btn" id="saveEditBtn">Edit</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="edit-modal-preview">
-      <img src="../../assets/image/movie-poster.svg" alt="Movie Poster" id="editPreviewImg">
-    </div>
-
-  </div>
-</div>
-
-</main>
+    </main>
 
     <!-- modaldı js aktiv olduğdan soram qoşulacaq  -->
 
@@ -274,19 +280,19 @@
           </div>
 
           <div class="form-group">
-            <input type="text" placeholder="cover url" name="coverUrl" />
+            <input type="text" placeholder="cover url" name="cover_url" />
           </div>
 
           <div class="form-group">
             <input
               type="text"
               placeholder="fragman (youtube embed url)"
-              name="trailerUrl"
+              name="fragman"
             />
           </div>
 
           <div class="form-group">
-            <input type="text" placeholder="watch url" name="watchUrl" />
+            <input type="text" placeholder="watch url" name="watch_url" />
           </div>
 
           <div class="form-group">
@@ -294,14 +300,20 @@
           </div>
 
           <div class="form-group">
-            <input type="text" placeholder="run time minute" name="runtime" />
+            <input
+              type="text"
+              placeholder="run time minute"
+              name="run_time_min"
+            />
+          </div>
+
+          <div class="form-group">
+            <select name="actors" id="create-actors" multiple size="4"></select>
           </div>
 
           <div class="form-group select-wrapper">
-            <select name="category">
+            <select name="category" id="create-category" required>
               <option value="" disabled selected>category</option>
-              <option value="action">Action</option>
-              <option value="drama">Drama</option>
             </select>
             <span class="select-arrow">&#9660;</span>
           </div>
@@ -309,7 +321,7 @@
           <div class="form-footer">
             <label class="checkbox-label">
               Adult
-              <input type="checkbox" name="isAdult" checked />
+              <input type="checkbox" name="adult" />
             </label>
             <button type="submit" class="btn-submit">Submit</button>
           </div>
@@ -320,6 +332,6 @@
         </div>
       </div>
     </div>
-    <script src="./movies.js"></script>
+    <script type="module" src="./movies.js"></script>
   </body>
 </html>

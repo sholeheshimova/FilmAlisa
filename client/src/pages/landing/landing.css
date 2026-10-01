@@ -258,7 +258,13 @@ input:focus {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: conic-gradient(transparent, rgba(255, 255, 255, 0.8), #ffffff, #00ffff, transparent 40%);
+    background: conic-gradient(
+        transparent,
+        rgba(255, 255, 255, 0.8),
+        #ffffff,
+        #00ffff,
+        transparent 40%
+    );
     animation: rotateBorder 2s linear infinite;
     z-index: -2;
 }
@@ -292,6 +298,7 @@ input:focus {
     }
 }
 
+/* //// */
 .enjoy-section {
     display: flex;
     justify-content: center;
