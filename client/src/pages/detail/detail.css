@@ -364,6 +364,7 @@ main {
 
 .film-description {
   user-select: none;
+  max-width: 600px;
 }
 
 .film-desc {
@@ -930,12 +931,12 @@ main {
 @keyframes popupFadeIn {
   0% {
     opacity: 0;
-    transform: translate(-50%, -60%);
+    transform: translateY(8px);
   }
 
   100% {
     opacity: 1;
-    transform: translate(-50%, -50%);
+    transform: translateY(0);
   }
 }
 
@@ -945,29 +946,33 @@ main {
   align-items: center;
   text-align: center;
   justify-content: center;
-  gap: 20px;
+  gap: 6px;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-  height: 200px;
-  background-color: #1e1e1e;
-  color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transform: none;
+  width: min(140px, calc(100vw - 32px));
+  min-height: 55px;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  /* border: 1px solid rgba(255, 255, 255, 0.7); */
+  background-color: #aa64eb;
+  color: #08232a;
+  border-radius: 8px;
   opacity: 0;
-  transition: opacity 0.3s ease;
 }
 
 .popup.show {
   display: flex;
-  animation: popupFadeIn 0.9s ease forwards;
+  animation: popupFadeIn 0.22s ease-out forwards;
 }
 
 .popup p {
-  margin: 20px 0;
-  font-size: 18px;
+  max-width: 100%;
+  margin: 0;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 
 .button-container {
@@ -976,18 +981,25 @@ main {
   gap: 15px;
 }
 
-.close-btn {
-  width: 80px;
-  padding: 10px 20px;
+#popup .close-btn {
+  min-width: 72px;
+  padding: 7px 16px;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: #a64ef7;
-  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #10B981;
+  color: #17210a;
+  transition: background-color 0.16s ease, transform 0.16s ease;
 }
 
-.close-btn:hover {
-  opacity: 0.9;
+#popup .close-btn:hover {
+  background-color: #b7f45e;
+  transform: translateY(-1px);
+}
+
+#popup .close-btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
 }

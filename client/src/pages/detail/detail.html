@@ -7,10 +7,21 @@
   <title>Details-1</title>
   <link rel="stylesheet" href="./detail.css" />
   <link rel="stylesheet" href="./detail-responsive.css">
+  <link rel="stylesheet" href="../../styles/loader.css" />
   <link rel="icon" href="../../assests/icons/user-home/logo-user.svg" type="image/svg+xml" />
 </head>
 
 <body>
+  <div id="page-loader" role="status" aria-label="Loading">
+    <div class="loader-wrapper">
+      <div class="loader-ring-1"></div>
+      <div class="loader-ring-2"></div>
+      <div class="loader-ring-3"></div>
+      <div class="loader-dot"></div>
+    </div>
+    <p class="loader-label">Loading</p>
+    <div class="loader-dots"><span></span><span></span><span></span></div>
+  </div>
   <div class="left">
     <div class="logo-div">
       <img src="../../assests/icons/user-home/logo-user.svg" alt="Logo" />
@@ -272,13 +283,15 @@
       </div>
     </div>
 
-    <div class="popup" id="popup">
+    <div class="popup" id="popup" role="status" aria-live="polite">
       <p id="pop-p"></p>
-      <button class="close-btn" onclick="closePopup()">Close</button>
     </div>
   </main>
 
+
   <script type="module" src="./detail.js"></script>
+  <script src="../../Scripts/Client/loader.js"></script>
+
 </body>
 
 </html>

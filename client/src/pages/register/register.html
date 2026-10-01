@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./register.css" />
+    <link rel="stylesheet" href="../../styles/loader.css" />
     <link
       rel="icon"
       href="../../assests/images/logo_with_uploaded_image (1).png"
@@ -19,6 +20,16 @@
     <title>Register</title>
   </head>
   <body>
+    <div id="page-loader" role="status" aria-label="Loading">
+      <div class="loader-wrapper">
+        <div class="loader-ring-1"></div>
+        <div class="loader-ring-2"></div>
+        <div class="loader-ring-3"></div>
+        <div class="loader-dot"></div>
+      </div>
+      <p class="loader-label">Loading</p>
+      <div class="loader-dots"><span></span><span></span><span></span></div>
+    </div>
     <main class="login-container">
       <img
         class="logo"
@@ -79,5 +90,6 @@
     </main>
 
     <script type="module" src="./register.js"></script>
+    <script src="../../Scripts/Client/loader.js"></script>
   </body>
 </html>

@@ -1,114 +1,123 @@
-import { baseUrl, getAuthHeaders } from "./config.js";
+import { baseUrl } from "./config.js";
 
-// 1. Filmlər siyahısını gətirir
-export const fetchMovies = async () => {
-    try {
-        const res = await fetch(`${baseUrl}/movies`, {
-            headers: getAuthHeaders(),
-        });
-        if (!res.ok) throw new Error(`API Hatası: ${res.status}`);
-        return await res.json();
-    } catch (error) {
-        console.error("fetchMovies Error:", error);
-        throw error;
-    }
-};
+function getHeaders() {
+    const headers = new Headers({
+        "Content-Type": "application/json",
+    });
 
-// 2. Kateqoriyaları və filmləri gətirir
-export const fetchCategories = async () => {
-    try {
-        const res = await fetch(`${baseUrl}/categories`, {
-            headers: getAuthHeaders(),
-        });
-        if (!res.ok) throw new Error(`API Hatası: ${res.status}`);
-        return await res.json();
-    } catch (error) {
-        console.error("fetchCategories Error:", error);
-        throw error;
-    }
-};
+    const accessToken = localStorage.getItem("accessToken");
 
-// 3. ID-yə görə tək filmi gətirir
-export const fetchMovieById = async (movieId) => {
-    try {
-        const res = await fetch(`${baseUrl}/movies/${movieId}`, {
-            headers: getAuthHeaders(),
-        });
-        if (!res.ok) throw new Error(`API Hatası: ${res.status}`);
-        return await res.json();
-    } catch (error) {
-        console.error("fetchMovieById Error:", error);
-        throw error;
+    if (accessToken) {
+        headers.set("Authorization", `Bearer ${accessToken}`);
     }
-};
 
-// 4. Filmin şərhlərini gətirir
-export const fetchMovieComments = async (movieId) => {
-    try {
-        const res = await fetch(`${baseUrl}/movies/${movieId}/comments`, {
-            headers: getAuthHeaders(),
-        });
-        if (!res.ok) throw new Error(`API Hatası: ${res.status}`);
-        return await res.json();
-    } catch (error) {
-        console.error("fetchMovieComments Error:", error);
-        throw error;
-    }
-};
+    return headers;
+}
 
-// 5. Şərh yazır
-export const postMovieComment = async (movieId, commentText) => {
-    try {
-        const res = await fetch(`${baseUrl}/movies/${movieId}/comment`, {
-            method: "POST",
-            headers: getAuthHeaders(),
-            body: JSON.stringify({ comment: commentText }),
-        });
-        return res;
-    } catch (error) {
-        console.error("postMovieComment Error:", error);
-        throw error;
-    }
-};
+async function request(endpoint, options = {}) {
+    const { method = "GET", body } = options;
 
-// 6. Şərh silir
-export const deleteMovieComment = async (movieId, commentId) => {
-    try {
-        const res = await fetch(`${baseUrl}/movies/${movieId}/comment/${commentId}`, {
-            method: "DELETE",
-            headers: getAuthHeaders(),
-        });
-        return res;
-    } catch (error) {
-        console.error("deleteMovieComment Error:", error);
-        throw error;
-    }
-};
+    const response = await fetch(`${baseUrl}${endpoint}`, {
+        method,
+        headers: getHeaders(),
+        ...(body !== undefined && body !== null
+            ? { body: JSON.stringify(body) }
+            : {}),
+    });
 
-// 7. Sevimli statusunu dəyişir
-export const toggleMovieFavorite = async (movieId) => {
-    try {
-        const res = await fetch(`${baseUrl}/movie/${movieId}/favorite`, {
-            method: "POST",
-            headers: getAuthHeaders(),
-        });
-        return res;
-    } catch (error) {
-        console.error("toggleMovieFavorite Error:", error);
-        throw error;
-    }
-};
+    const contentType = response.headers.get("content-type") || "";
 
-// 8. İstifadəçi profilini gətirir
-export const fetchUserProfileData = async () => {
-    try {
-        const res = await fetch(`${baseUrl}/profile`, {
-            headers: getAuthHeaders(),
-        });
-        if (!res.ok) throw new Error(`API Hatası: ${res.status}`);
-        return await res.json();
-    } catch (error) {
-        console.error("fetchUserProfileData Error:", error);
-        throw error;
+    const data = contentType.includes("application/json")
+        ? await response.json().catch(() => null)
+        : await response.text();
+
+    if (!response.ok) {
+        throw new Error(data?.message || `API Error: ${response.status}`);
     }
-};
+
+    return data;
+}
+
+
+// Movies
+export async function getMovies() {
+    const response = await request("/movies");
+    return Array.isArray(response?.data) ? response.data : [];
+}
+
+export async function fetchMovies() {
+    return request("/movies");
+}
+
+export async function getMovieById(id) {
+    const response = await request(`/movies/${id}`);
+    return response?.data || null;
+}
+
+export async function fetchMovieById(movieId) {
+    return request(`/movies/${movieId}`);
+}
+
+
+// Categories
+export async function fetchCategories() {
+    return request("/categories");
+}
+
+
+// Favorites
+export async function getFavoriteMovies() {
+    const response = await request("/movies/favorites");
+    return Array.isArray(response?.data) ? response.data : [];
+}
+
+export async function toggleFavorite(movieId) {
+    return request(`/movie/${movieId}/favorite`, {
+        method: "POST",
+    });
+}
+
+export async function toggleMovieFavorite(movieId) {
+    return request(`/movie/${movieId}/favorite`, {
+        method: "POST",
+    });
+}
+
+
+// Comments
+export async function getMovieComments(movieId) {
+    const response = await request(`/movies/${movieId}/comments`);
+    return Array.isArray(response?.data) ? response.data : [];
+}
+
+export async function fetchMovieComments(movieId) {
+    return request(`/movies/${movieId}/comments`);
+}
+
+export async function createMovieComment(movieId, comment) {
+    const response = await request(`/movies/${movieId}/comment`, {
+        method: "POST",
+        body: { comment },
+    });
+
+    return response?.data || null;
+}
+
+export async function postMovieComment(movieId, commentText) {
+    return request(`/movies/${movieId}/comment`, {
+        method: "POST",
+        body: { comment: commentText },
+    });
+}
+
+export async function deleteMovieComment(movieId, commentId) {
+    return request(`/movies/${movieId}/comment/${commentId}`, {
+        method: "DELETE",
+    });
+}
+
+
+// User profile
+export async function fetchUserProfileData() {
+    return request("/profile");
+}

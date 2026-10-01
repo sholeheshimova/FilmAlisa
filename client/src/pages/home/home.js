@@ -1,226 +1,405 @@
-import { fetchMovies, fetchCategories } from "../../api/movies.js";
+import "../../helpers/authGuard.js";
+import { getMovies } from "../../api/movies.js";
 
 const carousel = document.querySelector(".carousel");
+const carouselButtons = document.querySelector(".carousel-buttons");
+
+const listContainer =
+    document.getElementById("movie-list-container") ||
+    document.querySelector(".main-container");
+
+let currentSlide = 0;
 let dots = [];
-const token = sessionStorage.getItem("user_token");
 
-if (!token) {
-    window.location.href = "../../pages/login/login.html";
-}
-
-let currentIndex = 0;
+/* =========================
+   SLIDER
+========================= */
 
 function showSlide(index) {
-    if (!carousel) return;
+    if (!carousel || !dots.length) return;
+
+    currentSlide = index;
+
     carousel.style.transform = `translateX(-${index * 100}%)`;
+
     dots.forEach((dot, idx) => {
         dot.classList.toggle("active", idx === index);
     });
 }
 
-function createDots(movies) {
-    const dotsContainer = document.querySelector(".carousel-buttons");
-    if (!dotsContainer) return;
-    dotsContainer.innerHTML = "";
+function renderCarousel(movies) {
+    if (!carousel || !carouselButtons) return;
 
-    movies.forEach((_, index) => {
-        const dot = document.createElement("button");
-        dot.className = `dot ${index === 0 ? "active" : ""}`;
+    const featured = movies.slice(0, 3);
+
+    carousel.innerHTML = featured
+        .map((movie) => {
+            const image =
+                movie.cover_url ||
+                "https://placehold.co/1200x700/111827/ffffff?text=Movie";
+
+            const text = movie.overview
+                ? movie.overview.slice(0, 140)
+                : "Watch this exciting movie now.";
+
+            return `
+                <div
+                    class="slide"
+                    style="
+                        background-image: url('${image}');
+                        background-size: cover;
+                        background-position: center center;
+                    "
+                >
+                    <div class="text-overlay">
+                        <span class="category">
+                            ${movie.category?.name || "Movie"}
+                        </span>
+
+                        <h1>${movie.title}</h1>
+
+                        <p>${text}</p>
+
+                        <button
+                            class="watch-btn"
+                            data-movie-id="${movie.id}"
+                        >
+                            Watch Now
+                        </button>
+                    </div>
+                </div>
+            `;
+        })
+        .join("");
+
+    carouselButtons.innerHTML = featured
+        .map(
+            (_, index) => `
+                <button
+                    class="dot ${index === 0 ? "active" : ""}"
+                    data-index="${index}"
+                    aria-label="Show slide ${index + 1}"
+                ></button>
+            `
+        )
+        .join("");
+
+    dots = Array.from(
+        carouselButtons.querySelectorAll(".dot")
+    );
+
+    dots.forEach((dot, index) => {
         dot.addEventListener("click", () => {
-            currentIndex = index;
-            showSlide(currentIndex);
+            showSlide(index);
         });
-        dotsContainer.appendChild(dot);
     });
 
-    dots = Array.from(document.querySelectorAll(".dot"));
+    const watchButtons =
+        document.querySelectorAll(".watch-btn");
+
+    watchButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const movieId = button.dataset.movieId;
+
+            if (movieId) {
+                window.location.href =
+                    `../detail/detail.html?id=${movieId}`;
+            }
+        });
+    });
+
+    showSlide(0);
+
+    window.clearInterval(
+        window.homeCarouselInterval
+    );
+
+    window.homeCarouselInterval = setInterval(() => {
+        if (dots.length) {
+            showSlide(
+                (currentSlide + 1) % dots.length
+            );
+        }
+    }, 5000);
 }
 
-setInterval(() => {
-    if (dots.length > 0) {
-        currentIndex = (currentIndex + 1) % dots.length;
-        showSlide(currentIndex);
-    }
-}, 5000);
 
-// API Slider
-async function getMovies() {
-    try {
-        const result = await fetchMovies();
-        // API data 
-        const moviesList = Array.isArray(result) ? result : result.data;
-        const topMovies = moviesList.slice(0, 3);
+/* =========================
+   STARS
+========================= */
 
-        populateCarousel(topMovies);
-        createDots(topMovies);
-    } catch (error) {
-        console.error("Karusel yüklənərkən xəta:", error.message);
-    }
+function renderStars(score) {
+    const numericScore = Number(score) || 0;
+
+    const fullStars = Math.min(
+        5,
+        Math.max(
+            0,
+            Math.round(numericScore / 2)
+        )
+    );
+
+    return Array.from(
+        { length: 5 },
+        (_, index) => {
+            const className =
+                index < fullStars
+                    ? "star filled"
+                    : "star";
+
+            return `
+                <span class="${className}">
+                    ★
+                </span>
+            `;
+        }
+    ).join("");
 }
 
-function populateCarousel(movies) {
-    if (!carousel) return;
-    carousel.innerHTML = "";
 
-    movies.forEach((movie, index) => {
-        const slide = document.createElement("div");
-        slide.className = `slide slide-${index + 1}`;
-        slide.style.backgroundImage = `url(${movie.cover_url})`;
-        slide.style.backgroundSize = "cover";
-        slide.style.backgroundPosition = "center";
+/* =========================
+   MOVIE CARD
+========================= */
 
-        slide.innerHTML = `
-      <div class="text-overlay">
-        <span class="category">${movie.category?.name || "Movie"}</span>
-        <h1>${movie.title}</h1>
-        <p>${movie.overview}</p>
-        <button class="watch-btn" onclick="window.open('${movie.watch_url}', '_blank')">Watch Now</button>
-      </div>
+function buildMovieCard(movie) {
+    const category =
+        movie.category?.name || "Movie";
+
+    const cover =
+        movie.cover_url ||
+        "https://placehold.co/400x600/111827/ffffff?text=Movie";
+
+    const imdb = movie.imdb || "0";
+
+    return `
+        <div
+            class="movie-card"
+            data-movie-id="${movie.id}"
+            tabindex="0"
+            role="button"
+            aria-label="Open ${movie.title}"
+        >
+            <img
+                src="${cover}"
+                alt="${movie.title}"
+                class="movie-image"
+            />
+
+            <div class="movie-details">
+
+                <span class="movie-category">
+                    ${category}
+                </span>
+
+                <div class="movie-rating">
+                    ${renderStars(imdb)}
+                </div>
+
+                <p class="movie-title">
+                    ${movie.title}
+                </p>
+
+            </div>
+        </div>
     `;
-        carousel.appendChild(slide);
-    });
 }
 
-// GET API 
-async function getMoviesByCategory() {
-    try {
-        const categoriesData = await fetchCategories();
-        const categories = categoriesData.data || categoriesData;
 
-        const mainContainer = document.querySelector(".main-container");
-        if (!mainContainer) return;
-        mainContainer.innerHTML = "";
+/* =========================
+   MOVIE SECTIONS
+========================= */
 
-        categories.forEach((category) => {
-            if (!category.movies || category.movies.length === 0) return;
+function renderMovieSections(movies) {
+    if (!listContainer) return;
 
-            const categorySection = document.createElement("div");
-            categorySection.className = "category-section";
+    const groups = movies.reduce(
+        (acc, movie) => {
+            const categoryName =
+                movie.category?.name || "General";
 
-            const categoryHeader = document.createElement("div");
-            categoryHeader.className = "category-header";
+            acc[categoryName] =
+                acc[categoryName] || [];
 
-            const categoryTitle = document.createElement("p");
-            categoryTitle.className = "category-P";
-            categoryTitle.textContent = category.name;
+            acc[categoryName].push(movie);
 
-            const chevronIcon = document.createElement("div");
-            chevronIcon.className = "chevron-icon";
+            return acc;
+        },
+        {}
+    );
 
-            categoryHeader.appendChild(categoryTitle);
-            categoryHeader.appendChild(chevronIcon);
+    listContainer.innerHTML =
+        Object.entries(groups)
+            .map(
+                ([category, categoryMovies]) => `
+                    <div class="category-section">
 
-            const categoryCardContainer = document.createElement("div");
-            categoryCardContainer.className = "category-card";
+                        <div class="category-header">
+                            <p class="category-P">
+                                ${category}
+                            </p>
+
+                            <div class="chevron-icon"></div>
+                        </div>
+
+                        <div class="category-card">
+                            ${categoryMovies
+                                .map(buildMovieCard)
+                                .join("")}
+                        </div>
+
+                    </div>
+                `
+            )
+            .join("");
+
+    addMovieCardEvents();
+}
+
+
+/* =========================
+   DRAG + CLICK
+========================= */
+
+function addMovieCardEvents() {
+    document
+        .querySelectorAll(".category-card")
+        .forEach((container) => {
 
             let isDown = false;
-            let startX, scrollLeft, isDrag = false, clickTimeout;
+            let startX = 0;
+            let scrollLeft = 0;
+            let isDrag = false;
 
-            categoryCardContainer.addEventListener("mousedown", (e) => {
-                isDown = true;
-                isDrag = false;
-                categoryCardContainer.classList.add("active");
-                startX = e.pageX - categoryCardContainer.offsetLeft;
-                scrollLeft = categoryCardContainer.scrollLeft;
+            container.addEventListener(
+                "mousedown",
+                (event) => {
+                    isDown = true;
+                    isDrag = false;
 
-                clickTimeout = setTimeout(() => {
-                    isDrag = true;
-                    categoryCardContainer.querySelectorAll(".movie-card").forEach((card) => {
-                        card.style.pointerEvents = "none";
-                    });
-                }, 150);
-            });
+                    startX =
+                        event.pageX -
+                        container.offsetLeft;
 
-            categoryCardContainer.addEventListener("mouseleave", () => {
-                isDown = false;
-                clearTimeout(clickTimeout);
-                categoryCardContainer.classList.remove("active");
-                categoryCardContainer.querySelectorAll(".movie-card").forEach((card) => {
-                    card.style.pointerEvents = "auto";
-                });
-            });
+                    scrollLeft =
+                        container.scrollLeft;
 
-            categoryCardContainer.addEventListener("mouseup", () => {
-                isDown = false;
-                clearTimeout(clickTimeout);
-                categoryCardContainer.classList.remove("active");
-                categoryCardContainer.querySelectorAll(".movie-card").forEach((card) => {
-                    card.style.pointerEvents = "auto";
-                });
-            });
-
-            categoryCardContainer.addEventListener("mousemove", (e) => {
-                if (!isDown || !isDrag) return;
-                e.preventDefault();
-                const x = e.pageX - categoryCardContainer.offsetLeft;
-                const walk = (x - startX) * 2;
-                categoryCardContainer.scrollLeft = scrollLeft - walk;
-            });
-
-            category.movies.forEach((movie) => {
-                const movieCard = document.createElement("div");
-                movieCard.className = "movie-card";
-
-                const movieImage = document.createElement("img");
-                movieImage.src = movie.cover_url;
-                movieImage.alt = movie.title;
-                movieImage.className = "movie-image";
-                movieImage.ondragstart = (e) => e.preventDefault();
-
-                const movieDetails = document.createElement("div");
-                movieDetails.className = "movie-details";
-
-                const movieTitle = document.createElement("p");
-                movieTitle.className = "movie-title";
-                movieTitle.textContent = movie.title;
-
-                const movieCategory = document.createElement("span");
-                movieCategory.className = "movie-category";
-                movieCategory.textContent = category.name;
-
-                const movieRating = document.createElement("div");
-                movieRating.className = "movie-rating";
-
-                const starCount = Math.floor(movie.imdb / 2);
-                const hasHalfStar = (movie.imdb / 2) % 1 !== 0;
-
-                for (let i = 1; i <= 5; i++) {
-                    const star = document.createElement("span");
-                    star.innerHTML = "★";
-                    if (i <= starCount) {
-                        star.className = "star filled";
-                    } else if (i === starCount + 1 && hasHalfStar) {
-                        star.className = "star half";
-                    } else {
-                        star.className = "star";
-                    }
-                    movieRating.appendChild(star);
+                    container.classList.add(
+                        "active"
+                    );
                 }
+            );
 
-                movieDetails.appendChild(movieCategory);
-                movieDetails.appendChild(movieRating);
-                movieDetails.appendChild(movieTitle);
+            container.addEventListener(
+                "mousemove",
+                (event) => {
+                    if (!isDown) return;
 
-                movieCard.appendChild(movieImage);
-                movieCard.appendChild(movieDetails);
+                    const x =
+                        event.pageX -
+                        container.offsetLeft;
 
-                movieCard.addEventListener("click", () => {
-                    if (!isDrag) {
-                        window.location.href = `../detail/detail.html?${movie.id}`;
+                    const walk =
+                        (x - startX) * 2;
+
+                    if (Math.abs(walk) > 5) {
+                        isDrag = true;
                     }
-                });
 
-                categoryCardContainer.appendChild(movieCard);
-            });
+                    if (isDrag) {
+                        event.preventDefault();
 
-            categorySection.appendChild(categoryHeader);
-            categorySection.appendChild(categoryCardContainer);
-            mainContainer.appendChild(categorySection);
+                        container.scrollLeft =
+                            scrollLeft - walk;
+                    }
+                }
+            );
+
+            container.addEventListener(
+                "mouseup",
+                () => {
+                    isDown = false;
+
+                    container.classList.remove(
+                        "active"
+                    );
+                }
+            );
+
+            container.addEventListener(
+                "mouseleave",
+                () => {
+                    isDown = false;
+
+                    container.classList.remove(
+                        "active"
+                    );
+                }
+            );
         });
+
+    document
+        .querySelectorAll(".movie-card")
+        .forEach((movieCard) => {
+
+            movieCard.addEventListener(
+                "click",
+                () => {
+
+                    const movieId =
+                        movieCard.dataset.movieId;
+
+                    if (movieId) {
+                        window.location.href =
+                            `../detail/detail.html?id=${movieId}`;
+                    }
+                }
+            );
+
+            movieCard.addEventListener(
+                "keydown",
+                (event) => {
+
+                    if (
+                        event.key === "Enter" ||
+                        event.key === " "
+                    ) {
+                        event.preventDefault();
+
+                        const movieId =
+                            movieCard.dataset.movieId;
+
+                        if (movieId) {
+                            window.location.href =
+                                `../detail/detail.html?id=${movieId}`;
+                        }
+                    }
+                }
+            );
+        });
+}
+
+
+/* =========================
+   LOAD MOVIES
+========================= */
+
+async function loadHomeMovies() {
+    try {
+        const movies = await getMovies();
+
+        if (!movies || !movies.length) {
+            return;
+        }
+
+        renderCarousel(movies);
+        renderMovieSections(movies);
+
     } catch (error) {
-        console.error("Kateqoriya yüklənərkən xəta:", error.message);
+        console.error(
+            "Failed to load movies:",
+            error
+        );
     }
 }
 
-getMoviesByCategory();
-getMovies();
+loadHomeMovies();

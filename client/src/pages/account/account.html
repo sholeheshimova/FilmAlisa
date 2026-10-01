@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Account</title>
+
+    <link rel="stylesheet" href="../../styles/loader.css" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
@@ -11,7 +14,9 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
     <link rel="stylesheet" href="./account.css" />
+
     <link
       rel="icon"
       href="../../assests/images/logo_with_uploaded_image (1).png"
@@ -20,21 +25,54 @@
   </head>
 
   <body class="bg-dark text-light">
+    <div id="page-loader" role="status" aria-label="Loading">
+      <div class="loader-wrapper">
+        <div class="loader-ring-1"></div>
+        <div class="loader-ring-2"></div>
+        <div class="loader-ring-3"></div>
+        <div class="loader-dot"></div>
+      </div>
+
+      <p class="loader-label">Loading</p>
+
+      <div class="loader-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
     <main class="account-body">
       <div class="left">
         <div class="logo-div">
-          <img src="../../assests/icons/user-home/logo-user.svg" alt="Logo" />
+          <img
+            src="../../assests/icons/user-home/logo-user.svg"
+            alt="Logo"
+          />
         </div>
+
         <div class="sidebar">
           <a href="../home/home.html" class="icon">
-            <img src="../../assests/icons/user-home/icon-1.svg" alt="Home" />
+            <img
+              src="../../assests/icons/user-home/icon-1.svg"
+              alt="Home"
+            />
           </a>
+
           <a href="../searchPanel/search.html" class="icon">
-            <img src="../../assests/icons/user-home/icon-2.svg" alt="Saerch" />
+            <img
+              src="../../assests/icons/user-home/icon-2.svg"
+              alt="Saerch"
+            />
           </a>
+
           <a href="./account.html" class="icon active">
-            <img src="../../assests/icons/user-home/icon-3.svg" alt="Account" />
+            <img
+              src="../../assests/icons/user-home/icon-3.svg"
+              alt="Account"
+            />
           </a>
+
           <a href="../favorite/favorite.html" class="icon">
             <img
               src="../../assests/icons/user-home/icon-4.svg"
@@ -48,6 +86,7 @@
         <figure id="image-frame" class="image-frame">
           <img src="../../assests/images/user-image.png" id="image" />
         </figure>
+
         <form id="form">
           <div class="form-group">
             <i class="fa-regular fa-image input-icon"></i>
@@ -61,12 +100,22 @@
 
           <div class="form-group">
             <i class="fa-regular fa-address-card input-icon"></i>
-            <input type="text" id="fullname" placeholder="fullname" required />
+            <input
+              type="text"
+              id="fullname"
+              placeholder="fullname"
+              required
+            />
           </div>
 
           <div class="form-group">
             <i class="fa-regular fa-envelope input-icon"></i>
-            <input type="text" id="email" placeholder="email.com" required />
+            <input
+              type="text"
+              id="email"
+              placeholder="email.com"
+              required
+            />
           </div>
 
           <div class="form-group">
@@ -82,6 +131,7 @@
           <button type="submit" class="register-btn">Save</button>
         </form>
       </div>
+
       <div class="popup" id="popup">
         <p id="pop-p"></p>
         <button class="close-btn" onclick="closePopup()">Close</button>
@@ -89,5 +139,6 @@
     </main>
 
     <script type="module" src="./account.js"></script>
+    <script src="../../Scripts/Client/loader.js"></script>
   </body>
 </html>

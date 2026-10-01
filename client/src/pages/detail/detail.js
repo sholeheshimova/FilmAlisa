@@ -1,273 +1,795 @@
-import { fetchMovieById } from "../../api/movies.js";
+import "../../helpers/authGuard.js";
 
-const token = sessionStorage.getItem("user_token");
-if (!token) {
-    window.location.href = "../../pages/login/login.html";
+import {
+    getFavoriteMovies,
+    getMovieById,
+    toggleFavorite,
+} from "../../api/movies.js";
+
+import {
+    createMovieComment,
+    getMovieComments,
+} from "../../api/comments(detail).js";
+
+
+// ================================
+// URL - MOVIE ID
+// ================================
+
+const movieId =
+    new URLSearchParams(window.location.search).get("id") || "1";
+
+
+// ================================
+// POPUP
+// ================================
+
+const favoritePopup = document.getElementById("popup");
+const favoritePopupMessage = document.getElementById("pop-p");
+
+let favoritePopupTimer;
+
+function hideFavoritePopup() {
+    favoritePopup?.classList.remove("show");
+    window.clearTimeout(favoritePopupTimer);
 }
 
-// URL Film ID
-const urlSearch = window.location.search.substring(1);
-const filmId = urlSearch.match(/\d+/) ? urlSearch.match(/\d+/)[0] : urlSearch;
+function showFavoriteFeedback(isActive) {
+    if (!favoritePopup || !favoritePopupMessage) return;
 
-// 1. Get DOM
-async function fetchFilmDetails() {
-    if (!filmId) {
-        console.error("Film ID tapılmadı!");
-        return;
+    favoritePopupMessage.textContent = isActive
+        ? "Added to favorites successfully."
+        : "Movie removed from favorites.";
+
+    favoritePopup.classList.add("show");
+
+    const favoriteButton =
+        document.getElementById("favorite-btn");
+
+    if (favoriteButton) {
+        const buttonRect =
+            favoriteButton.getBoundingClientRect();
+
+        const popupWidth =
+            favoritePopup.offsetWidth;
+
+        const popupHeight =
+            favoritePopup.offsetHeight;
+
+        const left = Math.max(
+            16,
+            Math.min(
+                buttonRect.left +
+                    (buttonRect.width - popupWidth) / 2,
+                window.innerWidth - popupWidth - 16
+            )
+        );
+
+        const belowButton =
+            buttonRect.bottom + 12;
+
+        const top =
+            belowButton + popupHeight <=
+            window.innerHeight - 16
+                ? belowButton
+                : Math.max(
+                      16,
+                      buttonRect.top -
+                          popupHeight -
+                          12
+                  );
+
+        favoritePopup.style.left = `${left}px`;
+        favoritePopup.style.top = `${top}px`;
     }
 
-    try {
-        const result = await fetchMovieById(filmId);
+    window.clearTimeout(favoritePopupTimer);
 
-        // API-data
-        const filmData = result.data;
-        // Favorite-btn = movie ID 
-        const favoriteButton = document.getElementById("favorite-btn");
-        if (favoriteButton) {
-            favoriteButton.setAttribute("data-movie-id", filmData.id);
+    favoritePopupTimer = window.setTimeout(
+        hideFavoritePopup,
+        2200
+    );
+}
+
+window.closePopup = function () {
+    hideFavoritePopup();
+};
+
+
+// ================================
+// TRAILER MODAL
+// ================================
+
+const filmPoster =
+    document.querySelector(".film-image");
+
+const filmModal =
+    document.querySelector(".film-modal");
+
+const filmOverlay =
+    document.querySelector(".film-overlay");
+
+const filmModalOverlay =
+    document.querySelector(".film-modal-overlay");
+
+const iframeFragman =
+    document.querySelector(".iframe-fragman");
+
+
+function openFilmModal() {
+    if (!filmModal || !filmOverlay) return;
+
+    filmModal.classList.add("active");
+    filmOverlay.classList.add("active");
+
+    document.body.classList.add("modal-open");
+}
+
+
+function closeFilmModal() {
+    if (!filmModal || !filmOverlay) return;
+
+    filmModal.classList.add("close-animation");
+    filmOverlay.classList.remove("active");
+
+    setTimeout(() => {
+        filmModal.classList.remove("active");
+        filmModal.classList.remove("close-animation");
+
+        document.body.classList.remove("modal-open");
+
+        if (iframeFragman) {
+            iframeFragman.src = iframeFragman.src;
         }
-        // A. Modal Və Treyler
-        const fragmanIframe = document.querySelector(".iframe-fragman");
-        if (fragmanIframe) fragmanIframe.src = filmData.fragman || "";
+    }, 500);
+}
 
-        const filmModalName = document.querySelector(".film-modal-name");
-        if (filmModalName) filmModalName.textContent = filmData.title || "";
-        // B. Cover Image
-        const filmBg = document.querySelector(".film-bg");
-        if (filmBg) filmBg.src = filmData.cover_url || "../../Assets/images/details-bg.jpeg";
 
-        const filmNameH1 = document.querySelector(".film-name h1");
-        if (filmNameH1) filmNameH1.textContent = filmData.title || "";
-        // C. filmData.category.name
-        const filmCategoryP = document.querySelector(".film-name p");
-        if (filmCategoryP) filmCategoryP.textContent = filmData.category?.name || "Kategoriya yoxdur";
+if (filmPoster) {
+    filmPoster.addEventListener(
+        "click",
+        openFilmModal
+    );
+}
 
-        const genresP = document.querySelector(".genres p");
-        if (genresP) genresP.textContent = filmData.category?.name || "Bilinmir";
-        // D. Overview / IMDB
-        const filmText = document.querySelector(".film-text");
-        if (filmText) filmText.textContent = filmData.overview || "Açıqlama tapılmadı.";
+if (filmModalOverlay) {
+    filmModalOverlay.addEventListener(
+        "click",
+        closeFilmModal
+    );
+}
 
-        const filmScoreSpan = document.querySelector(".film-score span");
-        if (filmScoreSpan) filmScoreSpan.textContent = filmData.imdb || "N/A";
-        // E. datatime
-        if (filmData.created_at) {
-            const firstDateP = document.querySelector(".first-date p");
-            if (firstDateP) firstDateP.textContent = formatDate(filmData.created_at);
+if (filmOverlay) {
+    filmOverlay.addEventListener(
+        "click",
+        closeFilmModal
+    );
+}
 
-            const lastDateP = document.querySelector(".last-date p");
-            if (lastDateP) lastDateP.textContent = formatDateTime(filmData.created_at);
-        }
-        // F. Status (Adult & run_time_min)
-        const statusP = document.querySelector(".status p");
-        if (statusP) statusP.textContent = filmData.adult ? "18+ (Adult Content)" : "Hər kəs üçün";
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        closeFilmModal();
+        hideFavoritePopup();
+    }
+});
 
-        const runTimeP = document.querySelector(".run-time p");
-        if (runTimeP) runTimeP.textContent = `${filmData.run_time_min || 0} dəq`;
 
-        const filmImg = document.querySelector(".film-image img");
-        if (filmImg) filmImg.src = filmData.cover_url || "../../Assets/images/lost-in-space.jpeg";
+// ================================
+// FAVORITE
+// ================================
 
-        // G. filmData.actors
-        const actorSlides = document.querySelector(".film-actors .actors-slider .actor-slides");
-        if (actorSlides && Array.isArray(filmData.actors)) {
-            actorSlides.innerHTML = ""; 
+function setFavoriteButtonState(isActive) {
+    const favoriteButton =
+        document.getElementById("favorite-btn");
 
-            filmData.actors.forEach((actor) => {
-                const actorSlide = document.createElement("div");
-                actorSlide.classList.add("actor");
-                actorSlide.innerHTML = `
-          <img src="${actor.img_url}" alt="${actor.name} ${actor.surname}" />
-          <div class="actor-name" style="display: flex; flex-direction: column;">
-            <span>${actor.name}</span>
-            <span>${actor.surname}</span>
-          </div>
+    if (!favoriteButton) return;
+
+    favoriteButton.classList.toggle(
+        "active",
+        isActive
+    );
+
+    favoriteButton.style.border = isActive
+        ? "2px solid #00FF00"
+        : "2px solid #fff";
+
+    favoriteButton.innerHTML = isActive
+        ? `
+            <svg
+                viewBox="8 8 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M10 16L14 20L22 12"
+                    stroke="#00FF00"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+            </svg>
+        `
+        : `
+            <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M7.2 7.2L7.2 0H8.8L8.8 7.2L16 7.2V8.8L8.8 8.8L8.8 16H7.2L7.2 8.8L0 8.8V7.2L7.2 7.2Z"
+                    fill="white"
+                />
+            </svg>
         `;
-                actorSlides.appendChild(actorSlide);
-            });
-        }
-        // H. Watch Now (watch_url)
-        const watchLink = document.querySelector(".film-text-header-left a");
-        if (watchLink) {
-            watchLink.addEventListener("click", (event) => {
-                event.preventDefault();
-                if (filmData.watch_url) {
-                    if (filmData.watch_url.startsWith("https://www.youtube.com/embed/")) {
-                        const embedId = filmData.watch_url.split("embed/")[1].split("?")[0];
-                        window.location.href = `details-2.html#${encodeURIComponent(embedId)}`;
-                        sessionStorage.setItem("movie.name", filmData.title);
-                    } else {
-                        window.open(filmData.watch_url, "_blank");
-                    }
-                }
-            });
-        }
-    } catch (error) {
-        console.error("Film detalları yüklənərkən xəta baş verdi:", error.message);
-    }
 }
-// time Format
+
+
+// ================================
+// DATE
+// ================================
+
 function formatDate(dateString) {
+    if (!dateString) return "N/A";
+
     const date = new Date(dateString);
-    const day = String(date.getDate()).padStart(2, "0");
-    const month = String(date.getMonth() + 1).padStart(2, "0");
+
+    const day = String(
+        date.getDate()
+    ).padStart(2, "0");
+
+    const month = String(
+        date.getMonth() + 1
+    ).padStart(2, "0");
+
     const year = date.getFullYear();
+
     return `${day}.${month}.${year}`;
 }
 
+
 function formatDateTime(dateString) {
+    if (!dateString) return "N/A";
+
     const date = new Date(dateString);
-    const hours = String(date.getHours()).padStart(2, "0");
-    const minutes = String(date.getMinutes()).padStart(2, "0");
+
+    const hours = String(
+        date.getHours()
+    ).padStart(2, "0");
+
+    const minutes = String(
+        date.getMinutes()
+    ).padStart(2, "0");
+
     return `${hours}:${minutes}`;
 }
 
-// Call
-fetchFilmDetails();
 
-// ==========
-// 1. POPUP 
-// ==========
-const popup = document.getElementById("popup");
-const popP = document.getElementById("pop-p");
+// ================================
+// COMMENTS
+// ================================
 
-// Popup
-export function showPopup(message) {
-    if (popup && popP) {
-        popP.textContent = message;
-        popup.classList.add("show"); // CSS-dəki .popup.show animasiyasını işə salır
+function renderMovieComments(comments) {
+    const commentsRoot =
+        document.querySelector(".film-comments");
+
+    if (!commentsRoot) return;
+
+    if (!comments || !comments.length) {
+        commentsRoot.innerHTML = `
+            <div class="comment">
+                <div class="user-info">
+                    <div class="user">
+                        <img
+                            src="../../assests/images/user-image.png"
+                            alt="User"
+                        />
+                        <span>
+                            Be the first to comment
+                        </span>
+                    </div>
+                </div>
+
+                <p>
+                    No comments yet for this movie.
+                </p>
+            </div>
+        `;
+
+        return;
+    }
+
+    commentsRoot.innerHTML = comments
+        .map((comment) => {
+            const date = comment.created_at
+                ? new Date(
+                      comment.created_at
+                  ).toLocaleString()
+                : "Just now";
+
+            return `
+                <div class="comment">
+
+                    <div class="user-info">
+
+                        <div class="user">
+
+                            <img
+                                src="../../assests/images/user-image.png"
+                                alt="User"
+                            />
+
+                            <span>
+                                User
+                            </span>
+
+                        </div>
+
+                        <p>
+                            ${date}
+                        </p>
+
+                    </div>
+
+                    <p>
+                        ${comment.comment || ""}
+                    </p>
+
+                </div>
+            `;
+        })
+        .join("");
+}
+
+
+async function submitComment(event) {
+    event.preventDefault();
+
+    const commentForm =
+        document.querySelector("#comments form");
+
+    const commentInput =
+        commentForm?.querySelector("textarea");
+
+    if (!commentInput) return;
+
+    const comment =
+        commentInput.value.trim();
+
+    if (!comment) return;
+
+    try {
+        await createMovieComment(
+            movieId,
+            comment
+        );
+
+        commentInput.value = "";
+
+        const comments =
+            await getMovieComments(movieId);
+
+        renderMovieComments(comments);
+
+    } catch (error) {
+        console.error(
+            "Comment creation failed:",
+            error
+        );
     }
 }
 
-// Popup close
-window.closePopup = function () {
-    if (popup) {
-        popup.classList.remove("show");
-    }
-};
 
-// ==================
-// 2. TREYLER MODAL
-// ==================
-const filmImage = document.querySelector(".film-image");
-const filmModal = document.querySelector(".film-modal");
-const filmOverlay = document.querySelector(".film-overlay");
-const filmModalOverlay = document.querySelector(".film-modal-overlay");
-const iframeFragman = document.querySelector(".iframe-fragman");
+// ================================
+// MOVIE DETAILS
+// ================================
 
-// film-image-click-btn
-if (filmImage && filmModal) {
-    filmImage.addEventListener("click", () => {
-        filmModal.classList.add("active");
-        if (filmOverlay) filmOverlay.classList.add("active");
-    });
-}
+async function renderMovieDetails(movieId) {
+    try {
+        const movie =
+            await getMovieById(movieId);
 
-const closeFragmanModal = () => {
-    if (filmModal) filmModal.classList.remove("active");
-    if (filmOverlay) filmOverlay.classList.remove("active");
-
-    if (iframeFragman) {
-        const currentSrc = iframeFragman.src;
-        iframeFragman.src = currentSrc;
-    }
-};
-
-if (filmOverlay) filmOverlay.addEventListener("click", closeFragmanModal);
-if (filmModalOverlay) filmModalOverlay.addEventListener("click", closeFragmanModal);
+        if (!movie) return;
 
 
-// ===================
-// 3.  Modal-remove
-// ===================
-const modalRemove = document.getElementById("modal-remove");
-const yesBtn = document.getElementById("yes-btn");
-let selectedCommentId = null; // Silinəcək şərhin ID-si
+        // ----------------
+        // BASIC INFO
+        // ----------------
 
-// modal open-btn
-export function openRemoveModal(commentId) {
-    selectedCommentId = commentId;
-    if (modalRemove) {
-        modalRemove.style.display = "flex";
-    }
-}
+        const mainTitle =
+            document.querySelector(
+                ".film-name h1"
+            );
 
-// Modal close-btn
-window.closeRemoveModal = function () {
-    selectedCommentId = null;
-    if (modalRemove) {
-        modalRemove.style.display = "none";
-    }
-};
+        const subtitle =
+            document.querySelector(
+                ".film-name p"
+            );
 
-// Modal Yes-btn
-if (yesBtn) {
-    yesBtn.addEventListener("click", async () => {
-        if (!selectedCommentId) return;
+        const bgImage =
+            document.querySelector(
+                ".film-bg"
+            );
+
+        const posterImage =
+            document.querySelector(
+                ".film-image img"
+            );
+
+        const modalName =
+            document.querySelector(
+                ".film-modal-name"
+            );
+
+        const description =
+            document.querySelector(
+                ".film-text"
+            );
+
+        const rating =
+            document.querySelector(
+                ".film-score span"
+            );
+
+        const movieType =
+            document.querySelector(
+                ".type p"
+            );
+
+        const movieStatus =
+            document.querySelector(
+                ".status p"
+            );
+
+        const firstDate =
+            document.querySelector(
+                ".first-date p"
+            );
+
+        const addedTime =
+            document.querySelector(
+                ".last-date p"
+            );
+
+        const runtime =
+            document.querySelector(
+                ".run-time p"
+            );
+
+        const genres =
+            document.querySelector(
+                ".genres p"
+            );
+
+        const actorSlides =
+            document.querySelector(
+                ".film-actors .actors-slider .actor-slides"
+            );
+
+
+        // ----------------
+        // MOVIE DATA
+        // ----------------
+
+        if (mainTitle) {
+            mainTitle.textContent =
+                movie.title || "";
+        }
+
+        if (modalName) {
+            modalName.textContent =
+                movie.title || "";
+        }
+
+        if (subtitle) {
+            subtitle.textContent =
+                `${movie.category?.name || "Movie"} / ${
+                    movie.title || ""
+                }`;
+        }
+
+        if (bgImage) {
+            bgImage.src =
+                movie.cover_url ||
+                bgImage.src;
+        }
+
+        if (posterImage) {
+            posterImage.src =
+                movie.cover_url ||
+                posterImage.src;
+        }
+
+        if (description) {
+            description.textContent =
+                movie.overview ||
+                "Açıqlama tapılmadı.";
+        }
+
+        if (rating) {
+            rating.textContent =
+                movie.imdb || "N/A";
+        }
+
+        if (movieType) {
+            movieType.textContent =
+                movie.category?.name ||
+                "Movie";
+        }
+
+        if (movieStatus) {
+            movieStatus.textContent =
+                movie.adult
+                    ? "18+ (Adult Content)"
+                    : "Hər kəs üçün";
+        }
+
+        if (firstDate) {
+            firstDate.textContent =
+                formatDate(
+                    movie.created_at
+                );
+        }
+
+        if (addedTime) {
+            addedTime.textContent =
+                formatDateTime(
+                    movie.created_at
+                );
+        }
+
+        if (runtime) {
+            runtime.textContent =
+                movie.run_time_min
+                    ? `${movie.run_time_min} dəq`
+                    : "N/A";
+        }
+
+        if (genres) {
+            genres.textContent =
+                movie.category?.name ||
+                "Bilinmir";
+        }
+
+
+        // ----------------
+        // TRAILER
+        // ----------------
+
+        if (
+            iframeFragman &&
+            movie.fragman
+        ) {
+            iframeFragman.src =
+                movie.fragman;
+        }
+
+
+        // ----------------
+        // ACTORS
+        // ----------------
+
+        if (
+            actorSlides &&
+            Array.isArray(movie.actors)
+        ) {
+            actorSlides.innerHTML =
+                movie.actors
+                    .map((actor) => {
+
+                        const actorName =
+                            `${actor.name || ""} ${
+                                actor.surname || ""
+                            }`.trim() ||
+                            "Actor";
+
+                        return `
+                            <div class="actor">
+
+                                <img
+                                    src="${
+                                        actor.img_url ||
+                                        "../../assests/images/detail/actor-defolt.jpg"
+                                    }"
+                                    alt="${actorName}"
+                                />
+
+                                <span class="actor-name">
+                                    ${actorName}
+                                </span>
+
+                            </div>
+                        `;
+                    })
+                    .join("");
+        }
+
+
+        // ----------------
+        // WATCH LINK
+        // ----------------
+
+        const watchLink =
+            document.querySelector(
+                ".film-text-header-left a"
+            );
+
+        if (watchLink) {
+            watchLink.addEventListener(
+                "click",
+                (event) => {
+
+                    event.preventDefault();
+
+                    if (!movie.watch_url) {
+                        return;
+                    }
+
+                    if (
+                        movie.watch_url.startsWith(
+                            "https://www.youtube.com/embed/"
+                        )
+                    ) {
+                        const embedId =
+                            movie.watch_url
+                                .split("embed/")[1]
+                                .split("?")[0];
+
+                        sessionStorage.setItem(
+                            "movie.name",
+                            movie.title || ""
+                        );
+
+                        window.location.href =
+                            `details-2.html#${encodeURIComponent(
+                                embedId
+                            )}`;
+                    } else {
+                        window.open(
+                            movie.watch_url,
+                            "_blank"
+                        );
+                    }
+                }
+            );
+        }
+
+
+        // ----------------
+        // FAVORITE STATUS
+        // ----------------
+
+        const favoriteButton =
+            document.getElementById(
+                "favorite-btn"
+            );
+
+        if (favoriteButton) {
+
+            favoriteButton.dataset.movieId =
+                String(movie.id);
+
+            favoriteButton.addEventListener(
+                "click",
+                async () => {
+
+                    const wasFavorite =
+                        favoriteButton.classList.contains(
+                            "active"
+                        );
+
+                    try {
+
+                        await toggleFavorite(
+                            movie.id
+                        );
+
+                        const isActive =
+                            !wasFavorite;
+
+                        setFavoriteButtonState(
+                            isActive
+                        );
+
+                        showFavoriteFeedback(
+                            isActive
+                        );
+
+                    } catch (error) {
+
+                        console.error(
+                            "Favorite toggle failed:",
+                            error
+                        );
+                    }
+                }
+            );
+        }
+
+
+        // ----------------
+        // CHECK FAVORITE
+        // ----------------
 
         try {
-            // deleteComment(selectedCommentId) API function
-            // await deleteComment(selectedCommentId);
+            const favorites =
+                await getFavoriteMovies();
 
-            window.closeRemoveModal();
-            showPopup("Şərh uğurla silindi!");
+            const favoriteMovieIds =
+                favorites.map(
+                    (favorite) =>
+                        Number(favorite.id)
+                );
+
+            setFavoriteButtonState(
+                favoriteMovieIds.includes(
+                    Number(movie.id)
+                )
+            );
 
         } catch (error) {
-            window.closeRemoveModal();
-            showPopup(error.message || "Şərh silinərkən xəta baş verdi.");
-        }
-    });
-}
-// =========
-// faworite
-// =========
-const favoriteBtn = document.getElementById("favorite-btn");
-let isFavorite = false;  //status
 
-if (favoriteBtn) {
-    favoriteBtn.addEventListener("click", async () => {
-        const movieId = favoriteBtn.getAttribute("data-movie-id");
-
-        if (!movieId) {
-            showPopup("Film ID-si tapılmadı!");
-            return;
+            console.warn(
+                "Unable to load favorites:",
+                error
+            );
         }
+
+
+        // ----------------
+        // COMMENTS
+        // ----------------
 
         try {
-            // Toggle : delete or add
-            isFavorite = !isFavorite;
+            const comments =
+                await getMovieComments(
+                    movieId
+                );
 
-            if (isFavorite) {
-                // API-add-faworite
-                // await addToFavorites(movieId);
+            renderMovieComments(
+                comments
+            );
 
-                favoriteBtn.classList.add("active");
-                showPopup("Film sevimlilərə əlavə olundu!");
-            } else {
-                // API-delete-faworite
-                // await removeFromFavorites(movieId);
-
-                favoriteBtn.classList.remove("active");
-                showPopup("Film sevimlilərdən çıxarıldı!");
-            }
         } catch (error) {
-            // Xəta olarsa statusu əvvəlki halına qaytarırıq
-            isFavorite = !isFavorite;
-            showPopup(error.message || "Xəta baş verdi!");
-        }
-    });
-}
 
-// Call-movie-data
-export function setFavoriteStatus(movieId, inFavoriteList = false) {
-    if (favoriteBtn) {
-        favoriteBtn.setAttribute("data-movie-id", movieId);
-        isFavorite = inFavoriteList;
-
-        if (isFavorite) {
-            favoriteBtn.classList.add("active");
-        } else {
-            favoriteBtn.classList.remove("active");
+            console.warn(
+                "Comments could not be loaded:",
+                error
+            );
         }
+
+    } catch (error) {
+
+        console.error(
+            "Film detalları yüklənərkən xəta baş verdi:",
+            error
+        );
     }
 }
+
+
+// ================================
+// COMMENT FORM
+// ================================
+
+const commentForm =
+    document.querySelector(
+        "#comments form"
+    );
+
+if (commentForm) {
+    commentForm.addEventListener(
+        "submit",
+        submitComment
+    );
+}
+
+
+// ================================
+// START
+// ================================
+
+renderMovieDetails(movieId);
