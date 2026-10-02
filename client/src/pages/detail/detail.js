@@ -73,7 +73,7 @@ function showFavoriteFeedback(isActive) {
 
   window.clearTimeout(favoritePopupTimer);
 
-  favoritePopupTimer = window.setTimeout(hideFavoritePopup, 2200);
+  favoritePopupTimer = window.setTimeout(hideFavoritePopup, 1000);
 }
 
 window.closePopup = function () {
@@ -473,9 +473,7 @@ async function renderMovieDetails(movieId) {
     }
 
     if (subtitle) {
-      subtitle.textContent = `${movie.category?.name || "Movie"} / ${
-        movie.title || ""
-      }`;
+      subtitle.textContent = movie.category?.name || "Movie";
     }
 
     if (bgImage) {
