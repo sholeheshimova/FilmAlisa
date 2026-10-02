@@ -1,0 +1,86 @@
+.table-pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: calc(100% - 60px);
+  box-sizing: border-box;
+  margin: 12px auto 0;
+  padding: 14px 12px;
+}
+
+.table-pager.d-none {
+  display: none;
+}
+
+.pager-btn {
+  min-width: 36px;
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid #4a4a4a;
+  border-radius: 6px;
+  background: var(--sidebar-bgc);
+  color: var(--white-color);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.pager-btn:hover:not(:disabled):not(.pager-btn--active) {
+  border-color: var(--btn);
+  background: var(--sidebar-hover-color);
+  color: var(--white-color);
+}
+
+.pager-btn--active {
+  border-color: var(--btn);
+  background: var(--btn);
+  color: var(--white-color);
+  cursor: default;
+}
+
+.pager-btn--active:hover {
+  border-color: var(--sidebar-hover-color);
+  background: var(--sidebar-hover-color);
+  color: var(--white-color);
+}
+
+.pager-btn--nav {
+  font-weight: 600;
+}
+
+.pager-btn:disabled:not(.pager-btn--active) {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.pager-ellipsis {
+  padding: 0 4px;
+  color: #666;
+  user-select: none;
+}
+
+.table-empty {
+  padding: 20px;
+  text-align: center;
+}
+
+.table-placeholder-row > td {
+  height: 56px;
+  padding: 0;
+}
+
+@media (max-width: 600px) {
+  .pager-btn {
+    min-width: 32px;
+    height: 32px;
+    padding: 0 8px;
+    font-size: 13px;
+  }
+}

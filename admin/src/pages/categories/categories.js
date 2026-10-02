@@ -4,6 +4,7 @@ import {
   fetchCategories,
   updateCategory,
 } from "../../api/categories.js";
+import { createTablePaginator } from "../../helpers/tablePaginator.js";
 
 import "../../helpers/authGuard.js";
 import "../../helpers/logout.js";
@@ -24,42 +25,50 @@ const editSubmitBtn = document.querySelector(".edit-submit-btn");
 const tbody = document.querySelector(".tbody");
 let selectedCategoryId = null;
 
+const pager = createTablePaginator({
+  tableBody: tbody,
+  pagerEl: document.querySelector(".table-pager"),
+  colSpan: 3,
+  pageSize: 8,
+  emptyText: "No categories found.",
+  renderRow: (category) => createCategoryRow(category),
+});
 
+function createCategoryRow(category) {
+  const row = document.createElement("tr");
+  row.classList.add("row");
+  row.dataset.id = category.id;
+
+  const idCell = document.createElement("td");
+  idCell.classList.add("cell");
+  idCell.textContent = category.id;
+
+  const nameCell = document.createElement("td");
+  nameCell.classList.add("cell", "row-name");
+  nameCell.textContent = category.name;
+
+  const actionsCell = document.createElement("td");
+  actionsCell.classList.add("cell", "actions");
+  actionsCell.innerHTML = `
+    <button type="button" class="edit" aria-label="Edit category">
+      <i class="fa-solid fa-pen-to-square"></i>
+    </button>
+    <button type="button" class="delete" aria-label="Delete category">
+      <i class="fa-solid fa-trash"></i>
+    </button>
+  `;
+
+  row.append(idCell, nameCell, actionsCell);
+  return row;
+}
 
 async function loadCategories() {
   try {
     const categories = await fetchCategories();
-    tbody.innerHTML = "";
-
-    categories.forEach((category) => {
-      const row = document.createElement("tr");
-      row.classList.add("row");
-      row.dataset.id = category.id;
-
-      const idCell = document.createElement("td");
-      idCell.classList.add("cell");
-      idCell.textContent = category.id;
-
-      const nameCell = document.createElement("td");
-      nameCell.classList.add("cell", "row-name");
-      nameCell.textContent = category.name;
-
-      const actionsCell = document.createElement("td");
-      actionsCell.classList.add("cell", "actions");
-      actionsCell.innerHTML = `
-        <button type="button" class="edit" aria-label="Edit category">
-        <i class="fa-solid fa-pen-to-square"></i>
-        </button>
-        <button type="button" class="delete" aria-label="Delete category">
-        <i class="fa-solid fa-trash"></i>
-        </button>
-      `;
-
-      row.append(idCell, nameCell, actionsCell);
-      tbody.appendChild(row);
-    });
+    pager.setItems(categories);
   } catch (error) {
     console.error("Error loading categories:", error);
+    pager.setItems([]);
     tbody.innerHTML = '<tr><td class="cell" colspan="3">Could not load categories.</td></tr>';
   }
 }
