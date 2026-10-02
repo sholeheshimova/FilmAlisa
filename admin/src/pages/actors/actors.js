@@ -55,7 +55,8 @@ async function renderActors() {
       actors.map((a) => [String(a.id), a])
     );
 
-    pager.setItems(actors);
+    // pager.setItems(actors);
+    pager.setItems([...actors].reverse());
   } catch (error) {
     console.error(
       "Aktyorlar yüklənərkən xəta baş verdi:",

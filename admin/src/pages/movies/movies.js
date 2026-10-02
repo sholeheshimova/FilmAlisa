@@ -100,7 +100,8 @@ async function renderMoviesTable() {
 
     moviesById = new Map(movies.map((m) => [String(m.id), m]));
 
-    moviesPager.setItems(movies);
+    // moviesPager.setItems(movies);
+    moviesPager.setItems([...movies].reverse());
   } catch (error) {
     console.error("Filmler yüklenirken hata oluştu:", error);
   }

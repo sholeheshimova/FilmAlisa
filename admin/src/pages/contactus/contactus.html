@@ -95,7 +95,6 @@
 
   </aside>
 
-  <!-- Page Header -->
   <main class="main-content">
 
     <header class="admin-header">
@@ -138,43 +137,58 @@
         </table>
 
       </div>
-      <nav class="table-pager d-none" aria-label="Contact requests table pages"></nav>
+
+      <nav
+        class="table-pager d-none"
+        aria-label="Contact requests table pages"
+      ></nav>
 
     </section>
 
   </main>
 
-  <!-- DELETE MODAL -->
-  <div class="modal-overlay" id="deleteModal">
+  <!-- Delete modal -->
+  <div class="delete-modal">
 
-    <div class="delete-modal-card">
+    <div class="delete-modal-content">
 
-      <h2>Delete Contact</h2>
+      <h3>Delete Contact</h3>
 
       <p>Are you sure you want to delete this contact?</p>
 
-      <div class="modal-actions">
-        <button class="btn-cancel">Cancel</button>
-        <button class="btn-ok">OK</button>
+      <div class="delete-modal-actions">
+
+        <button type="button" class="delete-cancel-btn">
+          Cancel
+        </button>
+
+        <button type="button" class="confirm-delete-btn">
+          OK
+        </button>
+
       </div>
 
     </div>
 
   </div>
 
-  <!-- VIEW MESSAGE MODAL -->
-  <div class="modal-overlay" id="viewMessageModal">
+  <!-- View message modal -->
+  <div class="edit-modal">
 
-    <div class="delete-modal-card">
+    <div class="edit-modal-content">
 
-      <h2>Message</h2>
+      <h3>Message</h3>
 
-      <p id="fullMessageText">Mesajın tam mətni ...</p>
+      <label for="edit-message"></label>
 
-      <div class="modal-actions">
-        <button class="btn-cancel" id="closeViewModalBtn">
+      <textarea id="edit-message" readonly></textarea>
+
+      <div class="edit-modal-actions">
+
+        <button type="button" class="cancel-edit-btn">
           Close
         </button>
+
       </div>
 
     </div>

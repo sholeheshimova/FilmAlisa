@@ -80,7 +80,8 @@ function createCommentRow(item) {
 // Get comments
 async function loadComments() {
   const comments = await getComments();
-  commentsPager.setItems(comments);
+  // commentsPager.setItems(comments);
+  commentsPager.setItems([...comments].reverse());
 }
 
 // Close edit modal
