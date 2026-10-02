@@ -70,9 +70,13 @@
             <div class="film-desc">
               <div class="film-text-header">
                 <div class="film-text-header-left">
-                  <p>Have you seen our robot?!</p>
-                  <a href="https://www.imdb.com/title/tt5232792/" target="_blank" rel="noopener noreferrer">Watch
-                    Link</a>
+                  <p>Don't forget to click</p>
+                  <a href="https://www.imdb.com/title/tt5232792/" target="_blank" rel="noopener noreferrer">
+                    Watch Link
+                    <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </a>
                 </div>
                 <div class="film-text-header-right">
                   <button id="favorite-btn" data-movie-id="">
@@ -227,10 +231,17 @@
             </svg>
           </a>
         </div>
-        <div class="movies-slider">
-          <div class="movies-slides">
-
+        <div class="movies-carousel">
+          <button class="similar-scroll-button similar-scroll-button-left" type="button" data-scroll-direction="-1" aria-label="Scroll similar movies left" disabled>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+          </button>
+          <div class="movies-slider">
+            <div class="movies-slides">
+            </div>
           </div>
+          <button class="similar-scroll-button similar-scroll-button-right" type="button" data-scroll-direction="1" aria-label="Scroll similar movies right" disabled>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+          </button>
         </div>
       </section>
     </div>

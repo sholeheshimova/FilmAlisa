@@ -352,6 +352,45 @@ async function submitComment(event) {
 // MOVIE DETAILS
 // ================================
 
+function setupSimilarMoviesSlider() {
+  const slider = document.querySelector(".movies-slider");
+  const slides = slider?.querySelector(".movies-slides");
+  const buttons = document.querySelectorAll(".similar-scroll-button");
+
+  if (!slider || !slides || slider.dataset.controlsInitialized) return;
+  slider.dataset.controlsInitialized = "true";
+
+  const updateButtons = () => {
+    const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
+
+    buttons.forEach((button) => {
+      const direction = Number(button.dataset.scrollDirection);
+      button.disabled =
+        direction < 0
+          ? slider.scrollLeft <= 1
+          : slider.scrollLeft >= maxScrollLeft - 1;
+    });
+  };
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const direction = Number(button.dataset.scrollDirection);
+      const firstCard = slides.querySelector(".movie");
+      if (!firstCard) return;
+
+      const gap = Number.parseFloat(getComputedStyle(slides).gap) || 0;
+      slider.scrollBy({
+        left: direction * (firstCard.getBoundingClientRect().width + gap),
+        behavior: "smooth",
+      });
+    });
+  });
+
+  slider.addEventListener("scroll", updateButtons, { passive: true });
+  window.addEventListener("resize", updateButtons);
+  updateButtons();
+}
+
 async function renderSimilarMovies(currentMovie) {
   const slides = document.querySelector(".movies-slides");
   if (!slides) return;
@@ -412,6 +451,7 @@ async function renderSimilarMovies(currentMovie) {
     });
 
     slides.replaceChildren(...cards);
+    setupSimilarMoviesSlider();
   } catch (error) {
     console.warn("Similar movies could not be loaded:", error);
   }

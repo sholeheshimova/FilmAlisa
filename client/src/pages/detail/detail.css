@@ -403,13 +403,17 @@ main {
 }
 
 .film-text-header-left p {
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 800;
   color: #ebeef5;
   line-height: 19px;
 }
 
 .film-text-header-left a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
   padding: 3px 7px;
   background-color: rgba(0, 0, 0, 0.65);
   border-radius: 8px;
@@ -422,6 +426,12 @@ main {
   line-height: 20px;
   font-weight: 400;
   text-decoration: none;
+}
+
+.film-text-header-left a svg {
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
 }
 
 .film-text-header-right button {
@@ -567,6 +577,9 @@ main {
 
 #comments form {
   display: flex;
+  width: 100%;
+  max-width: 560px;
+  box-sizing: border-box;
   gap: 22px;
   padding-block: 25px;
 }
@@ -664,7 +677,7 @@ main {
   display: flex;
   flex-direction: column;
   padding: 15px 8px;
-  width: 680px;
+  width: min(360px, 100%);
   height: auto;
   border: 1px solid #475069;
   border-radius: 30px;
@@ -780,6 +793,66 @@ main {
       stroke: #9b51e0;
     }
   }
+}
+
+.movies-carousel {
+  position: relative;
+}
+
+.similar-scroll-button {
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 64px;
+  padding: 0;
+  border: 1px solid #ffffff40;
+  border-radius: 6px;
+  background: #1d1d1dcc;
+  color: #fff;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.similar-scroll-button-left {
+  left: 8px;
+}
+
+.similar-scroll-button-right {
+  right: 8px;
+}
+
+.similar-scroll-button svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.similar-scroll-button:hover:not(:disabled) {
+  border-color: #9b51e0;
+  background: #1d1d1df2;
+  color: #c78cff;
+}
+
+.similar-scroll-button:disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.similar-scroll-button:focus-visible {
+  outline: 2px solid #9b51e0;
+  outline-offset: 2px;
 }
 
 .movies-slider {
