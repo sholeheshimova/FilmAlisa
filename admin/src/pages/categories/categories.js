@@ -65,7 +65,8 @@ function createCategoryRow(category) {
 async function loadCategories() {
   try {
     const categories = await fetchCategories();
-    pager.setItems(categories);
+    // pager.setItems(categories);
+    pager.setItems([...categories].reverse());
   } catch (error) {
     console.error("Error loading categories:", error);
     pager.setItems([]);

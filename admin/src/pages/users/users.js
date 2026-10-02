@@ -34,7 +34,8 @@ async function renderUsers() {
   try {
     const data = await getUsers();
 
-    usersPager.setItems(data.data);
+    // usersPager.setItems(data.data);
+    usersPager.setItems([...data.data].reverse());
   } catch (error) {
     console.error(error);
     usersPager.setItems([]);
