@@ -1,15 +1,9 @@
 import "../../helpers/authGuard.js";
-import { searchMovies } from "../../api/movies.js";
-
-console.log("SEARCH JS IS WORKING");
+import { getMovies, searchMovies } from "../../api/movies.js";
 
 const searchInput = document.querySelector(".search-input");
 const searchButton = document.querySelector(".search-button");
 const moviesGrid = document.querySelector(".movies-grid");
-
-console.log("BUTTON:", searchButton);
-console.log("INPUT:", searchInput);
-console.log("GRID:", moviesGrid);
 
 function renderMovies(movies) {
   if (!movies.length) {
@@ -21,13 +15,13 @@ function renderMovies(movies) {
     .map(
       (movie) => `
         <div class="movie-card">
-          <img
-            src="${movie.cover_url}"
-            alt="${movie.title}"
+          <img 
+            src="${movie.cover_url}" 
+            alt="${movie.title}" 
           />
 
           <div class="movie-info">
-            <span class="movie-type">${movie.category?.name}</span>
+            <span class="movie-type">${movie.category?.name || ""}</span>
             <h3>${movie.title}</h3>
 
             <div class="movie-rating">
@@ -41,12 +35,27 @@ function renderMovies(movies) {
     .join("");
 }
 
+async function loadMovies() {
+  try {
+    const movies = await getMovies();
+
+    console.log("MOVIES:", movies);
+
+    renderMovies(movies);
+  } catch (error) {
+    console.error("MOVIES LOAD ERROR:", error);
+
+    moviesGrid.innerHTML = `
+      <p class="search-message">${error.message}</p>
+    `;
+  }
+}
+
 async function handleSearch() {
   const search = searchInput.value.trim();
 
   if (!search) {
-    moviesGrid.innerHTML =
-      '<p class="search-message error-message">Please enter a movie title to search.</p>';
+    await loadMovies();
     return;
   }
 
@@ -55,7 +64,10 @@ async function handleSearch() {
     renderMovies(data.data || []);
   } catch (error) {
     console.error(error);
-    moviesGrid.innerHTML = `<p class="search-message">${error.message}</p>`;
+
+    moviesGrid.innerHTML = `
+      <p class="search-message">${error.message}</p>
+    `;
   }
 }
 
@@ -66,3 +78,5 @@ searchInput.addEventListener("keydown", (event) => {
     handleSearch();
   }
 });
+
+loadMovies();
