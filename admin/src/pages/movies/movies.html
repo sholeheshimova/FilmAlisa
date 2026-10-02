@@ -122,7 +122,7 @@
             </thead>
 
             <tbody>
-              <tr>
+              <!-- <tr>
                 <td>1</td>
                 <td>
                   <div class="movie-title-cell">
@@ -153,7 +153,8 @@
                     <i class="fa-solid fa-trash"></i>
                   </button>
                 </td>
-              </tr>
+              </tr> -->
+
             </tbody>
           </table>
         </div>
@@ -174,25 +175,7 @@
         </div>
       </div>
 
-      <!-- Edit Modal -->
-      <!-- <div class="edit-modal">
-  <div class="edit-modal-content">
-    <h3>Edit Comment</h3>
-
-    <label for="edit-comment">Comment</label>
-
-    <textarea
-      id="edit-comment"
-      placeholder="Enter comment..."
-    >Comments...</textarea>
-
-    <div class="edit-modal-actions">
-      <button type="button" class="cancel-edit-btn">Cancel</button>
-
-      <button type="button" class="save-edit-btn">Save Changes</button>
-    </div>
-  </div>
-</div> -->
+   
 
       <div class="edit-modal" id="editMovieModal">
         <div class="edit-modal-content">
@@ -253,13 +236,15 @@
             </div>
           </div>
 
-          <div class="edit-modal-preview">
-            <img
-              src="../../assets/image/movie-poster.svg"
-              alt="Movie Poster"
-              id="editPreviewImg"
-            />
-          </div>
+
+       <!-- BUNU ƏLAVƏ ET -->
+    <div class="edit-modal-preview">
+      <img
+        src="../../assets/image/movie-poster.svg"
+        alt="Movie Poster"
+        id="editPreviewImg"
+      />
+    </div>
         </div>
       </div>
     </main>
@@ -329,9 +314,10 @@
           </div>
         </form>
 
-        <div class="modal-preview">
-          <img src="../../assets/image/movie-poster.svg" alt="Movie Poster" />
-        </div>
+       <div class="modal-preview">
+  <img id="createPreviewImg" src="" alt="Movie Poster" />
+  <span class="preview-placeholder">Poster preview</span>
+</div>
       </div>
     </div>
     <script type="module" src="./movies.js"></script>
