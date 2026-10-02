@@ -169,6 +169,9 @@ const userName =
 const signInButton =
     document.querySelector(".user-btn");
 
+const signupEmailInput =
+    document.querySelector("#emailInput");
+
 const userModal =
     document.querySelector("#user-modal");
 
@@ -185,6 +188,7 @@ function updateAuthHeader() {
 
     if (userDiv) userDiv.hidden = !isAuthenticated;
     if (signInButton) signInButton.hidden = isAuthenticated;
+    if (signupEmailInput) signupEmailInput.hidden = isAuthenticated;
     if (userModal) userModal.hidden = !isAuthenticated;
 
     if (!isAuthenticated) return;

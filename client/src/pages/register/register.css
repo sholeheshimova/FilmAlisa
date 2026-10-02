@@ -31,7 +31,17 @@ body {
   font-size: 70px;
   font-weight: 400;
   margin-bottom: 23px;
-  color: var(--Filmalisa-text-color);
+    color: #cc3cfc;
+    background-image: linear-gradient(
+      100deg,
+      #0feffd 0%,
+      #8484fc 35%,
+      #cc3cfc 68%,
+      #fc0cfc 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   line-height: 80px;
 }
 .login-desc {
