@@ -28,11 +28,13 @@
     }
 
     .carousel-container {
-        height: 630px;
+        height: clamp(420px, 70svh, 630px);
     }
 
     .text-overlay {
-        margin-left: 160px;
+        left: clamp(80px, 12vw, 160px);
+        right: 32px;
+        margin-left: 0;
         max-width: 600px;
     }
 
@@ -69,12 +71,14 @@
     }
 
     .category-card {
-        gap: 14px;
+        gap: 20px;
+        padding-left: 46px;
     }
 
     .movie-card {
-        width: 280px;
-        height: 400px;
+        width: 230px;
+        flex-basis: 230px;
+        height: 340px;
     }
 
     .category-header {
@@ -88,8 +92,8 @@
 
     .chevron-icon {
         margin-left: 12px;
-        width: 10px;
-        height: 10px;
+        width: 14px;
+        height: 14px;
     }
 
     .movie-details {
@@ -157,30 +161,36 @@
     }
 
     .carousel-container {
-        height: 550px;
+        height: clamp(340px, 62svh, 480px);
+    }
+
+    .slide::after {
+        height: 100px;
     }
 
     .text-overlay {
-        margin-inline: 10px;
-        max-width: 550px;
+        left: 20px;
+        right: 20px;
+        margin-left: 0;
+        max-width: none;
     }
 
     h1 {
         font-size: 24px;
-        line-height: 25px;
+        line-height: 1.1;
         margin-bottom: 14px;
     }
 
     p {
-        font-size: 8px;
-        line-height: 1.1;
+        font-size: 13px;
+        line-height: 1.4;
         margin-bottom: 12px;
     }
 
     .watch-btn {
         width: 120px;
-        height: 30px;
-        font-size: 10px;
+        height: 40px;
+        font-size: 12px;
     }
 
     .carousel-buttons {
@@ -193,16 +203,24 @@
     }
 
     .category-card {
-        gap: 10px;
+        gap: 20px;
+        padding-left: 30px;
+        padding-right: 30px;
     }
 
     .movie-card {
-        width: 150px;
-        height: 200px;
+        width: 130px;
+        flex-basis: 130px;
+        height: 175px;
     }
 
     .category-header {
         margin: 20px 0px 10px 30px;
+    }
+
+    .category-scroll-button {
+        width: 32px;
+        height: 32px;
     }
 
     .category-P {
@@ -212,12 +230,13 @@
 
     .chevron-icon {
         margin-left: 10px;
-        width: 8px;
-        height: 8px;
+        width: 12px;
+        height: 12px;
     }
 
     .movie-details {
         padding: 15px;
+        box-sizing: border-box;
     }
 
     .movie-category {

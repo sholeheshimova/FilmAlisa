@@ -628,10 +628,26 @@ input:-webkit-autofill:focus {
 }
 
 .user-div {
-    display: flex;
+    display: none;
     align-items: center;
     cursor: pointer;
     position: relative;
+}
+
+.user-login.is-authenticated .user-div {
+    display: flex;
+}
+
+.user-login.is-authenticated .user-btn {
+    display: none;
+}
+
+.user-login:not(.is-authenticated) .user-modal {
+    display: none;
+}
+
+.user-login [hidden] {
+    display: none !important;
 }
 
 .user-img {
@@ -709,6 +725,11 @@ input:-webkit-autofill:focus {
     width: 20px;
     height: 20px;
     margin: 0 2px
+}
+
+.user-modal li a {
+    flex: 1;
+    text-align: left;
 }
 
 .user-modal li:hover {

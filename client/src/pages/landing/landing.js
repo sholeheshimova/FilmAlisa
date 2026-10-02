@@ -157,8 +157,63 @@ if (contactForm) {
 const userDiv =
     document.querySelector(".user-div");
 
+const userLogin =
+    document.querySelector(".user-login");
+
+const userImage =
+    document.querySelector("#user-id-image");
+
+const userName =
+    document.querySelector("#user-id-name");
+
+const signInButton =
+    document.querySelector(".user-btn");
+
 const userModal =
     document.querySelector("#user-modal");
+
+function updateAuthHeader() {
+    const isAuthenticated = Boolean(
+        localStorage.getItem("accessToken") &&
+        localStorage.getItem("userId")
+    );
+
+    userLogin?.classList.toggle(
+        "is-authenticated",
+        isAuthenticated
+    );
+
+    if (userDiv) userDiv.hidden = !isAuthenticated;
+    if (signInButton) signInButton.hidden = isAuthenticated;
+    if (userModal) userModal.hidden = !isAuthenticated;
+
+    if (!isAuthenticated) return;
+
+    let profile = {};
+    try {
+        profile = JSON.parse(
+            localStorage.getItem("user_profile") || "{}"
+        ) || {};
+    } catch {
+        profile = {};
+    }
+
+    const displayName =
+        profile.full_name || profile.name || "Profile";
+
+    if (userName) {
+        userName.textContent = displayName;
+    }
+
+    if (userImage) {
+        if (profile.img_url) {
+            userImage.src = profile.img_url;
+        }
+        userImage.alt = `${displayName} profile`;
+    }
+}
+
+updateAuthHeader();
 
 if (userDiv && userModal) {
     userDiv.addEventListener("click", () => {
@@ -186,8 +241,12 @@ if (logoutBtn) {
                 "userId"
             );
 
+            localStorage.removeItem(
+                "user_profile"
+            );
+
             window.location.href =
-                "./client/src/pages/login/login.html";
+                "./index.html";
         }
     );
 }

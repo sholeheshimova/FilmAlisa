@@ -48,12 +48,24 @@
     }
 
     .film-information {
-        gap: 50px;
-        padding-block: 70px;
+        gap: 32px;
+        padding-block: 50px;
+    }
+
+    .film-information .film-image {
+        height: 453px;
     }
 
     .film-information .film-image img {
-        width: 400px;
+        width: 330px;
+    }
+
+    .film-description {
+        max-width: 420px;
+    }
+
+    #comments {
+        margin-inline: 18px;
     }
 
     /* ? MODAL */
@@ -91,31 +103,31 @@
 
 
     .film-text-header-left {
-        gap: 15px;
+        gap: 10px;
     }
 
     .film-text-header-left p {
-        font-size: 18px;
-        letter-spacing: 1.1px;
-        line-height: 25px;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+        line-height: 20px;
     }
 
     .film-text-header-left a {
         color: #ffad49;
-        font-size: 13px;
-        line-height: 20px;
+        font-size: 12px;
+        line-height: 18px;
     }
 
     .film-text-header-right button {
-        font-size: 12px;
-        padding: 4px 10px;
+        font-size: 11px;
+        padding: 3px 8px;
     }
 
     .film-text {
         font-weight: 400;
-        font-size: 20px;
-        line-height: 26px;
-        padding-block: 20px;
+        font-size: 15px;
+        line-height: 20px;
+        padding-block: 14px;
     }
 
     .film-score {
@@ -124,49 +136,49 @@
     }
 
     .film-overview {
-        gap: 20px;
-        padding-block: 18px;
+        gap: 12px;
+        padding-block: 12px;
     }
 
     .film-overview span {
         color: #767e94;
-        font-size: 14px;
+        font-size: 11px;
         font-weight: 400;
-        line-height: 20px;
+        line-height: 17px;
     }
 
     .film-overview p {
-        font-size: 18px;
-        line-height: 27px;
+        font-size: 13px;
+        line-height: 19px;
     }
 
     /* ! ACTOR */
     .actors-head {
-        font-size: 24px;
+        font-size: 22px;
         line-height: 20px;
     }
 
     .actors-slider {
         max-width: 700px;
-        height: 220px;
+        height: 185px;
     }
 
     .actor-slides {
-        padding-block: 20px;
-        gap: 20px;
+        padding-block: 15px;
+        gap: 12px;
     }
 
     .actor {
-        width: 110px;
+        width: 88px;
     }
 
     .actor img {
-        width: 110px;
+        width: 76px;
     }
 
     .actor-name {
-        font-size: 16px;
-        line-height: 24px;
+        font-size: 15px;
+        line-height: 22px;
     }
 
     /* ! ACTOR */
@@ -248,22 +260,30 @@
     }
 
     .movie img {
-        width: 400px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .movie {
+        flex-basis: 230px;
+        width: 230px;
+        height: 340px;
     }
 
     .movie-desc {
         z-index: 3;
-        bottom: 30px;
-        left: 20px;
+        padding: 22px;
     }
 
     .smilar-category {
         padding: 4px 8px;
-        color: #0feffd;
+        color: var(--Link-hover-color);
+        font-size: 13px;
     }
 
     .stars {
-        padding-block: 14px;
+        padding-top: 10px;
+        font-size: 16px;
     }
 
     .stars svg {
@@ -271,15 +291,16 @@
     }
 
     .smilar-movie-name {
-        font-size: 28px;
-        line-height: 30px;
+        padding-top: 10px;
+        font-size: 20px;
+        line-height: 28px;
     }
 
     /*? Smilar Movies  */
 
     .film-actors .actors-slider .actor-slides .actor img {
-        width: 120px;
-        height: 140px;
+        width: 76px;
+        height: 98px;
         object-fit: cover;
         border-radius: 5px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
@@ -327,7 +348,7 @@
     }
 
     .container {
-        padding-left: 10px;
+        padding: 0 10px;
     }
 
     #film-bg-image .film-bg {
@@ -354,20 +375,31 @@
     .film-information {
         flex-direction: column;
         align-items: center;
-        gap: 20px;
-        padding-block: 30px;
+        gap: 14px;
+        padding-block: 20px;
     }
-    .film-information .film-image{
-        height: 400px;
+    .film-information .film-image {
+        width: min(100%, 260px);
+        height: 356px;
     }
     .film-information .film-image img {
         object-fit: cover;
-        width: 90%;
-        height: 400px;
+        width: 100%;
+        height: 356px;
     }
 
     .film-information .film-image .overlay {
-        width: 90%;
+        width: 100%;
+    }
+
+    .film-description {
+        flex: initial;
+        width: 100%;
+        max-width: 520px;
+    }
+
+    #comments {
+        margin-inline: 10px;
     }
 
     /* ? MODAL */
@@ -405,19 +437,19 @@
 
 
     .film-text-header-left {
-        gap: 3px;
+        gap: 5px;
     }
 
     .film-text-header-left p {
-        font-size: 12px;
-        letter-spacing: 1px;
-        line-height: 14px;
+        font-size: 11px;
+        letter-spacing: 0.3px;
+        line-height: 13px;
     }
 
     .film-text-header-left a {
         color: #ffad49;
-        font-size: 10px;
-        line-height: 10px;
+        font-size: 9px;
+        line-height: 13px;
     }
 
     .film-text-header-right button {
@@ -426,9 +458,9 @@
     }
 
     .film-text {
-        font-size: 14px;
-        line-height: 16px;
-        padding-block: 14px;
+        font-size: 12px;
+        line-height: 15px;
+        padding-block: 9px;
     }
 
     .film-score {
@@ -437,49 +469,49 @@
     }
 
     .film-overview {
-        gap: 20px;
-        padding-block: 18px;
+        gap: 10px;
+        padding-block: 10px;
     }
 
     .film-overview span {
         color: #767e94;
-        font-size: 14px;
+        font-size: 11px;
         font-weight: 400;
-        line-height: 20px;
+        line-height: 16px;
     }
 
     .film-overview p {
-        font-size: 14px;
-        line-height: 20px;
+        font-size: 12px;
+        line-height: 17px;
     }
 
     /*  ACTOR */
     .actors-head {
-        font-size: 18px;
+        font-size: 17px;
         line-height: 16px;
     }
 
     .actors-slider {
         max-width: 700px;
-        height: 220px;
+        height: 160px;
     }
 
     .actor-slides {
-        padding-block: 20px;
-        gap: 20px;
+        padding-block: 12px;
+        gap: 10px;
     }
 
     .actor {
-        width: 110px;
+        width: 72px;
     }
 
     .actor img {
-        width: 110px;
+        width: 62px;
     }
 
     .actor-name {
-        font-size: 16px;
-        line-height: 24px;
+        font-size: 12px;
+        line-height: 16px;
     }
 
     /*  ACTOR */
@@ -493,11 +525,11 @@
 
     .form-comment {
         gap: 13px;
-        width: 70%;
+        width: auto;
     }
 
     .auto-break {
-        width: 90%;
+        width: 100%;
         line-height: 1.2;
     }
 
@@ -566,25 +598,33 @@
     }
 
     .movie img {
-        width: 200px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .movie {
+        flex-basis: 130px;
+        width: 130px;
+        height: 175px;
     }
     .movies-slider{
-        padding-bottom: 50px;
-        height: 450px;
+        padding-bottom: 16px;
+        height: auto;
     }
     .movie-desc {
         z-index: 3;
-        bottom: 20px;
-        left: 10px;
+        padding: 12px;
     }
 
     .smilar-category {
-        padding: 3px 8px;
-        color: #0feffd;
+        padding: 3px 7px;
+        color: var(--Link-hover-color);
+        font-size: 10px;
     }
 
     .stars {
-        padding-block: 14px;
+        padding-top: 8px;
+        font-size: 12px;
     }
 
     .stars svg {
@@ -592,15 +632,16 @@
     }
 
     .smilar-movie-name {
-        font-size: 12px;
-        line-height: 16px;
+        padding-top: 8px;
+        font-size: 14px;
+        line-height: 22px;
     }
 
     /* Smilar Movies  */
 
     .film-actors .actors-slider .actor-slides .actor img {
-        width: 100px;
-        height: 150px;
+        width: 62px;
+        height: 80px;
         object-fit: cover;
         border-radius: 5px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
