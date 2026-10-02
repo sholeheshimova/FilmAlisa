@@ -129,7 +129,9 @@ html {
 
 /* SEARCH */
 
-.search-panel {
+
+
+.favorites-search {
   width: 280px;
   height: 42px;
 
@@ -143,7 +145,8 @@ html {
   overflow: hidden;
 }
 
-.search-input {
+.favorites-search input {
+  flex: 1;
   width: 100%;
   height: 100%;
 
@@ -158,12 +161,11 @@ html {
   font-size: 14px;
 }
 
-.search-input::placeholder {
+.favorites-search input::placeholder {
   color: #888;
 }
 
-
-.search-button {
+.favorites-search button {
   width: 45px;
   height: 100%;
 
@@ -180,52 +182,35 @@ html {
   font-size: 15px;
 }
 
-.search-button:hover {
+.favorites-search button:hover {
   color: white;
 }
 
-
 /* ================= MOVIE SLIDER ================= */
+
 
 .favorites-slider {
   width: 100%;
-
   display: flex;
-
-  gap: 0;
-
+  gap: 20px;
   overflow-x: auto;
   overflow-y: hidden;
-
   scroll-behavior: smooth;
 }
-
 .favorites-slider::-webkit-scrollbar {
   display: none;
 }
 
 /* ================= MOVIE CARD ================= */
 
-/* position: relative;
-
-  flex: 0 0 31%;
-
-  height: 736px;
-  width: 504px;
-
-  overflow: hidden;
-
-  border-radius: 0;
-
-  cursor: pointer; */
 
 .movie-card {
   position: relative;
-  flex: 0 0 31%;
-  height: 736px;
+  flex: 0 0 calc((100% - 40px) / 3);
+  height: 500px;
 
   overflow: hidden;
-  border-radius: 0;
+  border-radius: 6px;
   cursor: pointer;
 }
 
@@ -330,17 +315,24 @@ html {
     height: 42px;
   }
 
-  .favorites-slider {
+  /* .favorites-slider {
     width: 100%;
     display: flex;
     gap: 0;
-  }
+  } */
+
+  .favorites-slider {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+}
+
 
   .movie-card {
-    flex: 0 0 33.333%;
-    width: auto;
-    height: 500px;
-  }
+  flex: 0 0 calc((100% - 40px) / 3);
+  width: auto;
+  height: 500px;
+}
 
   .movie-overlay {
     padding: 120px 22px 22px;
@@ -356,16 +348,17 @@ html {
 ========================= */
 
 @media (min-width: 768px) and (max-width: 1279px) {
-  .favorites {
-    width: calc(100% - 56px);
-    margin-left: 56px;
 
-    padding: 50px 25px;
+   .favorites {
+  width: calc(100% - 56px);
+  margin-left: 56px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  padding: 40px 25px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+}
 
   .favorites-header {
     margin-bottom: 25px;
@@ -380,11 +373,12 @@ html {
     height: 40px;
   }
 
-  .movie-card {
-    flex: 0 0 45%;
-    width: auto;
-    height: 550px;
-  }
+ 
+   .movie-card {
+  flex: 0 0 calc((100% - 40px) / 3);
+  width: auto;
+  height: 420px;
+}
 
   .movie-overlay {
     padding: 90px 18px 18px;
@@ -436,10 +430,7 @@ html {
     margin-bottom: 45px;
   }
 
-  .icon img {
-    width: 26px;
-    height: 26px;
-  }
+
 
   /* FAVORITES */
 
