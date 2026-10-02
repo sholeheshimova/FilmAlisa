@@ -128,6 +128,12 @@ const modalForm = document.querySelector(".modal-form");
 const createActors = document.querySelector("#create-actors");
 const createCategory = document.querySelector("#create-category");
 
+const createPreviewImg = document.querySelector("#createPreviewImg");
+const previewPlaceholder = document.querySelector(".preview-placeholder");
+const createImageInput = document.querySelector(
+  'input[name="cover_url"]'
+);
+
 const deleteModal = document.querySelector(".delete-modal");
 const cancelBtn = document.querySelector(".cancel-btn");
 const confirmBtn = document.querySelector(".confirm-delete-btn");
@@ -240,7 +246,28 @@ editMovieModal.addEventListener("click", (event) => {
   }
 });
 
+
+
+
+
 // ---------- create ----------
+
+createImageInput.addEventListener("input", () => {
+  const imageUrl = createImageInput.value.trim();
+
+  if (imageUrl) {
+    createPreviewImg.src = imageUrl;
+    createPreviewImg.style.display = "block";
+    previewPlaceholder.style.display = "none";
+  } else {
+    createPreviewImg.src = "";
+    createPreviewImg.style.display = "none";
+    previewPlaceholder.style.display = "block";
+  }
+});
+
+
+
 createBtn.addEventListener("click", () => {
   modalOverlay.classList.add("is-open");
 });
@@ -271,6 +298,12 @@ modalForm.addEventListener("submit", async (event) => {
     });
 
     modalForm.reset();
+
+    createPreviewImg.src = "";
+createPreviewImg.style.display = "none";
+previewPlaceholder.style.display = "block";
+
+
     modalOverlay.classList.remove("is-open");
     await renderMoviesTable();
   } catch (error) {
