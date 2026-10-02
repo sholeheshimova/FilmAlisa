@@ -1,9 +1,15 @@
 import "../../helpers/authGuard.js";
 import { searchMovies } from "../../api/movies.js";
 
+console.log("SEARCH JS IS WORKING");
+
 const searchInput = document.querySelector(".search-input");
 const searchButton = document.querySelector(".search-button");
 const moviesGrid = document.querySelector(".movies-grid");
+
+console.log("BUTTON:", searchButton);
+console.log("INPUT:", searchInput);
+console.log("GRID:", moviesGrid);
 
 function renderMovies(movies) {
   if (!movies.length) {
