@@ -58,101 +58,25 @@
           </a>
         </div>
       </div>
-
       <section class="favorites">
         <div class="favorites-header">
           <a href="#" class="favorites-title">
             Favorite movies <i class="fa-solid fa-chevron-right"></i>
           </a>
 
-           <div class="search-panel">
-                <input type="text" class="search-input" placeholder="Search" />
-
-                <button class="search-button">
-                  <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-              </div>
-            </div>
+          <div class="favorites-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="text"
+              id="favoritesSearchInput"
+              placeholder="Search..."
+            />
+          </div>
         </div>
 
-        <div class="favorites-slider" id="favoritesSlider">
-          <article class="movie-card">
-            <img
-              src="../../assests/images/gameofthrons.svg"
-              alt="Game of Thrones"
-              class="movie-poster"
-            />
-            <div class="movie-overlay">
-              <span class="movie-genre">Sci-Fi &amp; Fantasy</span>
-              <div class="movie-rating">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <h3 class="movie-title">Game of thrones</h3>
-            </div>
-          </article>
-
-          <article class="movie-card">
-            <img
-              src="../../assests/images/favorites-soldier.svg"
-              alt="The Falcon and the Winter Soldier"
-              class="movie-poster"
-            />
-            <div class="movie-overlay">
-              <span class="movie-genre">Sci-Fi &amp; Fantasy</span>
-              <div class="movie-rating">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <h3 class="movie-title">The Falcon and the Winter Soldier</h3>
-            </div>
-          </article>
-
-          <article class="movie-card">
-            <img
-              src="../../assests/images/favorites-wanda.svg"
-              alt="WandaVision"
-              class="movie-poster"
-            />
-            <div class="movie-overlay">
-              <span class="movie-genre">Sci-Fi &amp; Fantasy</span>
-              <div class="movie-rating">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <h3 class="movie-title">WandaVision</h3>
-            </div>
-          </article>
-
-          <article class="movie-card">
-            <img
-              src="../../assests/images/favorites-wondewoman.svg"
-              alt="WonderWoman"
-              class="movie-poster"
-            />
-            <div class="movie-overlay">
-              <span class="movie-genre">Sci-Fi &amp; Action</span>
-              <div class="movie-rating">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <h3 class="movie-title">Wonder Woman 1984</h3>
-            </div>
-          </article>
-        </div>
+        <div class="favorites-slider" id="favoritesSlider"></div>
       </section>
+ 
     </main>
 
     <script type="module" src="./favorite.js"></script>

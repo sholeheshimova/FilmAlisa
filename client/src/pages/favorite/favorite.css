@@ -162,6 +162,7 @@ html {
   color: #888;
 }
 
+
 .search-button {
   width: 45px;
   height: 100%;
@@ -182,6 +183,7 @@ html {
 .search-button:hover {
   color: white;
 }
+
 
 /* ================= MOVIE SLIDER ================= */
 
