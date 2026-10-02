@@ -22,6 +22,10 @@ function showSlide(index) {
 
   carousel.style.transform = `translateX(-${index * 100}%)`;
 
+  carousel.querySelectorAll(".slide").forEach((slide, idx) => {
+    slide.classList.toggle("is-active", idx === index);
+  });
+
   dots.forEach((dot, idx) => {
     dot.classList.toggle("active", idx === index);
   });
@@ -135,6 +139,36 @@ function renderStars(score) {
   }).join("");
 }
 
+function getTrailerEmbedUrl(trailerUrl) {
+  try {
+    const url = new URL(trailerUrl);
+    const host = url.hostname.replace(/^(www|m)\./, "");
+    let videoId = "";
+
+    if (host === "youtu.be") {
+      videoId = url.pathname.split("/").filter(Boolean)[0] || "";
+    } else if (host === "youtube.com" || host === "youtube-nocookie.com") {
+      videoId =
+        url.searchParams.get("v") ||
+        url.pathname.match(/^\/(?:embed|shorts|live)\/([^/?]+)/)?.[1] ||
+        "";
+    }
+
+    if (!videoId) return trailerUrl;
+
+    const embedUrl = new URL(
+      `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}`,
+    );
+    embedUrl.searchParams.set("rel", "0");
+    embedUrl.searchParams.set("playsinline", "1");
+    embedUrl.searchParams.set("autoplay", "1");
+    embedUrl.searchParams.set("mute", "1");
+    return embedUrl.toString();
+  } catch {
+    return trailerUrl;
+  }
+}
+
 /* =========================
    MOVIE CARD
 ========================= */
@@ -151,6 +185,7 @@ function buildMovieCard(movie) {
         <div
             class="movie-card"
             data-movie-id="${movie.id}"
+          data-trailer-url="${movie.fragman ? encodeURIComponent(movie.fragman) : ""}"
             tabindex="0"
             role="button"
             aria-label="Open ${movie.title}"
@@ -207,11 +242,23 @@ function renderMovieSections(movies) {
                                 ${category}
                             </p>
 
-                            <div class="chevron-icon"></div>
+                            <span class="chevron-icon" aria-hidden="true">
+                              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                              </svg>
+                            </span>
                         </div>
 
-                        <div class="category-card">
-                            ${categoryMovies.map(buildMovieCard).join("")}
+                        <div class="category-slider">
+                            <button class="category-scroll-button category-scroll-button-left" type="button" data-scroll-direction="-1" aria-label="Scroll ${category} movies left" disabled>
+                              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+                            </button>
+                            <div class="category-card">
+                                ${categoryMovies.map(buildMovieCard).join("")}
+                            </div>
+                            <button class="category-scroll-button category-scroll-button-right" type="button" data-scroll-direction="1" aria-label="Scroll ${category} movies right" disabled>
+                              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+                            </button>
                         </div>
 
                     </div>
@@ -228,6 +275,33 @@ function renderMovieSections(movies) {
 
 function addMovieCardEvents() {
   document.querySelectorAll(".category-card").forEach((container) => {
+    const section = container.closest(".category-section");
+    const scrollButtons = section?.querySelectorAll(".category-scroll-button") || [];
+
+    const updateScrollButtons = () => {
+      const maxScrollLeft = container.scrollWidth - container.clientWidth;
+      scrollButtons.forEach((button) => {
+        const direction = Number(button.dataset.scrollDirection);
+        button.disabled =
+          direction < 0
+            ? container.scrollLeft <= 1
+            : container.scrollLeft >= maxScrollLeft - 1;
+      });
+    };
+
+    scrollButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const direction = Number(button.dataset.scrollDirection);
+        container.scrollBy({
+          left: direction * container.clientWidth * 0.8,
+          behavior: "smooth",
+        });
+      });
+    });
+
+    container.addEventListener("scroll", updateScrollButtons, { passive: true });
+    updateScrollButtons();
+
     let isDown = false;
     let startX = 0;
     let scrollLeft = 0;
@@ -276,6 +350,31 @@ function addMovieCardEvents() {
   });
 
   document.querySelectorAll(".movie-card").forEach((movieCard) => {
+    const startTrailer = () => {
+      const encodedTrailerUrl = movieCard.dataset.trailerUrl;
+      if (!encodedTrailerUrl || movieCard.querySelector(".movie-trailer")) return;
+
+      const trailerUrl = decodeURIComponent(encodedTrailerUrl);
+      const iframe = document.createElement("iframe");
+      iframe.className = "movie-trailer";
+      iframe.src = getTrailerEmbedUrl(trailerUrl);
+      iframe.title = "Movie trailer";
+      iframe.allow = "autoplay; encrypted-media; picture-in-picture";
+      iframe.allowFullscreen = true;
+      movieCard.append(iframe);
+      movieCard.classList.add("is-playing");
+    };
+
+    const stopTrailer = () => {
+      movieCard.querySelector(".movie-trailer")?.remove();
+      movieCard.classList.remove("is-playing");
+    };
+
+    movieCard.addEventListener("mouseenter", startTrailer);
+    movieCard.addEventListener("mouseleave", stopTrailer);
+    movieCard.addEventListener("focus", startTrailer);
+    movieCard.addEventListener("blur", stopTrailer);
+
     movieCard.addEventListener("click", () => {
       const movieId = movieCard.dataset.movieId;
 
