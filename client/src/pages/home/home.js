@@ -3,10 +3,20 @@ import { getMovies } from "../../api/movies.js";
 
 const carousel = document.querySelector(".carousel");
 const carouselButtons = document.querySelector(".carousel-buttons");
+const homeLogoutBtn = document.getElementById("home-logout-btn");
 
 const listContainer =
   document.getElementById("movie-list-container") ||
   document.querySelector(".main-container");
+
+if (homeLogoutBtn) {
+  homeLogoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("user_profile");
+    window.location.href = "../../../../index.html";
+  });
+}
 
 let currentSlide = 0;
 let dots = [];

@@ -1,0 +1,115 @@
+/* Responsive styles for Account */
+
+@media only screen and (max-width: 1200px) {
+  .right-part {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .form-group {
+    width: min(500px, calc(100vw - 120px));
+    margin-bottom: 14px;
+  }
+
+  .form-group input {
+    font-size: 14px;
+  }
+
+  .register-btn {
+    padding: 14px 28px;
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 20px;
+  }
+
+  .image-frame {
+    width: 170px;
+    height: 170px;
+  }
+
+  .popup {
+    width: min(300px, 75vw);
+    height: 170px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .left {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 0;
+    background: #1d1d1d;
+  }
+
+  .logo-div {
+    display: none;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0;
+  }
+
+  .icon {
+    margin-bottom: 0;
+  }
+
+  .icon img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .right-part {
+    padding: 30px 16px 90px;
+  }
+
+  .form-group {
+    width: min(100%, 300px);
+    height: 42px;
+    margin-bottom: 10px;
+  }
+
+  .form-group input {
+    font-size: 10px;
+  }
+
+  .register-btn {
+    padding: 8px 16px;
+    font-size: 10px;
+    line-height: 20px;
+    margin-top: 10px;
+  }
+
+  .image-frame {
+    width: 120px;
+    height: 120px;
+    margin-top: 10px;
+  }
+
+  .popup {
+    width: min(200px, 75vw);
+    padding: 10px;
+    height: 120px;
+  }
+
+  .popup p {
+    margin: 12px 0;
+    font-size: 14px;
+  }
+
+  .close-btn {
+    width: 70px;
+    padding: 8px 14px;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+}
