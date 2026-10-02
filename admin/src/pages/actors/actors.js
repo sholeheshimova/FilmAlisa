@@ -4,6 +4,7 @@ import {
   updateActor,
   deleteActor,
 } from "../../api/actors.js";
+import { createTablePaginator } from "../../helpers/tablePaginator.js";
 
 import "../../helpers/authGuard.js";
 import "../../helpers/logout.js";
@@ -12,6 +13,14 @@ let selectedActorId = null;
 let actorsById = new Map();
 
 const tbody = document.querySelector(".tbody");
+const pager = createTablePaginator({
+  tableBody: tbody,
+  pagerEl: document.querySelector(".table-pager"),
+  colSpan: 5,
+  pageSize: 8,
+  emptyText: "No actors yet.",
+  renderRow: (actor) => actorRow(actor),
+});
 
 const actorRow = ({ id, name, surname, img_url }) => `
   <tr class="row" data-id="${id}">
@@ -46,7 +55,7 @@ async function renderActors() {
       actors.map((a) => [String(a.id), a])
     );
 
-    tbody.innerHTML = actors.map(actorRow).join("");
+    pager.setItems(actors);
   } catch (error) {
     console.error(
       "Aktyorlar yüklənərkən xəta baş verdi:",

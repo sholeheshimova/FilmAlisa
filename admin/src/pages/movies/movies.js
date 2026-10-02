@@ -7,18 +7,13 @@ import {
   getCategories,
 } from "../../api/movies.js";
 import { getActors } from "../../api/actors.js";
+import { createTablePaginator } from "../../helpers/tablePaginator.js";
 
 import "../../helpers/authGuard.js";
 import "../../helpers/logout.js";
 
 const fallbackImg = "../../assets/image/movie-poster.svg";
 const tableBody = document.querySelector("tbody");
-
-const emptyRow = `
-  <tr>
-    <td colspan="6" class="empty">Heç bir film tapılmadı.</td>
-  </tr>
-`;
 
 let moviesById = new Map();
 let categories = [];
@@ -89,6 +84,15 @@ const movieRow = (movie) => `
   </tr>
 `;
 
+const moviesPager = createTablePaginator({
+  tableBody,
+  pagerEl: document.querySelector(".table-pager"),
+  colSpan: 6,
+  pageSize: 8,
+  emptyText: "Heç bir film tapılmadı.",
+  renderRow: (movie) => movieRow(movie),
+});
+
 async function renderMoviesTable() {
   try {
     const response = await getMovies();
@@ -96,9 +100,7 @@ async function renderMoviesTable() {
 
     moviesById = new Map(movies.map((m) => [String(m.id), m]));
 
-    tableBody.innerHTML = movies.length
-      ? movies.map(movieRow).join("")
-      : emptyRow;
+    moviesPager.setItems(movies);
   } catch (error) {
     console.error("Filmler yüklenirken hata oluştu:", error);
   }

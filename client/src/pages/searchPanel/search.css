@@ -8,7 +8,7 @@ body {
   font-family: var(--Font_Roboto);
 }
 
-.container{
+.container {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
@@ -24,7 +24,7 @@ body {
   flex-direction: column;
   align-items: center;
   width: 56px;
-  background: var( --SideBar-color);
+  background: var(--SideBar-color);
   padding-top: 40px;
   backdrop-filter: blur(24px);
   box-shadow: 0px 40px 40px 8px #00000029;
@@ -63,10 +63,9 @@ body {
   cursor: pointer;
 }
 
-
 .icon.active img {
-  filter: brightness(0) saturate(100%) invert(70%) sepia(70%) 
-          saturate(1000%) hue-rotate(140deg);
+  filter: brightness(0) saturate(100%) invert(70%) sepia(70%) saturate(1000%)
+    hue-rotate(140deg);
 }
 
 /* =========================
@@ -173,26 +172,20 @@ body {
   color: white;
 }
 
-
 .movies-grid {
-
-    display: flex;
+  display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 30px 22px;
 }
 
-
 .movie-card {
- 
-
   min-width: 0;
   background-color: transparent;
   overflow: hidden;
 
   flex: 0 0 200px;
 }
-
 
 .movie-card > img {
   display: block;
@@ -205,8 +198,6 @@ body {
 
   border-radius: 8px;
 }
-
-
 
 .movie-info {
   padding-top: 12px;
@@ -237,8 +228,6 @@ body {
   text-overflow: ellipsis;
 }
 
-
-
 .movie-rating {
   display: flex;
   align-items: center;
@@ -261,7 +250,6 @@ body {
 }
 
 @media (max-width: 1100px) {
-
   .movie-card > img {
     height: 250px;
   }
@@ -272,14 +260,12 @@ body {
     padding: 35px 25px;
   }
 
-
   .search-panel {
     width: 240px;
   }
 }
 
 @media (max-width: 600px) {
-  
   .result-title h2 {
     font-size: 20px;
   }
@@ -288,12 +274,15 @@ body {
     width: 200px;
     height: 38px;
   }
-  .search-input{
-    width: 140px ;
+  .search-input {
+    width: 140px;
   }
-
 
   .movie-card > img {
     height: 320px;
   }
+}
+
+.error-message {
+  color: red;
 }

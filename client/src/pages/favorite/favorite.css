@@ -129,45 +129,61 @@ html {
 
 /* SEARCH */
 
-.favorites-search {
-  width: 300px;
-  height: 44px;
+.search-panel {
+  width: 280px;
+  height: 42px;
 
   display: flex;
   align-items: center;
 
-  gap: 10px;
+  background-color: #292929;
+  border: 1px solid #3d3d3d;
+  border-radius: 8px;
 
-  padding: 0 15px;
-
-  border: 1px solid #444;
-  border-radius: 7px;
-
-  background: #171717;
+  overflow: hidden;
 }
 
-.favorites-search i {
-  color: #999;
-  font-size: 15px;
-}
-
-.favorites-search input {
+.search-input {
   width: 100%;
   height: 100%;
+
+  padding: 0 14px;
 
   border: none;
   outline: none;
 
   background: transparent;
-
   color: white;
 
   font-size: 14px;
 }
 
-.favorites-search input::placeholder {
+.search-input::placeholder {
   color: #888;
 }
+
+
+.search-button {
+  width: 45px;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  background: transparent;
+
+  color: #aaa;
+  cursor: pointer;
+
+  font-size: 15px;
+}
+
+.search-button:hover {
+  color: white;
+}
+
 
 /* ================= MOVIE SLIDER ================= */
 

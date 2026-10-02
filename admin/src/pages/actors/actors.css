@@ -192,6 +192,18 @@
   table-layout: fixed;
 }
 
+.table tbody tr {
+  height: 56px;
+}
+
+.table tbody td {
+  height: 56px;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .thead {
   background: #1e1e1e;
 }
@@ -228,6 +240,8 @@
 }
 
 .img {
+  width: 40px;
+  height: 40px;
   object-fit: cover;
   border-radius: 12px;
   border: none;
