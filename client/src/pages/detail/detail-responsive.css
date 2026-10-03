@@ -586,6 +586,7 @@
     /*? Smilar Movies  */
     .smilar-head {
         padding-block: 20px;
+        /* margin-bottom: 80px; */
     }
 
     .smilar-link {
@@ -604,6 +605,7 @@
 
     .movie {
         flex-basis: 130px;
+        margin-bottom: 60px;
         width: 130px;
         height: 175px;
     }
