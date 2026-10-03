@@ -153,6 +153,17 @@
         height: 25px;
     }
 
+    .logout-button {
+        width: 24px;
+        height: 24px;
+        margin-bottom: 0;
+    }
+
+    .logout-button img {
+        width: 25px;
+        height: 25px;
+    }
+
     /* ? Navbar */
 
 

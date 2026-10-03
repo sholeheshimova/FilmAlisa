@@ -358,7 +358,7 @@
     .film-name {
         top: -40px;
         left: 10px;
-        width: 40%;
+        width: calc(100% - 20px);
         padding: 15px;
     }
 

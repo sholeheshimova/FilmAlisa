@@ -1,0 +1,97 @@
+/* Responsive styles for Search */
+
+@media only screen and (max-width: 1200px) {
+  .search-content {
+    padding: 40px 32px 60px;
+  }
+
+  .result-header {
+    margin-bottom: 22px;
+  }
+
+  .result-title h2 {
+    font-size: 22px;
+  }
+
+  .search-panel {
+    width: 260px;
+  }
+
+  .movies-grid {
+    gap: 24px 18px;
+  }
+
+  .movie-card {
+    flex: 0 0 220px;
+  }
+
+  .movie-card > img {
+    height: 280px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .left {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 0;
+    background: #1d1d1d;
+  }
+
+  .logo-div {
+    display: none;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0;
+  }
+
+  .icon {
+    margin-bottom: 0;
+  }
+
+  .icon img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .search-content {
+    padding: 25px 16px 80px;
+  }
+
+  .result-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .search-panel {
+    width: min(100%, 260px);
+  }
+
+  .movies-grid {
+    gap: 16px 12px;
+  }
+
+  .movie-card {
+    flex: 0 0 calc(50% - 12px);
+  }
+
+  .movie-card > img {
+    height: 220px;
+  }
+
+  .movie-info h3 {
+    font-size: 14px;
+  }
+}

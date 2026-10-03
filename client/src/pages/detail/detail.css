@@ -124,11 +124,11 @@ main {
   position: absolute;
   top: -70px;
   z-index: 3;
-  width: 35%;
-  height: 120px;
+  width: auto;
+  height: 100px;
   background-color: rgba(32, 40, 60, 0.8);
   backdrop-filter: blur(10px);
-  padding: 40px;
+  padding: 20px;
   font-family: var(--Font_Poppins);
   border-radius: 24px;
   -webkit-border-radius: 24px;
@@ -143,19 +143,19 @@ main {
 }
 
 .film-name p {
-  color: #beb7fb;
-  font-size: 12px;
-  line-height: 16px;
+  display: inline-block;
+  border-radius: 0 8px 0 8px;
+  background-color: #1d1d1d80;
+  color: var(--Link-hover-color);
+  font-size: 14px;
+  line-height: 14px;
   font-weight: 300;
-  padding-bottom: 8px;
-  word-spacing: 8px;
-  /* ara boşluğu */
 }
 
 .film-name h1 {
-  font-weight: 400;
+  font-weight: 600;
   color: #fff;
-  font-size: 32px;
+  font-size: 22px;
   letter-spacing: 2px;
   color: #ebeef5;
 }
@@ -227,8 +227,8 @@ main {
 }
 
 .film-information .film-image img {
-  width: 350px;
-  border-radius: 25px;
+  width: 380px;
+  border-radius: 20px;
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
   -ms-border-radius: 25px;
@@ -403,13 +403,17 @@ main {
 }
 
 .film-text-header-left p {
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 800;
   color: #ebeef5;
   line-height: 19px;
 }
 
 .film-text-header-left a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
   padding: 3px 7px;
   background-color: rgba(0, 0, 0, 0.65);
   border-radius: 8px;
@@ -422,6 +426,12 @@ main {
   line-height: 20px;
   font-weight: 400;
   text-decoration: none;
+}
+
+.film-text-header-left a svg {
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
 }
 
 .film-text-header-right button {
@@ -567,6 +577,9 @@ main {
 
 #comments form {
   display: flex;
+  width: 100%;
+  max-width: 560px;
+  box-sizing: border-box;
   gap: 22px;
   padding-block: 25px;
 }
@@ -664,14 +677,14 @@ main {
   display: flex;
   flex-direction: column;
   padding: 15px 8px;
-  width: 680px;
+  width: min(360px, 100%);
   height: auto;
-  border: 2px solid #475069;
-  border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
+  border: 1px solid #475069;
+  border-radius: 30px;
+  -webkit-border-radius: 14px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
   color: #c3c8d4;
 }
 
@@ -780,6 +793,66 @@ main {
       stroke: #9b51e0;
     }
   }
+}
+
+.movies-carousel {
+  position: relative;
+}
+
+.similar-scroll-button {
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 64px;
+  padding: 0;
+  border: 1px solid #ffffff40;
+  border-radius: 6px;
+  background: #1d1d1dcc;
+  color: #fff;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.similar-scroll-button-left {
+  left: 8px;
+}
+
+.similar-scroll-button-right {
+  right: 8px;
+}
+
+.similar-scroll-button svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.similar-scroll-button:hover:not(:disabled) {
+  border-color: #9b51e0;
+  background: #1d1d1df2;
+  color: #c78cff;
+}
+
+.similar-scroll-button:disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.similar-scroll-button:focus-visible {
+  outline: 2px solid #9b51e0;
+  outline-offset: 2px;
 }
 
 .movies-slider {
