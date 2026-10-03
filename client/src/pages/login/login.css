@@ -117,6 +117,16 @@ a {
 }
 
 
+#password-eye {
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+#password-eye.active {
+  filter: invert(31%) sepia(91%) saturate(3131%) hue-rotate(273deg)
+    brightness(101%) contrast(101%);
+}
+
 @media (max-height: 1000px) {
   html,
   body {

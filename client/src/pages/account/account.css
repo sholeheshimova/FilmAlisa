@@ -11,16 +11,16 @@
 
 .left {
     display: flex;
-    position: absolute;
-    z-index: 999;
-    left: 0;
-    flex-direction: column;
-    align-items: center;
-    width: 56px;
-    background: #1d1d1d80;
-    padding-top: 40px;
-    backdrop-filter: blur(24px);
-    box-shadow: 0px 40px 40px 8px #00000029;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  flex-direction: column;
+  align-items: center;
+  width: 56px;
+  background: #1d1d1d80;
+  padding-top: 40px;
+  backdrop-filter: blur(24px);
+  box-shadow: 0px 40px 40px 8px #00000029;
 }
 
 .logo-div {
@@ -29,7 +29,7 @@
 
 .sidebar {
     width: 32px;
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
     flex-direction: column;
     align-items: center;

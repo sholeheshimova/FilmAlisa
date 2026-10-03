@@ -3,6 +3,17 @@ import { login } from "../../api/auth(login,register).js";
 const loginForm = document.querySelector("form");
 const emailInput = document.querySelector("#email");
 const passwordInput = document.querySelector("#password");
+const passwordEye = document.querySelector("#password-eye");
+
+passwordEye.addEventListener("click", () => {
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    passwordEye.classList.add("active");
+  } else {
+    passwordInput.type = "password";
+    passwordEye.classList.remove("active");
+  }
+});
 
 loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
