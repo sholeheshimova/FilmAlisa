@@ -19,7 +19,7 @@ html {
 
 .left {
   display: flex;
-  position: absolute;
+  position: fixed;
   z-index: 999;
   left: 0;
   flex-direction: column;
@@ -37,7 +37,7 @@ html {
 
 .sidebar {
   width: 32px;
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
