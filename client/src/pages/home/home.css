@@ -328,7 +328,8 @@ p {
   flex-direction: column;
 }
 
-@media (hover: hover) and (pointer: fine) {
+
+@media (min-width: 769px) and (hover: hover) and (pointer: fine) {
   .movie-card:hover,
   .movie-card:focus-visible {
     width: 340px;

@@ -60,23 +60,36 @@
     margin-bottom: 0;
   }
 
-  .icon img {
-    width: 25px;
-    height: 25px;
-  }
-
   .search-content {
     padding: 25px 16px 80px;
   }
 
+  /* HEADER */
   .result-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+
+  .result-title h2 {
+    font-size: 20px;
+    white-space: nowrap;
   }
 
   .search-panel {
-    width: min(100%, 260px);
+    height: 36px;
+    flex-shrink: 0;
+  }
+  .search-input {
+    font-size: 13px;
+    padding: 0 10px;
+  }
+
+  .search-button {
+    width: 36px;
+    font-size: 13px;
   }
 
   .movies-grid {
@@ -93,5 +106,16 @@
 
   .movie-info h3 {
     font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .search-panel {
+    width: 175px;
+    max-width: 260px;
+  }
+
+  .result-title h2 {
+    font-size: 18px;
   }
 }
