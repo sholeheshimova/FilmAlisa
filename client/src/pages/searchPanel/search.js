@@ -5,6 +5,7 @@ const searchInput = document.querySelector(".search-input");
 const searchButton = document.querySelector(".search-button");
 const moviesGrid = document.querySelector(".movies-grid");
 
+
 function renderMovies(movies) {
   if (!movies.length) {
     window.location.href = "../error404/error.html";
@@ -14,10 +15,10 @@ function renderMovies(movies) {
   moviesGrid.innerHTML = movies
     .map(
       (movie) => `
-        <div class="movie-card">
-          <img 
-            src="${movie.cover_url}" 
-            alt="${movie.title}" 
+        <div class="movie-card" data-id="${movie.id}">
+          <img
+            src="${movie.cover_url}"
+            alt="${movie.title}"
           />
 
           <div class="movie-info">
@@ -33,7 +34,20 @@ function renderMovies(movies) {
       `,
     )
     .join("");
+
+  const movieCards = document.querySelectorAll(".movie-card");
+
+  movieCards.forEach((card) => {
+    card.addEventListener("click", () => {
+      const movieId = card.dataset.id;
+
+      window.location.href = `../detail/detail.html?id=${movieId}`;
+    });
+  });
 }
+
+
+
 
 async function loadMovies() {
   try {
