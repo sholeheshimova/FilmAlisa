@@ -139,7 +139,9 @@ function openFilmModal() {
 
 function closeFilmModal() {
   if (!filmModal || !filmOverlay) return;
-
+  if (iframeFragman) {
+    iframeFragman.src = ""; 
+  }
   filmModal.classList.add("close-animation");
   filmOverlay.classList.remove("active");
 
